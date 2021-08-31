@@ -22,6 +22,12 @@ public class Atraccion {
 		return this.cuantoOcupados<this.cupo;
 	}
 	
+	public void ocuparUnLugar() {
+		this.cuantoOcupados++;
+	}
+	
+	
+	
 	
 
 }
