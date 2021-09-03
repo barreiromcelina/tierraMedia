@@ -10,5 +10,10 @@ public abstract class Promocion extends Producto {
 	}
 	
 	public abstract double precioPromocional();
+	
+	@Override
+	public boolean esPromo() {
+		return true;
+	}
 
 }

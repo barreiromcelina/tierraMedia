@@ -1,11 +1,12 @@
 package parque;
 
-public class Producto {
+public abstract class Producto {
 	 
 	private String nombre;
-	 private TipoAtraccion tipo;
-	 private double costo;
-	 private double tiempoPromedio;
+	 protected TipoAtraccion tipo;
+	 protected Double costo;
+	 protected Double tiempoPromedio;
+	
 	
 	 public Producto(String nombre, TipoAtraccion tipo, double costo, double tiempoPromedio) {
 		this.nombre = nombre;
@@ -13,11 +14,12 @@ public class Producto {
 		this.costo = costo;
 		this.tiempoPromedio = tiempoPromedio;
 	}
+	 	 
+	 public boolean esPromo() {
+		 return false;	 
+	 }
 	 
-	 
-	 
-	 
-	 
-	 
+	 public abstract void comparadorSugerencias();
 
-}
+	}
+
