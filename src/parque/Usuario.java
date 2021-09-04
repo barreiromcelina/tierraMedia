@@ -4,15 +4,15 @@ import enums.TipoAtraccion;
 import productos.Producto;
 
 public class Usuario {
-	private int id;
+
 	private String nombre;
-	private double presupuesto;
-	private double tiempoDisponible;
+	private Double presupuesto;
+	private Double tiempoDisponible;
 	private TipoAtraccion tipoAtraccionPreferida;
 	private Producto itinerario;
-	public Usuario(int id, String nombre, double presupuesto, double tiempoDisponible,
+	
+	public Usuario(String nombre, double presupuesto, double tiempoDisponible,
 			TipoAtraccion tipoAtraccionPreferida, Producto itinerario) {
-		this.id = id;
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;

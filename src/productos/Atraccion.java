@@ -4,7 +4,7 @@ import enums.TipoAtraccion;
 
 public class Atraccion extends Producto {
 
-	private int cupo;
+	private Integer cupo;
 	
 
 	public Atraccion(String nombre, double costo, TipoAtraccion tipo,
