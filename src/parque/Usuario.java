@@ -25,6 +25,7 @@ public class Usuario {
 		return "Tipo Preferido: " + this.tipoAtraccionPreferida + " , Nombre: " + this.nombre+ " , Monedas de Oro: "+ this.presupuesto;
 	}
 	
+	//aceptarLugar y descontar tiempoDisponible?
 	
 	
 
