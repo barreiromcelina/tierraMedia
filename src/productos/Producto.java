@@ -5,7 +5,7 @@ import enums.TipoAtraccion;
 public abstract class Producto {
 
 	private String nombre;
-	protected TipoAtraccion tipo;
+	private TipoAtraccion tipo;
 	protected Double costo;
 	protected Double tiempoPromedio;
 
@@ -19,15 +19,17 @@ public abstract class Producto {
 	public boolean esPromo() {
 		return false;
 	}
-	
+
 	public Double getCosto() {
 		return this.costo;
 	}
 
-	protected Double getTiempoPromedio() {
-		return tiempoPromedio;
+	public Double getTiempoPromedio() {
+		return this.tiempoPromedio;
 	}
-	
-	
+
+	public TipoAtraccion getTipo() {
+		return this.tipo;
+	}
 
 }

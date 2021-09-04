@@ -15,13 +15,13 @@ public class SugeriblesSegunPreferencia implements Comparator<Producto> {
 
 	@Override
 	public int compare(Producto o1, Producto o2) {
-		if (o1.tipo == this.tipoPreferido && o2.tipo == this.tipoPreferido) {
+		if (o1.getTipo() == this.tipoPreferido && o2.getTipo() == this.tipoPreferido) {
 			if (o1.esPromo() && o2.esPromo()) {
-				if (Double.compare(o1.costo, o2.costo) == 0) {
-					return -Double.compare(o1.tiempoPromedio, o2.tiempoPromedio);
+				if (Double.compare(o1.getCosto(), o2.getCosto()) == 0) {
+					return -Double.compare(o1.getTiempoPromedio(), o2.getTiempoPromedio());
 
 				} else {
-					return -Double.compare(o1.costo, o2.costo);
+					return -Double.compare(o1.getCosto(), o2.getCosto());
 				}
 				
 			}//falta codigo
