@@ -1,5 +1,8 @@
 package parque;
 
+import enums.TipoAtraccion;
+import productos.Producto;
+
 public class Usuario {
 	private int id;
 	private String nombre;

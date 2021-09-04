@@ -1,9 +1,11 @@
-package parque;
+package productos;
+
+import enums.TipoAtraccion;
 
 public class Atraccion extends Producto {
 
 	private int cupo;
-	private int cuantoOcupados;
+	
 
 	public Atraccion(String nombre, double costo, TipoAtraccion tipo,
 			int cupo, double tiempoPromedio) {
@@ -13,11 +15,11 @@ public class Atraccion extends Producto {
 	}
 	
 	public boolean hayCupo() {
-		return this.cuantoOcupados<this.cupo;
+		return this.cupo>0;
 	}
 	
 	public void ocuparUnLugar() {
-		this.cuantoOcupados++;
+		this.cupo--;
 	}
 	
 	

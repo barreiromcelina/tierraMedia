@@ -2,6 +2,9 @@ package parque;
 
 import java.util.Comparator;
 
+import enums.TipoAtraccion;
+import productos.Producto;
+
 public class SugeriblesSegunPreferencia implements Comparator<Producto> {
 
 	private TipoAtraccion tipoPreferido;
@@ -21,7 +24,7 @@ public class SugeriblesSegunPreferencia implements Comparator<Producto> {
 					return -Double.compare(o1.costo, o2.costo);
 				}
 				
-			}
+			}//falta codigo
 
 		}
 		return 0;

@@ -1,4 +1,4 @@
-package parque;
+package enums;
 
 public enum TipoAtraccion {
 	
