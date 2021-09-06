@@ -1,5 +1,7 @@
 package parque;
 
+import java.util.ArrayList;
+
 import enums.TipoAtraccion;
 import productos.Producto;
 
@@ -9,15 +11,14 @@ public class Usuario {
 	private Double presupuesto;
 	private Double tiempoDisponible;
 	private TipoAtraccion tipoAtraccionPreferida;
-	private Producto itinerario;
+	private ArrayList<Producto> itinerario = new ArrayList<Producto>();
 	
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible,
-			TipoAtraccion tipoAtraccionPreferida, Producto itinerario) {
+			TipoAtraccion tipoAtraccionPreferida) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.tipoAtraccionPreferida = tipoAtraccionPreferida;
-		this.itinerario = itinerario;
 	}
 	
 	@Override
