@@ -3,7 +3,9 @@ package parque;
 import java.util.ArrayList;
 
 import enums.TipoAtraccion;
+import productos.Atraccion;
 import productos.Producto;
+import productos.Promocion;
 
 public class Usuario {
 
@@ -41,6 +43,19 @@ public class Usuario {
 	protected TipoAtraccion getTipoAtraccionPreferida() {
 		return tipoAtraccionPreferida;
 	}
+	
+	public void comprar(Atraccion producto) {
+		this.presupuesto-= producto.getCosto();
+		this.tiempoDisponible-=producto.getTiempoPromedio();
+		producto.ocuparUnLugar();
+	}
+	
+	public void comprar(Promocion producto) {
+		this.presupuesto-= producto.precioPromocional();
+		this.tiempoDisponible-=producto.getTiempoPromedio();
+		//cupo -- en la atracion?
+	}
+	
 	
 	//aceptarLugar y descontar tiempoDisponible?
 	
