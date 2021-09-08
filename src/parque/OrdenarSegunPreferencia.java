@@ -5,11 +5,11 @@ import java.util.Comparator;
 import enums.TipoAtraccion;
 import productos.Producto;
 
-public class SugeriblesSegunPreferencia implements Comparator<Producto> {
+public class OrdenarSegunPreferencia implements Comparator<Producto> {
 
 	private TipoAtraccion tipoPreferido;
 
-	public SugeriblesSegunPreferencia(TipoAtraccion tipoPreferido) {
+	public OrdenarSegunPreferencia(TipoAtraccion tipoPreferido) {
 		this.tipoPreferido = tipoPreferido;
 	}
 
