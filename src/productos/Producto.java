@@ -32,4 +32,8 @@ public abstract class Producto {
 		return this.tipo;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
+
 }
