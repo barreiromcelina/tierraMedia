@@ -53,7 +53,7 @@ public class Usuario {
 	public void comprar(Promocion producto) {
 		this.presupuesto-= producto.precioPromocional();
 		this.tiempoDisponible-=producto.getTiempoPromedio();
-		//cupo -- en la atracion?
+		//cupo -- en la atracion? o un metodo vender atraccion/promo que haga cupo-- en cada
 	}
 	
 	
