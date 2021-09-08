@@ -25,6 +25,22 @@ public class Usuario {
 	public String toString() {
 		return "Tipo Preferido: " + this.tipoAtraccionPreferida + " , Nombre: " + this.nombre+ " , Monedas de Oro: "+ this.presupuesto;
 	}
+
+	protected String getNombre() {
+		return nombre;
+	}
+
+	protected Double getPresupuesto() {
+		return presupuesto;
+	}
+
+	protected Double getTiempoDisponible() {
+		return tiempoDisponible;
+	}
+
+	protected TipoAtraccion getTipoAtraccionPreferida() {
+		return tipoAtraccionPreferida;
+	}
 	
 	//aceptarLugar y descontar tiempoDisponible?
 	
