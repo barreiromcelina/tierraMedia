@@ -36,4 +36,13 @@ public abstract class Promocion extends Producto {
 		return true;
 	}
 
+	@Override
+	public void ocuparUnLugar() {
+		for (Atraccion atraccion : promos) {
+			Integer cupo = atraccion.getCupo();
+			cupo--;
+
+		}
+	}
+
 }

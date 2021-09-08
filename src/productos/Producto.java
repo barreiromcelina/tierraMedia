@@ -31,5 +31,7 @@ public abstract class Producto {
 	public TipoAtraccion getTipo() {
 		return this.tipo;
 	}
+	
+	public abstract void ocuparUnLugar();
 
 }

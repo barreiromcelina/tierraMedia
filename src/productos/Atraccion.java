@@ -18,6 +18,11 @@ public class Atraccion extends Producto {
 		return this.cupo>0;
 	}
 	
+	public Integer getCupo() {
+		return this.cupo;
+	}
+
+	@Override
 	public void ocuparUnLugar() {
 		this.cupo--;
 	}

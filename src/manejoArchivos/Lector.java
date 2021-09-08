@@ -3,6 +3,7 @@ package manejoArchivos;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,6 +25,7 @@ public class Lector {
 		ArrayList<Usuario> misUsuarios = new ArrayList<Usuario>();
 		FileReader fr = null;
 		BufferedReader br = null;
+		
 
 		try {
 			fr = new FileReader(path);
