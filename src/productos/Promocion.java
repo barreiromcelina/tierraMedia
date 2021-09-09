@@ -38,9 +38,20 @@ public abstract class Promocion extends Producto {
 	public void ocuparUnLugar() {
 		for (Atraccion atraccion : promos) {
 		atraccion.ocuparUnLugar();
-			
-
+	
 		}
 	}
+	
+	@Override 
+	public String getNombre() {
+		String nombres="";
+		for (Atraccion atraccion : promos) {
+			nombres += atraccion.getNombre()+ " ";			
+		}
+		return nombres;
+	}
+
+	
+	
 
 }

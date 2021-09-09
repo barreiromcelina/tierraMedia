@@ -15,25 +15,24 @@ public class ParqueTierraMedia {
 
 	public ParqueTierraMedia(ArrayList<Usuario> misUsuarios, ArrayList<Producto> promos,
 			ArrayList<Producto> atracciones) {
-		this.misUsuarios= misUsuarios;
-		this.misProductos= misProductos(promos,atracciones); 
+		this.misUsuarios = misUsuarios;
+		this.misProductos = misProductos(promos, atracciones);
 
 	}
 
 	public ArrayList<Producto> misProductos(ArrayList<Producto> promos, ArrayList<Producto> atracciones) {
-		
-		ArrayList<Producto> listaProductos= new ArrayList<Producto>();
-		 listaProductos.addAll(promos);
-		 listaProductos.addAll(atracciones);
-		
+
+		ArrayList<Producto> listaProductos = new ArrayList<Producto>();
+		listaProductos.addAll(promos);
+		listaProductos.addAll(atracciones);
+
 		return listaProductos;
 	}
-	
-	public void misProductosOrdenadosPorPreferencia(Usuario usuario){
+
+	public void misProductosOrdenadosPorPreferencia(Usuario usuario) {
 		Collections.sort(this.misProductos, new OrdenarSegunPreferencia(usuario.getTipoAtraccionPreferida()));
 	}
-	
-	
+
 	public static void main(String[] args) {
 		Atraccion atraccion1 = new Atraccion("Moria", 10, TipoAtraccion.AVENTURA, 6, 2);
 		Atraccion atraccion2 = new Atraccion("Mordor", 25, TipoAtraccion.AVENTURA, 4, 3);
@@ -65,8 +64,10 @@ public class ParqueTierraMedia {
 		Collections.sort(misProductos, new OrdenarSegunPreferencia(TipoAtraccion.AVENTURA));
 		
 		System.out.println(misProductos);
+		System.out.println("--------------------");
+        Collections.sort(misProductos, new OrdenarSegunPreferencia(TipoAtraccion.PAISAJE));
+		
+		System.out.println(misProductos);
 	}
-	
-	
 
 }
