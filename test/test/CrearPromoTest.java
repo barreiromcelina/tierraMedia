@@ -44,11 +44,7 @@ public class CrearPromoTest {
 		assertEquals(8, precioObtenido2, 0.01);
 		Double tiempoPromObtenido2 = miPromo.get(1).getTiempoPromedio();
 		assertEquals(4.5, tiempoPromObtenido2,0.01);
-		
-		
-		
-		
-		
+			
 	}
 
 }
