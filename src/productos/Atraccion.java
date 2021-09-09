@@ -21,6 +21,10 @@ public class Atraccion extends Producto {
 	public Integer getCupo() {
 		return this.cupo;
 	}
+	
+	public void setCupo(Integer cupo) {
+		this.cupo = cupo;
+	}
 
 	@Override
 	public void ocuparUnLugar() {
