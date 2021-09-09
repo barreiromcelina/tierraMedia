@@ -17,7 +17,7 @@ public class PromocionAbsoluta extends Promocion {
 	}
 
 	@Override
-	public double precioPromocional() {
+	public Double precioPromocional() {
 		return this.costo;
 	}
 

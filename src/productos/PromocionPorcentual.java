@@ -17,7 +17,7 @@ public class PromocionPorcentual extends Promocion {
 	}
 
 	@Override
-	public double precioPromocional() {
+	public Double precioPromocional() {
 		return super.getCosto() * (1-this.descuento);
 	}
 

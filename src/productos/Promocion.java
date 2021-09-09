@@ -29,11 +29,22 @@ public abstract class Promocion extends Producto {
 		return tiempo;
 	}
 
-	public abstract double precioPromocional();
+	public abstract Double precioPromocional();
 
 	@Override
 	public boolean esPromo() {
 		return true;
+	}
+
+	@Override
+	public void ocuparUnLugar() {
+		for (Atraccion atraccion : promos) {
+		Integer cupo = atraccion.getCupo();
+		atraccion.setCupo(--cupo);
+		   //tendria que ser un setter para el cupo en la atraccion
+			
+
+		}
 	}
 
 }

@@ -21,7 +21,7 @@ public class ProductosTest {
 	Atraccion atraccion3= new Atraccion("Monta", 15, TipoAtraccion.AVENTURA, 5, 3);
 
 	@Test
-	public void getCostoPromoPorcentual() {
+	public void getCostoPromoPorcentualTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
@@ -31,7 +31,7 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void getCostroPromoAxB() {
+	public void getCostroPromoAxBTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
@@ -41,7 +41,7 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void getCostroPromoAbs() {
+	public void getCostroPromoAbsTest() {
 		ArrayList<Atraccion> paqueteAventuraAbs = new ArrayList<Atraccion>();
 		paqueteAventuraAbs.add(atraccion1);
 		paqueteAventuraAbs.add(atraccion2);
@@ -51,13 +51,26 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void getTiempoPromedioPromoAxB() {
+	public void getTiempoPromedioPromoAxBTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
 		paqueteAventura.add(atraccion3);
 		PromocionAxB promoAxB= new PromocionAxB(paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
 		assertEquals(8, promoAxB.getTiempoPromedio(),0.01);
+	}
+	
+	@Test
+	public void ocuparLugaresEnPromoTest() {
+		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
+		paqueteAventura.add(atraccion1);
+		paqueteAventura.add(atraccion2);
+		paqueteAventura.add(atraccion3);
+		PromocionAxB promoAxB= new PromocionAxB(paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
+		promoAxB.ocuparUnLugar();
+		assertEquals(5, atraccion1.getCupo(),0.01);
+		assertEquals(3, atraccion2.getCupo(),0.01);
+		assertEquals(4, atraccion3.getCupo(),0.01);
 	}
 	
 	
