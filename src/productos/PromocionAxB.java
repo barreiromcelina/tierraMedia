@@ -14,7 +14,7 @@ public class PromocionAxB extends Promocion {
 	}
 
 	@Override
-	public Double precioPromocional() {
+	public Double getCosto() {
 		return super.getCosto() - promos.get(promos.size()-1).getCosto();
 	}
 	

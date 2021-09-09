@@ -36,11 +36,11 @@ public class CrearPromoTest {
 		
 		
 		ArrayList<Promocion> miPromo = Lector.crearPromos(directorio+"promos.csv", misAtrEnPromo);
-		Double precioObtenido= miPromo.get(0).precioPromocional();
+		Double precioObtenido= miPromo.get(0).getCosto();
 		assertEquals(12, precioObtenido, 0.01);
 		Double tiempoPromObtenido = miPromo.get(0).getTiempoPromedio();
 		assertEquals(5, tiempoPromObtenido,0.01);
-		Double precioObtenido2= miPromo.get(1).precioPromocional();
+		Double precioObtenido2= miPromo.get(1).getCosto();
 		assertEquals(8, precioObtenido2, 0.01);
 		Double tiempoPromObtenido2 = miPromo.get(1).getTiempoPromedio();
 		assertEquals(4.5, tiempoPromObtenido2,0.01);

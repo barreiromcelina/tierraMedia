@@ -13,11 +13,11 @@ public class PromocionPorcentual extends Promocion {
 	public PromocionPorcentual(ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo, double descuento) {
 		super(promos, nombre, tipo);
 		this.descuento= descuento;
-		super.costo= this.precioPromocional();
+		super.costo= this.getCosto();
 	}
 
 	@Override
-	public Double precioPromocional() {
+	public Double getCosto() {
 		return super.getCosto() * (1-this.descuento);
 	}
 

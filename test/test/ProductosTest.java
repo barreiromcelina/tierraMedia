@@ -27,7 +27,7 @@ public class ProductosTest {
 		paqueteAventura.add(atraccion2);
 		PromocionPorcentual promoPorcentual = new PromocionPorcentual(paqueteAventura, "Pack Aventura",
 				TipoAtraccion.AVENTURA, 0.2);
-		assertEquals(35 * 0.8, promoPorcentual.precioPromocional(), 0.01);
+		assertEquals(35 * 0.8, promoPorcentual.getCosto(), 0.01);
 	}
 	
 	@Test
@@ -37,7 +37,7 @@ public class ProductosTest {
 		paqueteAventura.add(atraccion2);
 		paqueteAventura.add(atraccion3);
 		PromocionAxB promoAxB= new PromocionAxB(paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
-		assertEquals(35, promoAxB.precioPromocional(),0.01);
+		assertEquals(35, promoAxB.getCosto(),0.01);
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class ProductosTest {
 		paqueteAventuraAbs.add(atraccion2);
 		paqueteAventuraAbs.add(atraccion3);
 		PromocionAbsoluta promoAxB= new PromocionAbsoluta(paqueteAventuraAbs, "Pack Aventura a precio fijo" , TipoAtraccion.AVENTURA, 40);
-		assertEquals(40, promoAxB.precioPromocional(),0.01);
+		assertEquals(40, promoAxB.getCosto(),0.01);
 	}
 	
 	@Test

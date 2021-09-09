@@ -29,8 +29,6 @@ public abstract class Promocion extends Producto {
 		return tiempo;
 	}
 
-	public abstract Double precioPromocional();
-
 	@Override
 	public boolean esPromo() {
 		return true;

@@ -51,7 +51,7 @@ public class Usuario {
 	}
 	
 	public void comprar(Promocion producto) {
-		this.presupuesto-= producto.precioPromocional();
+		this.presupuesto-= producto.getCosto();
 		this.tiempoDisponible-=producto.getTiempoPromedio();
 		producto.ocuparUnLugar();
 	}
