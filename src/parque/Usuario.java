@@ -55,9 +55,6 @@ public class Usuario {
 		this.tiempoDisponible-=producto.getTiempoPromedio();
 		producto.ocuparUnLugar();
 	}
-	
-
-	
-	
+	 	
 
 }

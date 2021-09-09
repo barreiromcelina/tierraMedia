@@ -37,9 +37,7 @@ public abstract class Promocion extends Producto {
 	@Override
 	public void ocuparUnLugar() {
 		for (Atraccion atraccion : promos) {
-		Integer cupo = atraccion.getCupo();
-		atraccion.setCupo(--cupo);
-		   //tendria que ser un setter para el cupo en la atraccion
+		atraccion.ocuparUnLugar();
 			
 
 		}
