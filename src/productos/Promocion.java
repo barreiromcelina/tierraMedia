@@ -29,7 +29,7 @@ public abstract class Promocion extends Producto {
 		return tiempo;
 	}
 
-	public abstract double precioPromocional();
+	public abstract Double precioPromocional();
 
 	@Override
 	public boolean esPromo() {

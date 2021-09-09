@@ -21,7 +21,7 @@ public class ProductosTest {
 	Atraccion atraccion3= new Atraccion("Monta", 15, TipoAtraccion.AVENTURA, 5, 3);
 
 	@Test
-	public void getCostoPromoPorcentual() {
+	public void getCostoPromoPorcentualTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
@@ -31,7 +31,7 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void getCostroPromoAxB() {
+	public void getCostroPromoAxBTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
@@ -41,7 +41,7 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void getCostroPromoAbs() {
+	public void getCostroPromoAbsTest() {
 		ArrayList<Atraccion> paqueteAventuraAbs = new ArrayList<Atraccion>();
 		paqueteAventuraAbs.add(atraccion1);
 		paqueteAventuraAbs.add(atraccion2);
@@ -51,7 +51,7 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void getTiempoPromedioPromoAxB() {
+	public void getTiempoPromedioPromoAxBTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
@@ -61,7 +61,7 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void ocuparLugaresEnPromo() {
+	public void ocuparLugaresEnPromoTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
