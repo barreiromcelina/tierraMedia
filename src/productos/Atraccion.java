@@ -21,15 +21,19 @@ public class Atraccion extends Producto {
 	public Integer getCupo() {
 		return this.cupo;
 	}
-	
-	public void setCupo(Integer cupo) {
-		this.cupo = cupo;
-	}
 
 	@Override
 	public void ocuparUnLugar() {
 		this.cupo--;
 	}
+
+	@Override
+	public String toString() {
+		return getNombre()+ " [Cupo:" + cupo + ", Costo:" + getCosto() + ", Tiempo Promedio:" + getTiempoPromedio()
+				+ ", Tipo de Atraccion:" + getTipo() + "]\n";
+	}
+	
+	
 	
 	
 	
