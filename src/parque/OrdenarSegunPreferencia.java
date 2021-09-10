@@ -19,7 +19,10 @@ public class OrdenarSegunPreferencia implements Comparator<Producto> {
 			if (o1.esPromo() && o2.esPromo()) {
 				return comparadorCostoYtiempo(o1, o2);
 
-			} else {
+			} else if (!o1.esPromo() && !o2.esPromo()) {
+				return comparadorCostoYtiempo(o1, o2);
+			
+			}else {
 				return -Boolean.compare(o1.esPromo(), o2.esPromo());
 
 			}
@@ -42,11 +45,17 @@ public class OrdenarSegunPreferencia implements Comparator<Producto> {
 		
 	}
 
+	
+	
+	
+	
 	private int comparadorCostoYtiempo(Producto o1, Producto o2) {
+		//Si los costos son iguales
 		if (Double.compare(o1.getCosto(), o2.getCosto()) == 0) {
+			//ordeno por tiempo de mayor a menor tiempo
 			return -Double.compare(o1.getTiempoPromedio(), o2.getTiempoPromedio());
 
-		} else {
+		} else {//sino ordeno de mayor a menor costo
 			return -Double.compare(o1.getCosto(), o2.getCosto());
 		}
 	}
