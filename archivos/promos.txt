@@ -1,0 +1,6 @@
+nombre:PackAventura, tipo:AVENTURA, incluye:Mordor,Moria, gratis:Bosque_Negro
+nombre:PackAventura02, tipo:AVENTURA, incluye:Lejano_Oeste,Lago_Magico, descuento:20
+nombre:PackPaisaje01, tipo:PAISAJE, incluye:Minas_Tirith,Abismo_De_Helm, costo:6
+nombre:PackPaisaje02, tipo:PAISAJE, incluye:Erebor, descuento:10
+nombre:PackDegustacion01, tipo:DEGUSTACION, incluye:Lothlorien,La_Comarca, descuento:15
+nombre:PackDegustacion02, tipo:DEGUSTACION, incluye:DoctorX, descuento:15

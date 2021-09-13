@@ -1,0 +1,11 @@
+nombre:Moria, tipo:AVENTURA, costo:10, horas:2, cupos:6
+nombre:Mordor, tipo:AVENTURA, costo:25, horas:3, cupos:4
+nombre:Bosque_Negro, tipo:AVENTURA, costo:3, horas:4, cupos:12
+nombre:Lago_Magico, tipo:AVENTURA, costo:4, horas:3, cupos:10
+nombre:Lejano_Oeste, tipo:AVENTURA, costo:3, horas:2, cupos:8
+nombre:Abismo_De_Helm, tipo:AVENTURA, costo:8, horas:2, cupos:15
+nombre:Minas_Tirith, tipo:PAISAJE, costo:5, horas:2.5, cupos:25
+nombre:Erebor, tipo:PAISAJE, costo:12, horas:3, cupos:32
+nombre:Lothlorien, tipo:DEGUSTACION, costo:35, horas:1, cupos:30
+nombre:La_Comarca, tipo:DEGUSTACION, costo:3, horas:6.5, cupos:150
+nombre:DoctorX, tipo:DEGUSTACION, costo:20, horas:2, cupos:30

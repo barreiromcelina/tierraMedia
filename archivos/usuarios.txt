@@ -1,0 +1,7 @@
+nombre:Eowyn, presupuesto:1000, tiempo:500.0, preferencia:AVENTURA
+nombre:Gandalf, presupuesto:100, tiempo:5.0, preferencia:PAISAJE
+nombre:Sam, presupuesto:36, tiempo:8.0, preferencia:DEGUSTACION
+nombre:Galadriel, presupuesto:120, tiempo:4.0, preferencia:PAISAJE
+nombre:Andrea, presupuesto:30, tiempo:6.0, preferencia:AVENTURA
+nombre:Susi, presupuesto:90, tiempo:5.0, preferencia:DEGUSTACION
+nombre:Pipi, presupuesto:40, tiempo:6.0, preferencia:AVENTURA

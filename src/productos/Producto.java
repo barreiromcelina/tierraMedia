@@ -2,40 +2,67 @@ package productos;
 
 import enums.TipoAtraccion;
 
-public abstract class Producto {
-
+public class Producto {
+	
+	//#propiedades
 	private String nombre;
 	private TipoAtraccion tipo;
-	protected Double costo;
-	protected Double tiempoPromedio;
-
-	public Producto(String nombre, TipoAtraccion tipo, double costo, double tiempoPromedio) {
-		this.nombre = nombre;
-		this.tipo = tipo;
-		this.costo = costo;
-		this.tiempoPromedio = tiempoPromedio;
-	}
-
-	public boolean esPromo() {
-		return false;
-	}
-
-	public Double getCosto() {
-		return this.costo;
-	}
-
-	public Double getTiempoPromedio() {
-		return this.tiempoPromedio;
-	}
-
-	public TipoAtraccion getTipo() {
-		return this.tipo;
+	private int precio, cupos;
+	private double horas;
+	
+	//#constructores
+	public Producto() {
+		this.nombre = null;
+		this.tipo = null;
+		this.precio = 0;
+		this.cupos = 0;
+		this.horas = 0.0d;
 	}
 	
-	protected String getNombre() {
-		return this.nombre;
+	//#obtenedores y modificadores
+	public String getNombre() {
+		return nombre;
+	}
+	public Producto setNombre(String nombre) {
+		this.nombre = nombre;
+		return this;
+	}
+	public TipoAtraccion getTipo() {
+		return tipo;
+	}
+	public Producto setTipo(TipoAtraccion tipo) {
+		this.tipo = tipo;
+		return this;
+	}
+	public int getPrecio() {
+		return this.precio;
+	}
+	public Producto setPrecio(int precio) {
+		this.precio = precio;
+		return this;
+	}
+	public int getCupos() {
+		return cupos;
 	}
 
-	public abstract void ocuparUnLugar();
+	public void setCupos(int cupos) {
+		this.cupos = cupos;
+	}
+	public double getHoras() {
+		return horas;
+	}
+	public Producto setHoras(double horas) {
+		this.horas = horas;
+		return this;
+	}
+	
+	//#metodos
+	
+	@Override
+	public String toString() {
+		return String.format("{ nombre:%s, tipo:%s, precio:%s, cupos:%s, horas:%s }", this.nombre, this.tipo, this.precio, this.cupos, this.horas);
+	}
 
-}
+} // 
+
+

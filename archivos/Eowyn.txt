@@ -1,0 +1,13 @@
+Eowyn [
+	Mordor
+	Moria
+	Bosque_Negro
+	Lejano_Oeste
+	Lago_Magico
+	Abismo_De_Helm
+	Lothlorien
+	La_Comarca
+	DoctorX
+	Erebor
+	Minas_Tirith
+]

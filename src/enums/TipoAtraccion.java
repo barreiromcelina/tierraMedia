@@ -1,9 +1,9 @@
 package enums;
 
 public enum TipoAtraccion {
-	
-	PAISAJE,
-	AVENTURA,
-	DEGUSTACION;
 
+	AVENTURA,
+	DEGUSTACION,
+	PAISAJE
+	
 }

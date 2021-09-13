@@ -1,0 +1,4 @@
+Galadriel [
+	Erebor
+	Lothlorien
+]
