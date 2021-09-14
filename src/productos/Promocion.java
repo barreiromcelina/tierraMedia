@@ -1,6 +1,7 @@
 package productos;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.ListIterator;
 
 import enums.TipoAtraccion;
@@ -38,52 +39,44 @@ public abstract class Promocion extends Producto {
 	@Override
 	public void ocuparUnLugar() {
 		for (Atraccion atraccion : promos) {
-		atraccion.ocuparUnLugar();
-	
+			atraccion.ocuparUnLugar();
+
 		}
 	}
-	
-	@Override 
+
+	@Override
 	public String getNombre() {
-		String nombres="";
+		String nombres = "";
 		for (Atraccion atraccion : promos) {
-			nombres += atraccion.getNombre()+ " ";			
+			nombres += atraccion.getNombre() + " ";
 		}
 		return nombres;
 	}
-	
+
 	@Override
 	public boolean contiene(Producto producto) {
-		boolean contiene= false;
-		if(producto.esPromo()) {
+		boolean contiene = false;
 			ListIterator<Atraccion> itr = promos.listIterator();
-			while(!contiene && itr.hasNext()) {
-				contiene= producto.contiene(itr.next());
+			while (!contiene && itr.hasNext()) {
+				contiene = producto.contiene(itr.next());
 			}
-		}
-		ListIterator<Atraccion> itr = promos.listIterator();
-		while(!contiene && itr.hasNext()) {
-			contiene= producto.contiene(itr.next());
-		}
+
 		return contiene;
 	}
 	
-	
+
 	public boolean hayCupo() {
-		boolean hayCupo= false;
-		ListIterator<Atraccion> itr = promos.listIterator();
-		while(!hayCupo && itr.hasNext()) {
-			hayCupo= itr.next().hayCupo();
+		boolean hayCupo = false;
+		Iterator<Atraccion> itr = promos.listIterator();
+		while (!hayCupo && itr.hasNext()) {
+			hayCupo = itr.next().hayCupo();
 		}
 		return hayCupo;
-		
-	}
-	
-	public ArrayList<Atraccion> getPromos(){
-		return this.promos;
+
 	}
 
-	
-	
+	public ArrayList<Atraccion> getPromos() {
+		return this.promos;
+	}
 
 }

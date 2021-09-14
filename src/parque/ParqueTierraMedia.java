@@ -2,6 +2,7 @@ package parque;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
 
@@ -47,21 +48,22 @@ public class ParqueTierraMedia {
 			try {
 				for (Producto producto : misProductos) {
 					Boolean yaEsta = false;
+
+					Iterator<Producto> itr = miItinerario.iterator();
+					while (!yaEsta && itr.hasNext()) {
+						yaEsta = itr.next().contiene(producto);
+					}
+
+
 					/*
-					 * ListIterator<Producto> itr = miItinerario.listIterator(); while (!yaEsta &&
-					 * itr.hasNext()) { yaEsta = producto.contiene(itr.next()); }
+					 * if (!producto.esPromo()) { yaEsta = miItinerario.contains(producto);}
+					 * 
+					 * if(producto.esPromo()) { for(Producto prod:
+					 * ((Promocion)producto).getPromos()) { yaEsta |= miItinerario.contains(prod);
+					 * 
+					 * 
+					 * } }
 					 */
-					if(!producto.esPromo()) {
-						yaEsta = miItinerario.contains(producto);
-					}
-					
-					if(producto.esPromo()) {
-						for(Producto prod: ((Promocion)producto).getPromos()) {
-							yaEsta |= miItinerario.contains(prod);
-							
-							
-						}
-					}
 
 					if (usuario.getPresupuesto() < producto.getCosto()
 							|| usuario.getTiempoDisponible() < producto.getTiempoPromedio() || yaEsta
@@ -81,15 +83,17 @@ public class ParqueTierraMedia {
 
 					if (respuesta.equalsIgnoreCase("y")) {
 						usuario.comprar(producto);
-						if(producto.esPromo()) {
-							for(Atraccion atr:((Promocion)producto).getPromos()) {
+
+						if (producto.esPromo()) {
+							for (Atraccion atr : ((Promocion) producto).getPromos()) {
 								miItinerario.add(atr);
 							}
 						}
+
 						miItinerario.add(producto);
-						
+
 					}
-					System.out.println(miItinerario);
+
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -184,7 +188,7 @@ public class ParqueTierraMedia {
 		Atraccion atraccion7 = new Atraccion("Lothlórien", 35, TipoAtraccion.DEGUSTACION, 30, 1);
 		Atraccion atraccion8 = new Atraccion("Erebor", 12, TipoAtraccion.PAISAJE, 32, 3);
 		Atraccion atraccion9 = new Atraccion("Bosque Negro", 3, TipoAtraccion.AVENTURA, 12, 4);
-		
+
 		miItinerario.add(atraccion9);
 		System.out.println(miItinerario.contains(atraccion9));
 	}

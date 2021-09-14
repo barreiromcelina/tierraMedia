@@ -1,8 +1,5 @@
 Usuario Eowyn:
-[Pack Aventura [Descuento:20.0%, Incluye:Bosque Negro Mordor , Costo Promocional:22.400000000000002, Tiempo Promedio:7.0]
-, Mordor [Cupo:2, Costo:25.0, Tiempo Promedio:3.0, Tipo de Atraccion:AVENTURA]
-, Monta [Cupo:4, Costo:15.0, Tiempo Promedio:3.0, Tipo de Atraccion:AVENTURA]
-, Moria [Cupo:5, Costo:10.0, Tiempo Promedio:2.0, Tipo de Atraccion:AVENTURA]
-, Bosque Negro [Cupo:10, Costo:3.0, Tiempo Promedio:4.0, Tipo de Atraccion:AVENTURA]
-, Pack Degustacion [Descuento:40.0%, Incluye:La Comarca Lothlórien , Costo Promocional:22.8, Tiempo Promedio:7.5]
+[Moria [Cupo:5, Costo:10.0, Tiempo Promedio:2.0, Tipo de Atraccion:AVENTURA]
+, Mordor [Cupo:3, Costo:25.0, Tiempo Promedio:3.0, Tipo de Atraccion:AVENTURA]
+, Pack AventuraIncluye:Moria Mordor , Costo Promocional:12.0, Tiempo Promedio:5.0]
 ]

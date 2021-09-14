@@ -36,10 +36,11 @@ public class Atraccion extends Producto {
 	@Override
 	public boolean contiene(Producto producto) {
 		if(producto.esPromo()) {
-			producto.contiene(this);
+			return producto.contiene(this);
 		}
 		return this.equals(producto);
 	}
+	
 	
 	
 	

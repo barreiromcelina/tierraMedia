@@ -30,8 +30,8 @@ public class PromocionPorcentual extends Promocion {
 
 	@Override
 	public String toString() {
-		return getNombre()+ " [Descuento:" + descuento*100 + "%, Incluye:" + super.getNombre()
-				+ ", Costo Promocional:" + getCosto() + ", Tiempo Promedio:" + getTiempoPromedio() + "]\n";
+		return getNombre()+ " {Descuento:" + descuento*100 + "%, Incluye:" + super.getNombre()
+				+ ", Costo Promocional:" + getCosto() + ", Tiempo Promedio:" + getTiempoPromedio() + "}\n";
 	}
 	
 	

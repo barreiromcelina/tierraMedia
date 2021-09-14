@@ -1,5 +1,7 @@
 package productos;
 
+import java.util.Objects;
+
 import enums.TipoAtraccion;
 
 public abstract class Producto {
@@ -41,6 +43,25 @@ public abstract class Producto {
 	public abstract void ocuparUnLugar();
 	
 	public abstract boolean contiene(Producto producto);
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(nombre);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Producto other = (Producto) obj;
+		return Objects.equals(nombre, other.nombre);
+	}
+	
+	
 		
 
 }
