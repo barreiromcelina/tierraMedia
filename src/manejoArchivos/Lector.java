@@ -11,6 +11,7 @@ import java.util.Map;
 import enums.TipoAtraccion;
 import parque.Usuario;
 import productos.Atraccion;
+import productos.Producto;
 import productos.Promocion;
 import productos.PromocionAbsoluta;
 import productos.PromocionAxB;
@@ -25,7 +26,6 @@ public class Lector {
 		ArrayList<Usuario> misUsuarios = new ArrayList<Usuario>();
 		FileReader fr = null;
 		BufferedReader br = null;
-		
 
 		try {
 			fr = new FileReader(path);
@@ -57,9 +57,9 @@ public class Lector {
 
 	}
 
-	public static Map<String, Atraccion> crearMapaAtraccion(String path) {
+	public static Map<String, Producto> crearMapaAtraccion(String path) {
 
-		Map<String, Atraccion> miMapaAtracciones = new HashMap<String, Atraccion>();
+		Map<String, Producto> miMapaAtracciones = new HashMap<String, Producto>();
 		FileReader fr = null;
 		BufferedReader br = null;
 
@@ -87,34 +87,44 @@ public class Lector {
 		return miMapaAtracciones;
 	}
 
-	/*
-	 * public static ArrayList<Atraccion> crearAtraccion(String path) {
-	 * 
-	 * ArrayList<Atraccion> misAtracciones = new ArrayList<Atraccion>(); FileReader
-	 * fr = null; BufferedReader br = null;
-	 * 
-	 * try { fr = new FileReader(path); br = new BufferedReader(fr); for (String
-	 * linea = br.readLine(); linea != null; linea = br.readLine()) {
-	 * 
-	 * String[] aux = linea.split(","); Atraccion unaAtraccion = new
-	 * Atraccion(aux[0], Double.parseDouble(aux[1]), TipoAtraccion.valueOf(aux[2]),
-	 * Integer.parseInt(aux[3]), Double.parseDouble(aux[4]));
-	 * misAtracciones.add(unaAtraccion);
-	 * 
-	 * } }
-	 * 
-	 * catch (IOException e) { e.printStackTrace(); ; } finally { try { if (fr !=
-	 * null) fr.close(); } catch (Exception f) { f.printStackTrace();
-	 * 
-	 * } }
-	 * 
-	 * return misAtracciones;
-	 * 
-	 * }
-	 */
+	public static ArrayList<Producto> crearAtraccion(String path) {
 
-	public static ArrayList<Promocion> crearPromos(String path, HashMap<String, Atraccion> misAtracciones) {
-		ArrayList<Promocion> misPromos = new ArrayList<Promocion>();
+		ArrayList<Producto> misAtracciones = new ArrayList<Producto>();
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(path);
+			br = new BufferedReader(fr);
+			for (String linea = br.readLine(); linea != null; linea = br.readLine()) {
+
+				String[] aux = linea.split(",");
+				Atraccion unaAtraccion = new Atraccion(aux[0], Double.parseDouble(aux[1]),
+						TipoAtraccion.valueOf(aux[2]), Integer.parseInt(aux[3]), Double.parseDouble(aux[4]));
+				misAtracciones.add(unaAtraccion);
+
+			}
+		}
+
+		catch (IOException e) {
+			e.printStackTrace();
+			;
+		} finally {
+			try {
+				if (fr != null)
+					fr.close();
+			} catch (Exception f) {
+				f.printStackTrace();
+
+			}
+		}
+
+		return misAtracciones;
+
+	}
+
+	public static ArrayList<Producto> crearPromos(String path, HashMap<String, Producto> misAtracciones) {
+		ArrayList<Producto> misPromos = new ArrayList<Producto>();
 		FileReader fr = null;
 		BufferedReader br = null;
 		try {
@@ -127,7 +137,7 @@ public class Lector {
 				ArrayList<Atraccion> atrEnLaPromo = new ArrayList<Atraccion>();
 
 				for (String s : cadaAtr) {
-					atrEnLaPromo.add(misAtracciones.get(s)); // mi array de atracciones que es un atributo de la clase
+					atrEnLaPromo.add((Atraccion) misAtracciones.get(s)); // mi array de atracciones que es un atributo de la clase
 																// Promocion
 				}
 

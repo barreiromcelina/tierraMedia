@@ -32,6 +32,14 @@ public class Atraccion extends Producto {
 		return getNombre()+ " [Cupo:" + cupo + ", Costo:" + getCosto() + ", Tiempo Promedio:" + getTiempoPromedio()
 				+ ", Tipo de Atraccion:" + getTipo() + "]\n";
 	}
+
+	@Override
+	public boolean contiene(Producto producto) {
+		if(!producto.esPromo()) {
+			producto.contiene(this);
+		}
+		return this.equals(producto);
+	}
 	
 	
 	

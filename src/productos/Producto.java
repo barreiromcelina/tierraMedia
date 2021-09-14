@@ -36,8 +36,11 @@ public abstract class Producto {
 		return this.nombre;
 	}
 	
-	public Integer getCupo() {return 0;} ////fijarse esto
+	public abstract boolean hayCupo(); 
 
 	public abstract void ocuparUnLugar();
+	
+	public abstract boolean contiene(Producto producto);
+		
 
 }

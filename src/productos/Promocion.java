@@ -1,6 +1,7 @@
 package productos;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 import enums.TipoAtraccion;
 
@@ -49,6 +50,37 @@ public abstract class Promocion extends Producto {
 			nombres += atraccion.getNombre()+ " ";			
 		}
 		return nombres;
+	}
+	
+	@Override
+	public boolean contiene(Producto producto) {
+		boolean contiene= false;
+		if(producto.esPromo()) {
+			ListIterator<Atraccion> itr = promos.listIterator();
+			while(!contiene && itr.hasNext()) {
+				contiene= producto.contiene(itr.next());
+			}
+		}
+		ListIterator<Atraccion> itr = promos.listIterator();
+		while(!contiene && itr.hasNext()) {
+			contiene= producto.contiene(itr.next());
+		}
+		return contiene;
+	}
+	
+	
+	public boolean hayCupo() {
+		boolean hayCupo= false;
+		ListIterator<Atraccion> itr = promos.listIterator();
+		while(!hayCupo && itr.hasNext()) {
+			hayCupo= itr.next().hayCupo();
+		}
+		return hayCupo;
+		
+	}
+	
+	public ArrayList<Atraccion> getPromos(){
+		return this.promos;
 	}
 
 	
