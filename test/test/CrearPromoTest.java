@@ -11,6 +11,8 @@ import enums.TipoAtraccion;
 import manejoArchivos.Lector;
 import productos.Atraccion;
 import productos.Promocion;
+import productos.Producto;
+
 
 public class CrearPromoTest {
 	
@@ -21,7 +23,7 @@ public class CrearPromoTest {
 	Atraccion atraccion5= new Atraccion("Abismos de Helm", 5, TipoAtraccion.AVENTURA, 15, 2);
 	
 	
-	HashMap<String,Atraccion> misAtrEnPromo = new HashMap<String,Atraccion>();
+	HashMap<String,Producto> misAtrEnPromo = new HashMap<String,Producto>();
 	
 	String directorio = "C:\\Users\\celib\\eclipse-workspace\\TierraMedia\\archivos\\";
 	
@@ -35,7 +37,7 @@ public class CrearPromoTest {
 		misAtrEnPromo.put("Abismos de Helm", atraccion5);
 		
 		
-		ArrayList<Promocion> miPromo = Lector.crearPromos(directorio+"promos.csv", misAtrEnPromo);
+		ArrayList<Producto> miPromo = Lector.crearPromos(directorio+"promos.csv", misAtrEnPromo);
 		Double precioObtenido= miPromo.get(0).getCosto();
 		assertEquals(12, precioObtenido, 0.01);
 		Double tiempoPromObtenido = miPromo.get(0).getTiempoPromedio();

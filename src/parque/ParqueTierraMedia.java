@@ -56,7 +56,7 @@ public class ParqueTierraMedia {
 					}
 					
 					if(producto.esPromo()) {
-						for(Atraccion prod: ((Promocion)producto).getPromos()) {
+						for(Producto prod: ((Promocion)producto).getPromos()) {
 							yaEsta |= miItinerario.contains(prod);
 							
 							
@@ -172,5 +172,21 @@ public class ParqueTierraMedia {
 	 * 
 	 * }
 	 */
+	public static void main(String[] args) {
+		ArrayList<Producto> miItinerario = new ArrayList<Producto>();
+
+		Atraccion atraccion1 = new Atraccion("Moria", 10, TipoAtraccion.AVENTURA, 6, 2);
+		Atraccion atraccion2 = new Atraccion("Minas Tirith", 5, TipoAtraccion.PAISAJE, 25, 2.5);
+		Atraccion atraccion3 = new Atraccion("La Comarca", 3, TipoAtraccion.DEGUSTACION, 150, 6.5);
+		Atraccion atraccion4 = new Atraccion("Mordor", 25, TipoAtraccion.AVENTURA, 4, 3);
+		Atraccion atraccion5 = new Atraccion("Monta", 15, TipoAtraccion.AVENTURA, 5, 3);
+		Atraccion atraccion6 = new Atraccion("Abismos de Helm", 5, TipoAtraccion.PAISAJE, 15, 2);
+		Atraccion atraccion7 = new Atraccion("Lothlórien", 35, TipoAtraccion.DEGUSTACION, 30, 1);
+		Atraccion atraccion8 = new Atraccion("Erebor", 12, TipoAtraccion.PAISAJE, 32, 3);
+		Atraccion atraccion9 = new Atraccion("Bosque Negro", 3, TipoAtraccion.AVENTURA, 12, 4);
+		
+		miItinerario.add(atraccion9);
+		System.out.println(miItinerario.contains(atraccion9));
+	}
 
 }
