@@ -1,2 +1,6 @@
 Usuario Andrea:
-[]
+[Mordor [Cupo:3, Costo:25.0, Tiempo Promedio:3.0, Tipo de Atraccion:AVENTURA]
+, Minas Tirith [Cupo:24, Costo:5.0, Tiempo Promedio:2.5, Tipo de Atraccion:PAISAJE]
+]
+Costo total: 30.0
+Tiempo de visita: 5.5

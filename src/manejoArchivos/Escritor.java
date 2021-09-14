@@ -35,7 +35,8 @@ Usuario usuario;
 			fichero = new FileWriter(nombreArchivo);
 			pw = new PrintWriter(fichero);
 			
-			pw.println("Usuario "+ usuario.getNombre()+":\n"+ usuario.getItinerario()); //aqui usaria el itinerario del usuario
+			pw.println("Usuario "+ usuario.getNombre()+":\n"+ usuario.getItinerario()+"\n"+ "Costo total: " + (usuario.PRESUPUESTO_INICIAL -usuario.getPresupuesto())+
+					"\n" + "Tiempo de visita: " + (usuario.TIEMPO_INICIAL- usuario.getTiempoDisponible())); //aqui usaria el itinerario del usuario
 		} catch (Exception e) {
 			e.printStackTrace();
         } finally {

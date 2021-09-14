@@ -31,7 +31,7 @@ public class ProductosTest {
 	}
 	
 	@Test
-	public void getCostroPromoAxBTest() {
+	public void getCostoPromoAxBTest() {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);

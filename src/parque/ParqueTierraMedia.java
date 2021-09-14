@@ -35,7 +35,7 @@ public class ParqueTierraMedia {
 		return listaProductos;
 	}
 
-	public void oferecerProducto(ArrayList<Usuario> misUsuarios) {
+	public void ofrecerProducto(ArrayList<Usuario> misUsuarios) {
 
 		Scanner sc = new Scanner(System.in);
 
@@ -77,18 +77,19 @@ public class ParqueTierraMedia {
 					String respuesta = sc.next();
 
 					while (!respuesta.equalsIgnoreCase("y") && !respuesta.equalsIgnoreCase("n")) {
-						System.out.println("Opcion inválida, ingrese y o n si quiere producto");
+						System.out.println("Opcion inválida, ingrese y o n si quiere el producto");
 						respuesta = sc.next();
 					}
 
 					if (respuesta.equalsIgnoreCase("y")) {
 						usuario.comprar(producto);
+			
+						
 
-						if (producto.esPromo()) {
-							for (Atraccion atr : ((Promocion) producto).getPromos()) {
-								miItinerario.add(atr);
-							}
-						}
+						/*
+						 * if (producto.esPromo()) { for (Atraccion atr : ((Promocion)
+						 * producto).getPromos()) { miItinerario.add(atr); } }
+						 */
 
 						miItinerario.add(producto);
 
@@ -98,6 +99,7 @@ public class ParqueTierraMedia {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 			usuario.setItinerario(miItinerario);
 			Escritor.imprimirArchivo(usuario);
 		}

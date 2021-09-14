@@ -27,7 +27,7 @@ public class App {
 				(HashMap<String, Producto>) misAtracc);
 
 		ParqueTierraMedia parqueAtracciones = new ParqueTierraMedia(misUsuarios, misPromos, misAtracciones);
-		parqueAtracciones.oferecerProducto(misUsuarios);
+		parqueAtracciones.ofrecerProducto(misUsuarios);
 
 		
 	}
