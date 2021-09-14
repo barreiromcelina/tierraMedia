@@ -32,9 +32,11 @@ public abstract class Producto {
 		return this.tipo;
 	}
 	
-	protected String getNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
+	
+	public Integer getCupo() {return 0;} ////fijarse esto
 
 	public abstract void ocuparUnLugar();
 

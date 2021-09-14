@@ -14,47 +14,54 @@ public class Usuario {
 	private Double tiempoDisponible;
 	private TipoAtraccion tipoAtraccionPreferida;
 	private ArrayList<Producto> itinerario = new ArrayList<Producto>();
-	
-	public Usuario(String nombre, double presupuesto, double tiempoDisponible,
-			TipoAtraccion tipoAtraccionPreferida) {
+
+	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TipoAtraccion tipoAtraccionPreferida) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.tipoAtraccionPreferida = tipoAtraccionPreferida;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Tipo Preferido: " + this.tipoAtraccionPreferida + " , Nombre: " + this.nombre+ " , Monedas de Oro: "+ this.presupuesto;
+		return "Tipo Preferido: " + this.tipoAtraccionPreferida + " , Nombre: " + this.nombre + " , Monedas de Oro: "
+				+ this.presupuesto;
 	}
 
-	protected String getNombre() {
+	public String getNombre() {
 		return nombre;
 	}
 
-	protected Double getPresupuesto() {
+	public Double getPresupuesto() {
 		return presupuesto;
 	}
 
-	protected Double getTiempoDisponible() {
+	public Double getTiempoDisponible() {
 		return tiempoDisponible;
 	}
 
-	protected TipoAtraccion getTipoAtraccionPreferida() {
+	public TipoAtraccion getTipoAtraccionPreferida() {
 		return tipoAtraccionPreferida;
 	}
-	
-	public void comprar(Atraccion producto) {
-		this.presupuesto-= producto.getCosto();
-		this.tiempoDisponible-=producto.getTiempoPromedio();
+
+	public ArrayList<Producto> getItinerario() {
+		return this.itinerario;
+	}
+
+	public void setItinerario(ArrayList<Producto> miItinerario) {
+		this.itinerario = miItinerario;
+	}
+
+	public void comprar(Producto producto) {
+		this.presupuesto -= producto.getCosto();
+		this.tiempoDisponible -= producto.getTiempoPromedio();
 		producto.ocuparUnLugar();
 	}
-	
-	public void comprar(Promocion producto) {
-		this.presupuesto-= producto.getCosto();
-		this.tiempoDisponible-=producto.getTiempoPromedio();
-		producto.ocuparUnLugar();
-	}
-	 	
+
+	/*
+	 * public void comprar(Promocion producto) { this.presupuesto-=
+	 * producto.getCosto(); this.tiempoDisponible-=producto.getTiempoPromedio();
+	 * producto.ocuparUnLugar(); }
+	 */
 
 }

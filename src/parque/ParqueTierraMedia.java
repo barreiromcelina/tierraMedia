@@ -2,16 +2,19 @@ package parque;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
 
 import enums.TipoAtraccion;
 import productos.Atraccion;
 import productos.Producto;
 import productos.PromocionPorcentual;
+import manejoArchivos.Escritor;
+import manejoArchivos.Lector;
 
 public class ParqueTierraMedia {
 
 	private ArrayList<Usuario> misUsuarios;
-	private ArrayList<Producto> misProductos = new ArrayList<Producto>();
+	private static ArrayList<Producto> misProductos = new ArrayList<Producto>();
 
 	public ParqueTierraMedia(ArrayList<Usuario> misUsuarios, ArrayList<Producto> promos,
 			ArrayList<Producto> atracciones) {
@@ -29,8 +32,59 @@ public class ParqueTierraMedia {
 		return listaProductos;
 	}
 
-	public void misProductosOrdenadosPorPreferencia(Usuario usuario) {
-		Collections.sort(this.misProductos, new OrdenarSegunPreferencia(usuario.getTipoAtraccionPreferida()));
+	public static void misProductosOrdenadosPorPreferencia(Usuario usuario) {
+		Collections.sort(misProductos, new OrdenarSegunPreferencia(usuario.getTipoAtraccionPreferida()));
+	}
+
+	public static void oferecerProducto(ArrayList<Usuario> misUsuarios) {
+
+		ArrayList<Producto> miItinerario = new ArrayList<Producto>();
+
+		Boolean yaEsta = false;
+
+		for (Usuario usuario : misUsuarios) {
+			misProductosOrdenadosPorPreferencia(usuario);
+			try {
+				for (Producto producto : misProductos) {
+
+					if (miItinerario.contains(producto)) {
+						yaEsta = true;
+
+					}
+
+					if (usuario.getPresupuesto() < producto.getCosto()
+							|| usuario.getTiempoDisponible() < producto.getTiempoPromedio() || yaEsta
+							|| producto.getCupo() == 0) {
+						continue;
+
+					}
+					System.out.println("Usted quiere comprar este producto: y/n" + "\n" + producto);
+
+					Scanner sc = new Scanner(System.in);
+					String respuesta = sc.next();
+
+					try {
+						if (respuesta.equalsIgnoreCase("y")) {
+							usuario.comprar(producto);
+							miItinerario.add(producto);
+						} else if (!respuesta.equalsIgnoreCase("n"))
+							throw new IllegalArgumentException("Por favor ingrese n o y solamente ");
+					}
+
+					catch (IllegalArgumentException error) {
+						System.err.println(error.getMessage());
+					}
+
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			usuario.setItinerario(miItinerario);
+			Escritor.imprimirArchivo(usuario);
+		}
+		
+		//System.out.println(usuario.getItinerario());
+		
 	}
 
 	public static void main(String[] args) {
@@ -94,6 +148,14 @@ public class ParqueTierraMedia {
 		Collections.sort(misProductos, new OrdenarSegunPreferencia(TipoAtraccion.DEGUSTACION));
 
 		System.out.println(misProductos);
+
+		ArrayList<Usuario> misUsuarios = Lector
+				.crearUsuario("C:\\Users\\celib\\eclipse-workspace\\TierraMedia\\archivos\\usuarios.csv");
+		
+		ParqueTierraMedia.oferecerProducto(misUsuarios);
+		
+	
+
 	}
 
 }
