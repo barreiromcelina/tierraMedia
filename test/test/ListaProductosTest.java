@@ -49,9 +49,9 @@ public class ListaProductosTest {
 		Collections.sort(misProductos, new OrdenarSegunPreferencia(TipoAtraccion.AVENTURA));
 		
 		assertEquals(5, misProductos.get(0).getTiempoPromedio(), 0.01);
-		assertEquals(10, misProductos.get(1).getCosto(), 0.01);
-		assertEquals(25, misProductos.get(2).getCosto(), 0.01);
-		assertEquals(15, misProductos.get(3).getCosto(), 0.01);
+		assertEquals(25, misProductos.get(1).getCosto(), 0.01);
+		assertEquals(15, misProductos.get(2).getCosto(), 0.01);
+		assertEquals(10, misProductos.get(3).getCosto(), 0.01);
 		assertEquals(4.5, misProductos.get(4).getTiempoPromedio(), 0.01);
 		
 	}
