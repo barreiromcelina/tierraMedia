@@ -11,6 +11,7 @@ import productos.Producto;
 import productos.PromocionPorcentual;
 import manejoArchivos.Escritor;
 import manejoArchivos.Lector;
+import productos.Promocion;
 
 public class ParqueTierraMedia {
 
@@ -46,9 +47,20 @@ public class ParqueTierraMedia {
 			try {
 				for (Producto producto : misProductos) {
 					Boolean yaEsta = false;
-					ListIterator<Producto> itr = miItinerario.listIterator();
-					while (!yaEsta && itr.hasNext()) {
-						yaEsta = producto.contiene(itr.next());
+					/*
+					 * ListIterator<Producto> itr = miItinerario.listIterator(); while (!yaEsta &&
+					 * itr.hasNext()) { yaEsta = producto.contiene(itr.next()); }
+					 */
+					if(!producto.esPromo()) {
+						yaEsta = miItinerario.contains(producto);
+					}
+					
+					if(producto.esPromo()) {
+						for(Atraccion prod: ((Promocion)producto).getPromos()) {
+							yaEsta |= miItinerario.contains(prod);
+							
+							
+						}
 					}
 
 					if (usuario.getPresupuesto() < producto.getCosto()
@@ -69,9 +81,15 @@ public class ParqueTierraMedia {
 
 					if (respuesta.equalsIgnoreCase("y")) {
 						usuario.comprar(producto);
+						if(producto.esPromo()) {
+							for(Atraccion atr:((Promocion)producto).getPromos()) {
+								miItinerario.add(atr);
+							}
+						}
 						miItinerario.add(producto);
+						
 					}
-
+					System.out.println(miItinerario);
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
