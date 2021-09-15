@@ -30,7 +30,7 @@ public class PromocionAbsoluta extends Promocion {
 	@Override
 	public String toString() {
 		return getNombre()+ " {Incluye:" + super.getNombre()+
-			", Costo Promocional:" + getCosto() + ", Tiempo Promedio:" + getTiempoPromedio() + "}\n";
+			", Costo Promocional:" + getCosto() + " monedas, Tiempo:" + getTiempoPromedio() + "h}\n";
 	}
 	
 	

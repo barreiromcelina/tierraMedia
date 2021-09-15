@@ -29,8 +29,9 @@ public class Atraccion extends Producto {
 
 	@Override
 	public String toString() {
-		return getNombre()+ " [Cupo:" + cupo + ", Costo:" + getCosto() + ", Tiempo Promedio:" + getTiempoPromedio()
-				+ ", Tipo de Atraccion:" + getTipo() + "]\n";
+		return getNombre()+ " {Costo:" + getCosto() + " monedas, Tiempo:" + getTiempoPromedio()
+			+ "h, Tipo: " + getTipo().toString().toLowerCase() +"}"+ "\n";
+		
 	}
 
 	@Override

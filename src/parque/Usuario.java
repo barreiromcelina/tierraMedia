@@ -9,8 +9,8 @@ import productos.Promocion;
 
 public class Usuario {
 
-	public  Double PRESUPUESTO_INICIAL;
-	public  Double TIEMPO_INICIAL;
+	public Double PRESUPUESTO_INICIAL;
+	public Double TIEMPO_INICIAL;
 	private String nombre;
 	private Double presupuesto;
 	private Double tiempoDisponible;
@@ -20,9 +20,9 @@ public class Usuario {
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TipoAtraccion tipoAtraccionPreferida) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
-		this.PRESUPUESTO_INICIAL= presupuesto;
+		this.PRESUPUESTO_INICIAL = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
-		this.TIEMPO_INICIAL= tiempoDisponible;
+		this.TIEMPO_INICIAL = tiempoDisponible;
 		this.tipoAtraccionPreferida = tipoAtraccionPreferida;
 	}
 
@@ -61,11 +61,5 @@ public class Usuario {
 		this.tiempoDisponible -= producto.getTiempoPromedio();
 		producto.ocuparUnLugar();
 	}
-
-	/*
-	 * public void comprar(Promocion producto) { this.presupuesto-=
-	 * producto.getCosto(); this.tiempoDisponible-=producto.getTiempoPromedio();
-	 * producto.ocuparUnLugar(); }
-	 */
 
 }

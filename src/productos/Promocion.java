@@ -48,7 +48,7 @@ public abstract class Promocion extends Producto {
 	public String getNombre() {
 		String nombres = "";
 		for (Atraccion atraccion : promos) {
-			nombres += atraccion.getNombre() + " ";
+			nombres += "|" + atraccion.getNombre() + "|";
 		}
 		return nombres;
 	}

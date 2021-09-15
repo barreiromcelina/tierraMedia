@@ -59,9 +59,6 @@ public abstract class Producto {
 			return false;
 		Producto other = (Producto) obj;
 		return Objects.equals(nombre, other.nombre);
-	}
-	
-	
-		
+	}		
 
 }

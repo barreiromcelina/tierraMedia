@@ -26,8 +26,8 @@ public class PromocionAxB extends Promocion {
 	}
 	@Override
 	public String toString() {
-		return getNombre()+ " {Incluye:" + super.getNombre()+ "la última atracción es gratis!"
-				+ ", Costo Promocional:" + getCosto() + ", Tiempo Promedio:" + getTiempoPromedio() + "}\n";
+		return getNombre()+ " {Incluye:" + super.getNombre()+ "¡la última atracción es gratis!"
+				+ ", Costo Promocional:" + getCosto() + " monedas, Tiempo:" + getTiempoPromedio() + "h}\n";
 	}
 	
 
