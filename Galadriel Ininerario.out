@@ -1,6 +1,7 @@
-Usuario Galadriel:
-[Erebor [Costo:12.0, Tiempo Promedio:3.0, Tipo: paisaje]
-, Lothlórien [Costo:35.0, Tiempo Promedio:1.0, Tipo: degustacion]
-]
+Itinerario de Galadriel:
+
+  - Erebor
+  - Lothlórien
+
 Costo total: 47.0
 Tiempo de visita: 4.0

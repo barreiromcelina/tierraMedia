@@ -50,6 +50,21 @@ public class Usuario {
 
 	public ArrayList<Producto> getItinerario() {
 		return this.itinerario;
+		
+	}
+	
+	public String stringItineario() {
+		String nombres="";
+		for (Producto p : itinerario) {
+			if (p.esPromo()) {
+				 nombres += "  - "+p.getNombre() + " (" + p.getNombreEnPromo() + ")" + "\n";
+			} else {
+				 nombres += "  - "+p.getNombre() +"\n";
+			}
+
+		}
+		return nombres;
+
 	}
 
 	public void setItinerario(ArrayList<Producto> miItinerario) {

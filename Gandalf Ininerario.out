@@ -1,6 +1,6 @@
-Usuario Gandalf:
-[Erebor {Costo:12.0 monedas, Tiempo:3.0h, Tipo: paisaje}
-, Abismos de Helm {Costo:5.0 monedas, Tiempo:2.0h, Tipo: paisaje}
-]
-Costo total: 17.0
+Itinerario de Gandalf:
+
+  - Pack Paisaje 2(|Abismos de Helm||Erebor|)
+
+Costo total: 15.0
 Tiempo de visita: 5.0

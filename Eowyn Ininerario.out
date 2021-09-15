@@ -1,5 +1,7 @@
-Usuario Eowyn:
-[Moria {Costo:10.0 monedas, Tiempo:2.0h, Tipo: aventura}
-]
-Costo total: 10.0
-Tiempo de visita: 2.0
+Itinerario de Eowyn:
+
+  - Bosque Negro
+  - Minas Tirith
+
+Costo total: 8.0
+Tiempo de visita: 6.5

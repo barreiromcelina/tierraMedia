@@ -44,8 +44,8 @@ public abstract class Promocion extends Producto {
 		}
 	}
 
-	@Override
-	public String getNombre() {
+	
+	public String getNombreEnPromo() {
 		String nombres = "";
 		for (Atraccion atraccion : promos) {
 			nombres += "|" + atraccion.getNombre() + "|";
