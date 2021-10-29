@@ -16,14 +16,14 @@ public class App {
 	public static void main(String[] args) {
 
 		ArrayList<Usuario> misUsuarios = Lector
-				.crearUsuario("C:\\Users\\celib\\eclipse-workspace\\TierraMedia\\archivos\\usuarios.csv");
+				.crearUsuario();
 
 		ArrayList<Producto> misAtracciones = Lector
-				.crearAtraccion("C:\\Users\\celib\\eclipse-workspace\\TierraMedia\\archivos\\atracciones.csv");
+				.crearAtraccion();
 		Map<String, Producto> misAtracc = Lector
-				.crearMapaAtraccion("C:\\Users\\celib\\eclipse-workspace\\TierraMedia\\archivos\\atracciones.csv");
+				.crearMapaAtraccion("C:\\Users\\User\\git\\tierraMedia\\archivos\\atracciones.csv");
 		ArrayList<Producto> misPromos = Lector.crearPromos(
-				"C:\\Users\\celib\\eclipse-workspace\\TierraMedia\\archivos\\promos.csv",
+				"C:\\Users\\User\\git\\tierraMedia\\archivos\\promos.csv",
 				(HashMap<String, Producto>) misAtracc);
 
 		ParqueTierraMedia parqueAtracciones = new ParqueTierraMedia(misUsuarios, misPromos, misAtracciones);

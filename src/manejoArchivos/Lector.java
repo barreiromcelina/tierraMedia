@@ -3,12 +3,20 @@ package manejoArchivos;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
+import dao.MissingDataException;
+
 import enums.TipoAtraccion;
+import jdbc.ConnectionProvider;
 import parque.Usuario;
 import productos.Atraccion;
 import productos.Producto;
@@ -21,40 +29,26 @@ public class Lector {
 
 	// Hola este comentario es para probar el commit
 
-	public static ArrayList<Usuario> crearUsuario(String path) {
-
-		ArrayList<Usuario> misUsuarios = new ArrayList<Usuario>();
-		FileReader fr = null;
-		BufferedReader br = null;
-
+	public static ArrayList<Usuario> crearUsuario() {
 		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
-			for (String linea = br.readLine(); linea != null; linea = br.readLine()) {
+			String sql = "SELECT * FROM USUARIOS";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet resultados = statement.executeQuery();
 
-				String[] aux = linea.split(",");
-				Usuario unUsuario = new Usuario(aux[0], Double.parseDouble(aux[1]), Double.parseDouble(aux[2]),
-						TipoAtraccion.valueOf(aux[3]));
-				misUsuarios.add(unUsuario);
-
+			ArrayList<Usuario> misUsuarios = new ArrayList<Usuario>();
+			while (resultados.next()) {
+				misUsuarios.add(toUsuario(resultados));
 			}
+
+			return misUsuarios;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
 		}
-
-		catch (IOException e) {
-			e.printStackTrace();
-			;
-		} finally {
-			try {
-				if (fr != null)
-					fr.close();
-			} catch (Exception f) {
-				f.printStackTrace();
-
-			}
-		}
-
-		return misUsuarios;
-
+	}
+	private static Usuario toUsuario(ResultSet resultados) throws SQLException {
+		//-------------------------nombre-------------------presupuesto---------------tiempo---------------Promocion---------------
+		return new Usuario(resultados.getString(2),resultados.getInt(3), resultados.getDouble(4), TipoAtraccion.valueOf(resultados.getString(5)));
 	}
 
 	public static Map<String, Producto> crearMapaAtraccion(String path) {
@@ -87,40 +81,26 @@ public class Lector {
 		return miMapaAtracciones;
 	}
 
-	public static ArrayList<Producto> crearAtraccion(String path) {
-
-		ArrayList<Producto> misAtracciones = new ArrayList<Producto>();
-		FileReader fr = null;
-		BufferedReader br = null;
-
+	public static ArrayList<Producto> crearAtraccion() {
 		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
-			for (String linea = br.readLine(); linea != null; linea = br.readLine()) {
+			String sql = "SELECT * FROM ATRACCION";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet resultados = statement.executeQuery();
 
-				String[] aux = linea.split(",");
-				Atraccion unaAtraccion = new Atraccion(aux[0], Double.parseDouble(aux[1]),
-						TipoAtraccion.valueOf(aux[2]), Integer.parseInt(aux[3]), Double.parseDouble(aux[4]));
-				misAtracciones.add(unaAtraccion);
-
+			ArrayList<Producto> misAtracciones = new ArrayList<Producto>();
+			while (resultados.next()) {
+				misAtracciones.add(toAtraccion(resultados));
 			}
+
+			return misAtracciones;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
 		}
-
-		catch (IOException e) {
-			e.printStackTrace();
-			;
-		} finally {
-			try {
-				if (fr != null)
-					fr.close();
-			} catch (Exception f) {
-				f.printStackTrace();
-
-			}
-		}
-
-		return misAtracciones;
-
+	}
+	private static Atraccion toAtraccion(ResultSet resultados) throws SQLException {
+		//-------------------------nombre----------------------costo---------------tipo--------------------------------------cupo-------------------tiempo
+		return new Atraccion(resultados.getString(2),resultados.getInt(3),TipoAtraccion.valueOf(resultados.getString(4)),resultados.getInt(5), resultados.getDouble(6));
 	}
 
 	public static ArrayList<Producto> crearPromos(String path, HashMap<String, Producto> misAtracciones) {
