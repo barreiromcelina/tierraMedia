@@ -1,8 +1,29 @@
 package manejoArchivos;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
-import java.io.FileWriter;
-import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import dao.MissingDataException;
+
+import enums.TipoAtraccion;
+import jdbc.ConnectionProvider;
+import parque.Usuario;
+import productos.Atraccion;
+import productos.Producto;
+import productos.Promocion;
+import productos.PromocionAbsoluta;
+import productos.PromocionAxB;
+import productos.PromocionPorcentual;
 
 import parque.Usuario;
 import productos.Producto;
@@ -18,39 +39,60 @@ Usuario usuario;
 		this.usuario = usuario;
 	}
 
-
-
-	public static void imprimirArchivo(Usuario usuario) {
-		FileWriter fichero = null;
-		PrintWriter pw = null;
-		
-		String nombreArchivo = usuario.getNombre()+" Ininerario.out"; //esta linea me da error porque los getters del Usuario estan en protected
-		
-		//------------------Necesito recibir el itinerario desde Usuario
-		ArrayList<Producto> itinerario = new ArrayList<Producto>();
-		itinerario = usuario.getItinerario();	//Aqui es donde me llega el itinerario del usuario
-		//------------------
-		
+	public static int guardarItinerario(Usuario usuario) {
 		try {
-			fichero = new FileWriter(nombreArchivo);
-			pw = new PrintWriter(fichero);
-			
-			pw.println("Itinerario de "+ usuario.getNombre()+":\n\n"+ usuario.stringItineario()+"\n"+ "Costo total: " + (usuario.PRESUPUESTO_INICIAL -usuario.getPresupuesto())+
-					"\n" + "Tiempo de visita: " + (usuario.TIEMPO_INICIAL- usuario.getTiempoDisponible())); //aqui usaria el itinerario del usuario
+			String sql = "UPDATE ITINERARIOS SET ITINERARIOPERSONA  = ? WHERE USUARIO = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, usuario.stringItineario());
+			statement.setString(2, usuario.getNombre());
+			int rows = statement.executeUpdate();
+
+			return rows;
 		} catch (Exception e) {
-			e.printStackTrace();
-        } finally {
-           try {
-           if (null != fichero)
-              fichero.close();
-           } catch (Exception e2) {
-              e2.printStackTrace();
-           }
-        }
-		
-		
+			throw new MissingDataException(e);
+		}
 	}
 	
+	public static int guardarGasto(Usuario usuario) {
+		
+		double gasto = usuario.PRESUPUESTO_INICIAL -usuario.getPresupuesto();
+		try {
+			String sql = "UPDATE ITINERARIOS SET GASTO  = ? WHERE USUARIO = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setDouble(1, gasto);
+			statement.setString(2, usuario.getNombre());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+public static int guardarDuracion(Usuario usuario) {
+		
+		double tiempo = usuario.TIEMPO_INICIAL- usuario.getTiempoDisponible();
+		try {
+			String sql = "UPDATE ITINERARIOS SET DURACION  = ? WHERE USUARIO = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setDouble(1, tiempo);
+			statement.setString(2, usuario.getNombre());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+}
 	
 
-}
+	
+	
+

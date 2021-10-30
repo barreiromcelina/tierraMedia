@@ -21,10 +21,8 @@ public class App {
 		ArrayList<Producto> misAtracciones = Lector
 				.crearAtraccion();
 		Map<String, Producto> misAtracc = Lector
-				.crearMapaAtraccion("C:\\Users\\User\\git\\tierraMedia\\archivos\\atracciones.csv");
-		ArrayList<Producto> misPromos = Lector.crearPromos(
-				"C:\\Users\\User\\git\\tierraMedia\\archivos\\promos.csv",
-				(HashMap<String, Producto>) misAtracc);
+				.crearMapaAtraccion();
+		ArrayList<Producto> misPromos = Lector.crearPromos((HashMap<String, Producto>) misAtracc);
 
 		ParqueTierraMedia parqueAtracciones = new ParqueTierraMedia(misUsuarios, misPromos, misAtracciones);
 		parqueAtracciones.ofrecerProducto(misUsuarios);

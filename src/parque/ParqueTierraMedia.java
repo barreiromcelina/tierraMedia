@@ -99,7 +99,10 @@ public class ParqueTierraMedia {
 			}
 
 			usuario.setItinerario(miItinerario);
-			Escritor.imprimirArchivo(usuario);
+			Escritor.guardarItinerario(usuario);
+			Escritor.guardarGasto(usuario);
+     		Escritor.guardarDuracion(usuario);
+			
 		}
 
 		sc.close();
@@ -107,3 +110,4 @@ public class ParqueTierraMedia {
 	}
 
 }
+

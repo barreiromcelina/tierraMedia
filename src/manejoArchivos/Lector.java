@@ -27,7 +27,7 @@ import productos.PromocionPorcentual;
 
 public class Lector {
 
-	// Hola este comentario es para probar el commit
+
 
 	public static ArrayList<Usuario> crearUsuario() {
 		try {
@@ -51,35 +51,17 @@ public class Lector {
 		return new Usuario(resultados.getString(2),resultados.getInt(3), resultados.getDouble(4), TipoAtraccion.valueOf(resultados.getString(5)));
 	}
 
-	public static Map<String, Producto> crearMapaAtraccion(String path) {
-
+public static Map<String, Producto> crearMapaAtraccion() {
+		
+		ArrayList<Producto> atracciones = crearAtraccion();
 		Map<String, Producto> miMapaAtracciones = new HashMap<String, Producto>();
-		FileReader fr = null;
-		BufferedReader br = null;
-
-		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
-
-			for (String linea = br.readLine(); linea != null; linea = br.readLine()) {
-				String[] aux = linea.split(",");
-				// nombre costo tipo cupo y tiempoPromedio
-				Atraccion unaAtraccion = new Atraccion(aux[0], Double.parseDouble(aux[1]),
-						TipoAtraccion.valueOf(aux[2]), Integer.parseInt(aux[3]), Double.parseDouble(aux[4]));
-				miMapaAtracciones.put(aux[0], unaAtraccion);
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (fr != null)
-					fr.close();
-			} catch (Exception f) {
-				f.printStackTrace();
-			}
+		
+		for(Producto i: atracciones) {
+			miMapaAtracciones.put(i.getNombre(),i);
 		}
 		return miMapaAtracciones;
 	}
+		
 
 	public static ArrayList<Producto> crearAtraccion() {
 		try {
@@ -103,17 +85,17 @@ public class Lector {
 		return new Atraccion(resultados.getString(2),resultados.getInt(3),TipoAtraccion.valueOf(resultados.getString(4)),resultados.getInt(5), resultados.getDouble(6));
 	}
 
-	public static ArrayList<Producto> crearPromos(String path, HashMap<String, Producto> misAtracciones) {
+	public static ArrayList<Producto> crearPromos(HashMap<String, Producto> misAtracciones) {
 		ArrayList<Producto> misPromos = new ArrayList<Producto>();
-		FileReader fr = null;
-		BufferedReader br = null;
+		
 		try {
-			fr = new FileReader(path);
-			br = new BufferedReader(fr);
+			String sql = "SELECT * FROM PROMOCION";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet resultados = statement.executeQuery();
 
-			for (String linea = br.readLine(); linea != null; linea = br.readLine()) {
-				String[] aux = linea.split(",");
-				String[] cadaAtr = aux[0].split("&");
+			while (resultados.next()){
+				String[] cadaAtr = resultados.getString(2).split("&");
 				ArrayList<Atraccion> atrEnLaPromo = new ArrayList<Atraccion>();
 
 				for (String s : cadaAtr) {
@@ -121,30 +103,23 @@ public class Lector {
 																// Promocion
 				}
 
-				if (aux[3].equals("ABSOLUTA")) {
-					Promocion promo = new PromocionAbsoluta(atrEnLaPromo, aux[1], TipoAtraccion.valueOf(aux[2]),
-							Double.parseDouble(aux[4]));
+				if (resultados.getString(5).equals("ABSOLUTA")) {
+					Promocion promo = new PromocionAbsoluta(atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)),
+							resultados.getDouble(6));
 					misPromos.add(promo);
-				} else if (aux[3].equals("PORCENTUAL")) {
-					Promocion promo = new PromocionPorcentual(atrEnLaPromo, aux[1], TipoAtraccion.valueOf(aux[2]),
-							Double.parseDouble(aux[4]));
+				} else if (resultados.getString(5).equals("PORCENTUAL")) {
+					Promocion promo = new PromocionPorcentual(atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)),
+							resultados.getDouble(6));
 					misPromos.add(promo);
 				} else {
-					Promocion promo = new PromocionAxB(atrEnLaPromo, aux[1], TipoAtraccion.valueOf(aux[2]));
+					Promocion promo = new PromocionAxB(atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)));
 					misPromos.add(promo);
 				}
 
 			}
 
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (fr != null)
-					fr.close();
-			} catch (Exception f) {
-				f.printStackTrace();
-			}
+		} catch (Exception e) {
+			throw new MissingDataException(e);
 		}
 
 		return misPromos;
