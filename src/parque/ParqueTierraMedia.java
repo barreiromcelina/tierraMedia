@@ -6,6 +6,10 @@ import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Scanner;
 
+import dao.AtraccionDAO;
+import dao.DAOFactory;
+import dao.ItinerarioDAOImpl;
+import dao.UsuarioDAOImpl;
 import enums.TipoAtraccion;
 import productos.Atraccion;
 import productos.Producto;
@@ -101,7 +105,7 @@ public class ParqueTierraMedia {
 			usuario.setItinerario(miItinerario);
 			Escritor.guardarItinerario(usuario);
 			Escritor.guardarGasto(usuario);
-     		Escritor.guardarDuracion(usuario);
+			Escritor.guardarDuracion(usuario);
 			
 		}
 
