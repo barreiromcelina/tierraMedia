@@ -1,0 +1,34 @@
+package model;
+
+import java.util.ArrayList;
+
+public class PromocionPorcentual extends Promocion {
+
+	private final TipoPromo tipoPromo = TipoPromo.PORCENTUAL;
+	private double descuento;
+	private String nombre;
+
+	public PromocionPorcentual(ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo, double descuento) {
+		super(promos, nombre, tipo);
+		this.descuento = descuento;
+		super.costo = this.getCosto();
+		this.nombre = nombre;
+	}
+
+	@Override
+	public Double getCosto() {
+		return super.getCosto() * (1 - this.descuento);
+	}
+
+	@Override
+	public String getNombre() {
+		return this.nombre;
+	}
+
+	@Override
+	public String toString() {
+		return getNombre() + " {Incluye:" + super.getNombreEnPromo() + "Descuento:" + descuento * 100 + "%, Costo Promocional:"
+				+ getCosto() + " monedas, Tiempo:" + getTiempoPromedio() + "h}\n";
+	}
+
+}
