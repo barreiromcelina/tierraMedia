@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 import model.TipoAtraccion;
 import model.Usuario;
+import persistence.UsuarioDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
-import persistences.UsuarioDAO;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 

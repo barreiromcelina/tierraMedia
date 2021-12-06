@@ -8,12 +8,12 @@ import model.Atraccion;
 import model.Producto;
 import model.Promocion;
 import model.Usuario;
+import persistence.AtraccionDAO;
+import persistence.ItinerarioDAO;
+import persistence.UsuarioDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.DAOFactory;
 import persistence.commons.MissingDataException;
-import persistences.AtraccionDAO;
-import persistences.ItinerarioDAO;
-import persistences.UsuarioDAO;
 
 public class Escritor {
 

@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import model.Atraccion;
 import model.Producto;
 import model.TipoAtraccion;
+import persistence.AtraccionDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
-import persistences.AtraccionDAO;
 
 public class AtraccionDAOImpl implements AtraccionDAO {
 

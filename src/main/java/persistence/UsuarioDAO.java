@@ -1,4 +1,4 @@
-package persistences;
+package persistence;
 
 import model.Usuario;
 import persistence.commons.GenericDAO;

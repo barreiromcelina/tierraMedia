@@ -1,4 +1,4 @@
-package persistences;
+package persistence;
 
 import java.util.ArrayList;
 

@@ -1,13 +1,13 @@
 package persistence.commons;
 
+import persistence.AtraccionDAO;
+import persistence.ItinerarioDAO;
+import persistence.PromocionDAO;
+import persistence.UsuarioDAO;
 import persistence.impl.AtraccionDAOImpl;
 import persistence.impl.ItinerarioDAOImpl;
 import persistence.impl.PromocionDAOImpl;
 import persistence.impl.UsuarioDAOImpl;
-import persistences.AtraccionDAO;
-import persistences.ItinerarioDAO;
-import persistences.PromocionDAO;
-import persistences.UsuarioDAO;
 
 public class DAOFactory {
 

@@ -6,11 +6,11 @@ import java.util.Map;
 
 import model.Producto;
 import model.Usuario;
+import persistence.AtraccionDAO;
+import persistence.PromocionDAO;
+import persistence.UsuarioDAO;
 import persistence.commons.DAOFactory;
 import persistence.commons.MissingDataException;
-import persistences.AtraccionDAO;
-import persistences.PromocionDAO;
-import persistences.UsuarioDAO;
 
 public class Lector {
 

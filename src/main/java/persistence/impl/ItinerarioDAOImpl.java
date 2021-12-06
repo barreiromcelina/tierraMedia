@@ -5,9 +5,9 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 
 import model.Usuario;
+import persistence.ItinerarioDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
-import persistences.ItinerarioDAO;
 
 public class ItinerarioDAOImpl implements ItinerarioDAO {
 

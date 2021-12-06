@@ -13,9 +13,9 @@ import model.PromocionAbsoluta;
 import model.PromocionAxB;
 import model.PromocionPorcentual;
 import model.TipoAtraccion;
+import persistence.PromocionDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
-import persistences.PromocionDAO;
 
 public class PromocionDAOImpl implements PromocionDAO{
 	
