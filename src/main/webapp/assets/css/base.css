@@ -2,5 +2,16 @@
 
 h1 {
 	
-	font-size: 1000px;
+	font-size: 5em;
+	color: white;
+}
+
+h5{
+	color:white;
+}
+body { padding-top: 20px; }
+
+.carousel{
+	padding-top: 20px;
+	
 }
