@@ -91,6 +91,12 @@ public class PromocionDAOImpl implements PromocionDAO{
 		return null;
 	}
 
+	@Override
+	public Producto find(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 
 }

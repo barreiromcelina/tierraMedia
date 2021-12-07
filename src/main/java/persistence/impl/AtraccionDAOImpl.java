@@ -79,4 +79,10 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 		return 0;
 	}
 
+	@Override
+	public Producto find(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

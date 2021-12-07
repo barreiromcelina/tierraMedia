@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public interface GenericDAO<T> {
 
+	public T find(Integer id);
 	public ArrayList<T> findAll();
 	public int countAll();
 	public int insert(T t);
