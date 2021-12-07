@@ -2,14 +2,20 @@ package model;
 
 public class Atraccion extends Producto {
 
+	private Integer id;
 	private Integer cupo;
 	
 
-	public Atraccion(String nombre, double costo, TipoAtraccion tipo,
+	public Atraccion(Integer id, String nombre, double costo, TipoAtraccion tipo,
 			int cupo, double tiempoPromedio) {
 		super(nombre, tipo, costo, tiempoPromedio);
+		this.id = id;
 		this.cupo = cupo;
 	
+	}
+	
+	public Integer getId() {
+		return this.id;
 	}
 	
 	public boolean hayCupo() {

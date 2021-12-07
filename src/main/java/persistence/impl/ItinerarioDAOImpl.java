@@ -74,4 +74,10 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 		return 0;
 	}
 
+	@Override
+	public Usuario find(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
