@@ -62,7 +62,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int insert(Usuario usuarioNuevo) {
 		try {
-			String sql = "INSERT INTO USERS (USERNAME, PASSWORD) VALUES (?, ?)";
+			String sql = "INSERT INTO USUARIOS (USERNAME, PASSWORD) VALUES (?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -99,8 +99,18 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public int delete(Usuario t) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			String sql = "DELETE FROM USUARIOS WHERE nombre = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, t.getNombre());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 	@Override
@@ -126,8 +136,22 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	@Override
 	public Usuario find(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		try {
+			String sql = "SELECT * FROM Usuarios WHERE ID = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, id);
+			ResultSet resultados = statement.executeQuery();
 
+			Usuario usuario = NullUser.build();
+
+			if (resultados.next()) {
+				usuario = toUsuario(resultados);
+			}
+
+			return usuario;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
 }
