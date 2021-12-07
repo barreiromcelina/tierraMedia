@@ -1,7 +1,7 @@
 <meta charset="UTF-8">
 <title>Turismo en la Tierra Media</title>
 
-<link rel="shortcut icon" href="/turismo/assets/favicon.ico">
+<link rel="shortcut icon" href="/tierraMedia/assets/favicon.ico">
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -15,3 +15,7 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous" defer></script>
+
+<link rel="stylesheet" href="../assets/css/base.css" media="screen">
+<link id="u-theme-google-font" rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
