@@ -2,11 +2,11 @@ package persistence;
 
 import java.util.ArrayList;
 
-import model.Atraccion;
+import model.Producto;
 import persistence.commons.GenericDAO;
 
-public interface AtraccionDAO extends GenericDAO<Atraccion> {
+public interface AtraccionDAO extends GenericDAO<Producto> {
 
-	public ArrayList<Atraccion> findAll();
+	public ArrayList<Producto> findAll();
 	
 }

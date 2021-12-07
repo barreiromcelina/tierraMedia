@@ -16,9 +16,9 @@ import model.TipoAtraccion;
 
 public class ProductosTest {
 
-	Atraccion atraccion1 = new Atraccion("Moria", 10, TipoAtraccion.AVENTURA, 6, 2);
-	Atraccion atraccion2 = new Atraccion("Mordor", 25, TipoAtraccion.AVENTURA, 4, 3);
-	Atraccion atraccion3= new Atraccion("Monta", 15, TipoAtraccion.AVENTURA, 5, 3);
+	Atraccion atraccion1 = new Atraccion(1, "Moria", 10, TipoAtraccion.AVENTURA, 6, 2);
+	Atraccion atraccion2 = new Atraccion(2, "Mordor", 25, TipoAtraccion.AVENTURA, 4, 3);
+	Atraccion atraccion3= new Atraccion(3, "Monta", 15, TipoAtraccion.AVENTURA, 5, 3);
 
 	@Test
 	public void getCostoPromoPorcentualTest() {

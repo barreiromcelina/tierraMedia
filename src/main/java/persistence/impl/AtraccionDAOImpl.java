@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import model.Atraccion;
+import model.Producto;
 import model.TipoAtraccion;
 import persistence.AtraccionDAO;
 import persistence.commons.ConnectionProvider;
@@ -16,14 +17,14 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	//Trae todas las atracciones de la Base de Datos
 	@Override
-	public ArrayList<Atraccion> findAll() {
+	public ArrayList<Producto> findAll() {
 		try {
 			String sql = "SELECT * FROM ATRACCION";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
 
-			ArrayList<Atraccion> misAtracciones = new ArrayList<Atraccion>();
+			ArrayList<Producto> misAtracciones = new ArrayList<Producto>();
 			while (resultados.next()) {
 				misAtracciones.add(toAtraccion(resultados));
 			}
@@ -59,7 +60,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	}
 
 	@Override
-	public int insert(Atraccion t) {
+	public int insert(Producto t) {
 		try {
 			String sql = "INSERT INTO ATRACCION (NOMBRE, COSTO, TIPO, CUPO, DURACION) VALUES (?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
@@ -69,7 +70,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setString(i++, t.getNombre());
 			statement.setDouble(i++, t.getCosto());
 			statement.setString(i++, t.getTipo().toString()); // checkear que esto funcione realmente
-			statement.setInt(i++, t.getCupo());
+			statement.setInt(i++, ((Atraccion) t).getCupo());
 			statement.setDouble(i++, t.getTiempoPromedio());
 			int rows = statement.executeUpdate();
 
@@ -81,7 +82,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 
 	//Actualiza el cupo de las Atracciones de la Base de Datos
 	@Override
-	public int update(Atraccion atr) {
+	public int update(Producto atr) {
 		try {
 			String sql = "UPDATE Atraccion SET NOMBRE = ?, COSTO = ?, TIPO = ?, CUPO = ? WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
@@ -91,8 +92,8 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setString(i++, atr.getNombre());
 			statement.setDouble(i++, atr.getCosto());
 			statement.setString(i++, atr.getTipo().toString()); //checkear esto
-			statement.setInt(i++, atr.getCupo());
-			statement.setInt(i++, atr.getId());
+			statement.setInt(i++, ((Atraccion) atr).getCupo());
+			statement.setInt(i++, ((Atraccion) atr).getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -102,13 +103,13 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	}
 
 	@Override
-	public int delete(Atraccion t) {
+	public int delete(Producto t) {
 		try {
 			String sql = "DELETE FROM ATRACCION WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, t.getId());
+			statement.setInt(1, ((Atraccion) t).getId());
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -118,7 +119,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	}
 
 	@Override
-	public Atraccion find(Integer id) {
+	public Producto find(Integer id) {
 		try {
 			String sql = "SELECT * FROM ATRACCION WHERE id = ?";
 			Connection conn = ConnectionProvider.getConnection();

@@ -16,11 +16,11 @@ import model.TipoAtraccion;
 
 public class CrearPromoTest {
 	
-	Atraccion atraccion1 = new Atraccion("Moria", 10, TipoAtraccion.AVENTURA, 6, 2);
-	Atraccion atraccion2 = new Atraccion("Mordor", 25, TipoAtraccion.AVENTURA, 4, 3);
-	Atraccion atraccion3= new Atraccion("Monta", 15, TipoAtraccion.AVENTURA, 5, 3);
-	Atraccion atraccion4= new Atraccion("Minas Tirith", 5, TipoAtraccion.AVENTURA, 25, 2.5);
-	Atraccion atraccion5= new Atraccion("Abismos de Helm", 5, TipoAtraccion.AVENTURA, 15, 2);
+	Atraccion atraccion1 = new Atraccion(1, "Moria", 10, TipoAtraccion.AVENTURA, 6, 2);
+	Atraccion atraccion2 = new Atraccion(2, "Mordor", 25, TipoAtraccion.AVENTURA, 4, 3);
+	Atraccion atraccion3= new Atraccion(3, "Monta", 15, TipoAtraccion.AVENTURA, 5, 3);
+	Atraccion atraccion4= new Atraccion(4, "Minas Tirith", 5, TipoAtraccion.AVENTURA, 25, 2.5);
+	Atraccion atraccion5= new Atraccion(5, "Abismos de Helm", 5, TipoAtraccion.AVENTURA, 15, 2);
 	
 	
 	HashMap<String,Producto> misAtrEnPromo = new HashMap<String,Producto>();
