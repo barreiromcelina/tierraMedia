@@ -105,7 +105,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	@Override
 	public int delete(Producto t) {
 		try {
-			String sql = "DELETE FROM ATRACCION WHERE ID = ?";
+			String sql = "UPDATE ATRACCION SET BORRADO = 1 WHERE ID = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);

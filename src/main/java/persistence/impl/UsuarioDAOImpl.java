@@ -100,7 +100,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int delete(Usuario t) {
 		try {
-			String sql = "DELETE FROM USUARIOS WHERE nombre = ?";
+			String sql = "UPDATE USUARIOS SET BORRADO = 1 WHERE nombre = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
