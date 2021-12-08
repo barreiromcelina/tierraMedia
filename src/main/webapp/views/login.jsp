@@ -36,6 +36,7 @@
 
 				<div class="d-grid gap-2">
 					<button type="submit" class="btn btn-lg btn-primary">Ingresar</button>
+					<a href="crearUser.jsp" class="btn btn-secondary">Crear usuario</a>
 				</div>
 			</form>
 
