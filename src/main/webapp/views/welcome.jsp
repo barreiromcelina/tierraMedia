@@ -24,7 +24,7 @@
 						<div class="carousel-caption d-none d-md-block">
 							<h1>Atracciones</h1>
 							<h5> Tierra Media te está esperando para disfrutar de tus atracciones favoritas</h5>
-							<a href="atracciones.html" class="btn btn-info">Ver más</a>
+							<a href="atracciones" class="btn btn-info">Ver más</a>
 							
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 						<div class="carousel-caption d-none d-md-block">
 							<h1>Promociones</h1>
 							<h5>Descubrí las promociones disponibles para esta temporada</h5>
-								<a href="promociones.html" class="btn btn-info">Ver más</a>
+								<a href="promos" class="btn btn-info">Ver más</a>
 						</div>
 					</div>
 					<div class="carousel-item">

@@ -62,7 +62,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int insert(Usuario usuarioNuevo) {
 		try {
-			String sql = "INSERT INTO USUARIOS (USERNAME, PASSWORD) VALUES (?, ?)";
+			String sql = "INSERT INTO USUARIOS (NOMBRE, PASSWORD) VALUES (?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -116,7 +116,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public Usuario findByNombre(String nombre) {
 		try {
-			String sql = "SELECT * FROM USUARIOS WHERE USERNAME = ?";
+			String sql = "SELECT * FROM USUARIOS WHERE NOMBRE = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, nombre);

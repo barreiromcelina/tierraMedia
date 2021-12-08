@@ -62,11 +62,11 @@
 		</div>
 		</section>
 		
-		<section id="Paisaje">
+		<section id="Paisaje" >
 
 		<h2 class="p-3" >Atracciones de paisaje</h2>
 
-		<div class="row">
+		<div class="row" >
 		<c:forEach items="${misAtracciones}" var="atraccion">
 		
 		<c:if test="${ atraccion.tipo=='PAISAJE'}">
