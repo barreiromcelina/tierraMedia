@@ -9,8 +9,7 @@ import persistence.commons.DAOFactory;
 public class atraccionService {
 
 	public List<Producto> obtenerAllAtracciones() throws SQLException {
-		List<Producto> misAtracciones = DAOFactory.getAtraccionDAO().findAll();
-		return misAtracciones;
+		return DAOFactory.getAtraccionDAO().findAll();
 	}
 
 }

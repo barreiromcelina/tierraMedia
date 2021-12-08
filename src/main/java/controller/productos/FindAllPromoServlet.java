@@ -12,32 +12,28 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Producto;
-import services.atraccionService;
+import services.promoService;
 
-@WebServlet("/atracciones.do")
-public class AllAtraccionServlet extends HttpServlet implements Servlet{
+@WebServlet("/views/promos")
+public class FindAllPromoServlet extends HttpServlet implements Servlet {
 
-	private static final long serialVersionUID = -7079007108065794584L;
-	private atraccionService atrService;
+	private static final long serialVersionUID = -5660211636029789389L;
+	private promoService pService;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
-		atrService  = new atraccionService();
+		pService= new promoService();
 	}
+	
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Producto> misAtracciones = null;
-		try {
-			misAtracciones = atrService.obtenerAllAtracciones();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		req.setAttribute("misAtracciones", misAtracciones);
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("../views/atracciones.jsp");
+		List<Producto> misPromos=null;
+		misPromos = pService.obtenerAllPromos();
+	
+		req.setAttribute("misPromos", misPromos);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promos.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
-	
 
 }
