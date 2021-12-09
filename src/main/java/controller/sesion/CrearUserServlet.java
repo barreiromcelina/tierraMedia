@@ -9,7 +9,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Usuario;
+import model.TipoAtraccion;
 import services.userService;
 
 
@@ -36,9 +36,12 @@ public class CrearUserServlet extends HttpServlet implements Servlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nombre = req.getParameter("name");
 		String contraseña = req.getParameter("password");
+		Double presupuesto = Double.parseDouble(req.getParameter("presupuesto"));
+		Double tiempoDisponible = Double.parseDouble(req.getParameter("tiempo"));
+		TipoAtraccion tipoPreferido = TipoAtraccion.valueOf(req.getParameter("tipoPreferido"));
 		
 
-		Usuario user = uService.create(nombre, contraseña);
+		uService.create(nombre, contraseña,presupuesto, tiempoDisponible, tipoPreferido);
 			resp.sendRedirect("/tierraMedia/views/index.jsp");
 		
 	}
