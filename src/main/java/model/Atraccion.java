@@ -33,8 +33,7 @@ public class Atraccion extends Producto {
 
 	@Override
 	public String toString() {
-		return getNombre()+ " {Costo:" + getCosto() + " monedas, Tiempo:" + getTiempoPromedio()
-			+ "h, Tipo: " + getTipo().toString().toLowerCase() + "}"+ "\n";
+		return getNombre();
 		
 	}
 

@@ -37,8 +37,10 @@
 
 </div>
 </div>
-	<jsp:include page="/partials/footer.jsp"></jsp:include>
 
+<div class="fixed-bottom">
+	<jsp:include page="/partials/footer.jsp"></jsp:include>
+</div>
 
 
 </body>

@@ -11,12 +11,13 @@
 <body>
 	<jsp:include page="/partials/header.jsp"></jsp:include>
 
-	<br>
-	<br>
-	<br>
-	<br>
 	<section id="Aventura">
-
+	<p style="color: white;">.</p>
+	<br>
+	<br>
+	
+	
+ <br>
 		<h2 class="p-3">Atracciones de aventura</h2>
 
 		<div class="row ">
@@ -39,6 +40,7 @@
 		</section>
 		
 		<section id="Degustacion">
+	
 
 		<h2 class="p-4" >Atracciones de degustación</h2>
 
@@ -86,7 +88,7 @@
 		</div>
 		</section>
 	
-
+<br>
 	<jsp:include page="/partials/footer.jsp"></jsp:include>
 
 </body>

@@ -40,7 +40,7 @@
 						<img src="../assets/images/7.jpg" class="d-block w-100" alt="...">
 						<div class="carousel-caption d-none d-md-block">
 							<h1>Próximamente </h1>
-							<h5>Nuevas atracciones llegaran pronto a Tierra Media</h5>
+							<h5>Nuevas atracciones llegarán pronto a Tierra Media</h5>
 							<button type="button" class="btn btn-info invisible">Ver más</button>
 						</div>
 					</div>

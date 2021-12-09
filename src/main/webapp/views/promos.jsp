@@ -1,4 +1,4 @@
-%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,9 +23,10 @@
 	</div>
 	</div>
 
-
+<div class="fixed-bottom">
 
 <jsp:include page="/partials/footer.jsp"></jsp:include>
+</div>
 
 </body>
 </html>

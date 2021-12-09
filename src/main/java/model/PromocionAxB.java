@@ -7,9 +7,13 @@ public class PromocionAxB extends Promocion {
 	private final TipoPromo tipoPromo = TipoPromo.A_X_B;
 	private String nombre;
 
-	public PromocionAxB(ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo) {
-		super(promos, nombre, tipo);
+	public PromocionAxB(Integer id, ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo) {
+		super(id, promos, nombre, tipo);
 		this.nombre= nombre;
+	}
+
+	public TipoPromo getTipoPromo() {
+		return tipoPromo;
 	}
 
 	@Override

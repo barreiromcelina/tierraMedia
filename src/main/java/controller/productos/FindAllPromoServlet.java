@@ -2,6 +2,7 @@ package controller.productos;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
@@ -28,8 +29,7 @@ public class FindAllPromoServlet extends HttpServlet implements Servlet {
 	
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		List<Producto> misPromos=null;
-		misPromos = pService.obtenerAllPromos();
+		List<Producto> misPromos = pService.obtenerAllPromos();
 	
 		req.setAttribute("misPromos", misPromos);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promos.jsp");

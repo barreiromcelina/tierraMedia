@@ -33,8 +33,8 @@ public class ListaProductosTest {
 		arrayPaisaje.add(atraccion4);
 		arrayPaisaje.add(atraccion5);
 		
-		Producto promoAventura = new PromocionPorcentual(arrayAventura, "Pack Aventura", TipoAtraccion.AVENTURA, 0.2);
-		Producto promoPaisaje = new PromocionPorcentual(arrayPaisaje, "Pack Paisaje", TipoAtraccion.PAISAJE, 0.1);
+		Producto promoAventura = new PromocionPorcentual(1,arrayAventura, "Pack Aventura", TipoAtraccion.AVENTURA, 0.2);
+		Producto promoPaisaje = new PromocionPorcentual(2,arrayPaisaje, "Pack Paisaje", TipoAtraccion.PAISAJE, 0.1);
 		
 		ArrayList<Producto> misProductos= new ArrayList<Producto>();
 		
@@ -63,8 +63,8 @@ public class ListaProductosTest {
 		arrayPaisaje.add(atraccion4);
 		arrayPaisaje.add(atraccion5);
 		
-		Producto promoAventura = new PromocionPorcentual(arrayAventura, "Pack Aventura", TipoAtraccion.AVENTURA, 0.2);
-		Producto promoPaisaje = new PromocionPorcentual(arrayPaisaje, "Pack Paisaje", TipoAtraccion.PAISAJE, 0.1);
+		Producto promoAventura = new PromocionPorcentual(1,arrayAventura, "Pack Aventura", TipoAtraccion.AVENTURA, 0.2);
+		Producto promoPaisaje = new PromocionPorcentual(2,arrayPaisaje, "Pack Paisaje", TipoAtraccion.PAISAJE, 0.1);
 		
 		ArrayList<Producto> misProductos= new ArrayList<Producto>();
 		

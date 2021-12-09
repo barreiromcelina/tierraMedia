@@ -13,34 +13,43 @@
 	<table class="table table-stripped table-hover">
 			<thead>
 				<tr>
-					<th>Atracci&oacute;n</th>
+					<th>Promoci&oacute;n</th>
 					<th>Costo</th>
 					<th>Duraci&oacute;n</th>
-					<th>Cupo</th>
 					<th>Acciones</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${atraccionesUser}" var="attraction">
+				<c:forEach items="${promosUser}" var="promo">
 					<tr>
-						<td><strong><c:out value="${attraction.nombre}"></c:out></strong>
-							<p>Esta es una atracción de <c:out value="${attraction.tipo}"></c:out></p></td>
-						<td><c:out value="${attraction.costo}"></c:out></td>
-						<td><c:out value="${attraction.tiempoPromedio}"></c:out></td>
-						<td><c:out value="${attraction.cupo}"></c:out></td>
-
+						<td><strong><c:out value="${promo.nombre}"></c:out></strong>
+							<p>Esta es una promoción de <c:out value="${promo.tipo} que incluye "></c:out><c:out value="${promo.promos }"></c:out></p>
+							
+							<c:if test="${promo.tipoPromo=='ABSOLUTA'}">
+							 Precio final por el paquete </c:if>
+							<c:if test="${promo.tipoPromo=='A_X_B'}">
+							 La última atracción es gratis! </c:if>
+							<c:if test="${promo.tipoPromo=='PORCENTUAL'}">
+							 Descuento de <c:out value="${promo.descuento*100} % aplicado en el precio final "></c:out> </c:if>
+							
+							</td>
+							
+							
+						<td><c:out value="${promo.costo}"></c:out></td>
+						<td><c:out value="${promo.tiempoPromedio}"></c:out></td>
+						
 						<td><c:if test="${user.admin}">
-								<a href="/turismo/attractions/edit.do?id=${attraction.id}"
+								<a href=""
 									class="btn btn-light rounded-0" role="button"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="/turismo/attractions/delete.do?id=${attraction.id}"
+								<a href=""
 									class="btn btn-danger rounded" role="button"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
 
 								<c:when
-									test="${user.puedePagar(attraction) && user.tieneTiempo(attraction) && attraction.hayCupo()}">
-									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
+									test="${user.puedePagar(promo) && user.tieneTiempo(promo) && promo.hayCupo()}">
+									<a href=""
 										class="btn btn-success rounded" role="button">Comprar</a>
 								</c:when>
 								<c:otherwise>
@@ -48,11 +57,15 @@
 										role="button">No se puede comprar</a>
 								</c:otherwise>
 							</c:choose></td>
+
+
+						
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	
 	<jsp:include page="/partials/footer.jsp"></jsp:include>
 
 </body>

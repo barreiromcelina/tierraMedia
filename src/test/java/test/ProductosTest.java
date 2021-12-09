@@ -25,7 +25,7 @@ public class ProductosTest {
 		ArrayList<Atraccion> paqueteAventura = new ArrayList<Atraccion>();
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
-		PromocionPorcentual promoPorcentual = new PromocionPorcentual(paqueteAventura, "Pack Aventura",
+		PromocionPorcentual promoPorcentual = new PromocionPorcentual(1,paqueteAventura, "Pack Aventura",
 				TipoAtraccion.AVENTURA, 0.2);
 		assertEquals(35 * 0.8, promoPorcentual.getCosto(), 0.01);
 	}
@@ -36,7 +36,7 @@ public class ProductosTest {
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
 		paqueteAventura.add(atraccion3);
-		PromocionAxB promoAxB= new PromocionAxB(paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
+		PromocionAxB promoAxB= new PromocionAxB(1, paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
 		assertEquals(35, promoAxB.getCosto(),0.01);
 	}
 	
@@ -46,7 +46,7 @@ public class ProductosTest {
 		paqueteAventuraAbs.add(atraccion1);
 		paqueteAventuraAbs.add(atraccion2);
 		paqueteAventuraAbs.add(atraccion3);
-		PromocionAbsoluta promoAxB= new PromocionAbsoluta(paqueteAventuraAbs, "Pack Aventura a precio fijo" , TipoAtraccion.AVENTURA, 40);
+		PromocionAbsoluta promoAxB= new PromocionAbsoluta(1, paqueteAventuraAbs, "Pack Aventura a precio fijo" , TipoAtraccion.AVENTURA, 40);
 		assertEquals(40, promoAxB.getCosto(),0.01);
 	}
 	
@@ -56,7 +56,7 @@ public class ProductosTest {
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
 		paqueteAventura.add(atraccion3);
-		PromocionAxB promoAxB= new PromocionAxB(paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
+		PromocionAxB promoAxB= new PromocionAxB(1, paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
 		assertEquals(8, promoAxB.getTiempoPromedio(),0.01);
 	}
 	
@@ -66,7 +66,7 @@ public class ProductosTest {
 		paqueteAventura.add(atraccion1);
 		paqueteAventura.add(atraccion2);
 		paqueteAventura.add(atraccion3);
-		PromocionAxB promoAxB= new PromocionAxB(paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
+		PromocionAxB promoAxB= new PromocionAxB(1, paqueteAventura, "Pack Aventura 3x2" , TipoAtraccion.AVENTURA);
 		promoAxB.ocuparUnLugar();
 		assertEquals(5, atraccion1.getCupo(),0.01);
 		assertEquals(3, atraccion2.getCupo(),0.01);

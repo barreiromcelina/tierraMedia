@@ -8,8 +8,12 @@ public class PromocionAbsoluta extends Promocion {
 	private final TipoPromo tipoPromo = TipoPromo.ABSOLUTA;
 	private String nombre;
 
-	public PromocionAbsoluta(ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo, double precioFinal) {
-		super(promos, nombre, tipo);
+	public TipoPromo getTipoPromo() {
+		return tipoPromo;
+	}
+
+	public PromocionAbsoluta(Integer id, ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo, double precioFinal) {
+		super(id, promos, nombre, tipo);
 		super.costo= precioFinal;
 		this.nombre= nombre;
 

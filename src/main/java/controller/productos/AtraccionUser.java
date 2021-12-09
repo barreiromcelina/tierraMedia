@@ -21,13 +21,13 @@ public class AtraccionUser extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 9197858196736103965L;
 	private atraccionService atrService;
-	private userService uService;
+	
 
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		atrService  = new atraccionService();
-		uService = new userService();
+		
 		
 	}
 	@Override

@@ -28,7 +28,7 @@ public class Lector {
 		}
 	}
 
-	public static Map<String, Producto> crearMapaAtraccion(ArrayList<Producto> misAtracciones) {
+	public static Map<String, Producto> crearMapaAtraccion(ArrayList<Producto> misAtracciones) { //la use en PromoService
 
 		Map<String, Producto> miMapaAtracciones = new HashMap<String, Producto>();
 

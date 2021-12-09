@@ -7,9 +7,11 @@ import java.util.ListIterator;
 public abstract class Promocion extends Producto {
 
 	protected ArrayList<Atraccion> promos;
+	private Integer id;
 
-	public Promocion(ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo) {
+	public Promocion(Integer id, ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo) {
 		super(nombre, tipo, 0, 0);
+		this.id = id;
 		this.promos = promos;
 		super.costo = this.getCosto();
 		super.tiempoPromedio = this.getTiempoPromedio();

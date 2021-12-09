@@ -32,6 +32,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 			while (resultados.next()){
 				String[] cadaAtr = resultados.getString(2).split("&");
 				ArrayList<Atraccion> atrEnLaPromo = new ArrayList<Atraccion>();
+				
 
 				for (String s : cadaAtr) {
 					atrEnLaPromo.add((Atraccion) misAtracciones.get(s)); // mi array de atracciones que es un atributo de la clase
@@ -39,15 +40,15 @@ public class PromocionDAOImpl implements PromocionDAO{
 				}
 
 				if (resultados.getString(5).equals("ABSOLUTA")) {
-					Promocion promo = new PromocionAbsoluta(atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)),
+					Promocion promo = new PromocionAbsoluta(resultados.getInt(1),atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)),
 							resultados.getDouble(6));
 					misPromos.add(promo);
 				} else if (resultados.getString(5).equals("PORCENTUAL")) {
-					Promocion promo = new PromocionPorcentual(atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)),
+					Promocion promo = new PromocionPorcentual(resultados.getInt(1),atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)),
 							resultados.getDouble(6));
 					misPromos.add(promo);
 				} else {
-					Promocion promo = new PromocionAxB(atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)));
+					Promocion promo = new PromocionAxB(resultados.getInt(1),atrEnLaPromo, resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)));
 					misPromos.add(promo);
 				}
 

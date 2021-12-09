@@ -11,7 +11,8 @@
 	<div class="col-lg-5 mx-auto p-3 py-md-5">
 
 		<main class="p-5 " >
-			<h3 class="p-5 ">Turismo en la Tierra Media</h3>
+		<br>
+			<h3 class=" ">Turismo en la Tierra Media</h3>
 
 
 			<c:if test="${flash != null}">

@@ -8,11 +8,23 @@ public class PromocionPorcentual extends Promocion {
 	private double descuento;
 	private String nombre;
 
-	public PromocionPorcentual(ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo, double descuento) {
-		super(promos, nombre, tipo);
+	public PromocionPorcentual( Integer id,ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo, double descuento) {
+		super(id, promos, nombre, tipo);
 		this.descuento = descuento;
 		super.costo = this.getCosto();
 		this.nombre = nombre;
+	}
+	
+	public TipoPromo getTipoPromo() {
+		return tipoPromo;
+	}
+
+	public double getDescuento() {
+		return descuento;
+	}
+
+	public void setDescuento(double descuento) {
+		this.descuento = descuento;
 	}
 
 	@Override
