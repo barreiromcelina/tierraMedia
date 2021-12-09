@@ -27,8 +27,8 @@
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h4>
-						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo }"></c:out> <br>
-						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio }"></c:out></p>
+						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo } monedas"></c:out> <br>
+						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio } h"></c:out></p>
 						<a href="#" class="btn btn-secondary">Ver más</a>
 					</div>
 				</div>
@@ -50,8 +50,8 @@
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h4>
-						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo }"></c:out> <br>
-						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio }"></c:out></p>
+						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo } monedas"></c:out> <br>
+						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio } h"></c:out></p>
 						<a href="#" class="btn btn-secondary">Ver más</a>
 					</div>
 				</div>
@@ -74,8 +74,8 @@
 				<div class="card">
 					<div class="card-body">
 						<h4 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h4>
-						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo }"></c:out>&nbsp monedas <br>
-						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio }"></c:out>&nbsp h</p>
+						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo } monedas"></c:out> <br>
+						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio } h"></c:out> </p>
 						<a href="#" class="btn btn-secondary">Ver más</a>
 					</div>
 				</div>

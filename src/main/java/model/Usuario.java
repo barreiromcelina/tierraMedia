@@ -114,5 +114,15 @@ public class Usuario {
 		this.tiempoDisponible -= producto.getTiempoPromedio();
 		producto.ocuparUnLugar();
 	}
+	
+	
+	
+	public static void main(String[] args) {
+		Usuario user= new Usuario(-1, false, "Celina", "celina", 0, 0, null);
+		
+		user.setPassword("1234");
+		System.out.println(user.getPassword());
+		
+	}
 
 }

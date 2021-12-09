@@ -24,7 +24,7 @@
 				<label for="password"
 					class="col-form-label">Contraseña:</label>
 				<input class="form-control" type="password" id="password"
-					name="capacity" required value="${user.password}"></input>
+					name="password" required value="${user.password}"></input>
 				
 			</div>
 		</div>

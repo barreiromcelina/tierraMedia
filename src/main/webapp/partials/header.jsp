@@ -7,7 +7,7 @@
 				<div class="container-fluid">
 					<a href="welcome.jsp" class="u-image u-logo u-image-1"
 						data-image-width="221" data-image-height="104"> <img
-						src="../assets/images/logo.png" class="u-logo-image u-logo-image-1">
+						src="../assets/images/logoSF.png" class="u-logo-image u-logo-image-1">
 					</a>
 					<button class="navbar-toggler" type="button"
 						data-bs-toggle="collapse" data-bs-target="#navbarScroll"

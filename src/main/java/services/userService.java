@@ -14,5 +14,9 @@ public class userService {
 		
 		return user;
 	}
+	
+	public Usuario obtenterUsuario(String user) {
+		return DAOFactory.getUsuarioDAO().findByNombre(user);
+	}
 
 }
