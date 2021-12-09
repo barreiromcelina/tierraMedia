@@ -50,7 +50,7 @@
 							<i title="book" style="color: green;" class="bi bi-book"> </i>Mi Itinerario
 						</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a href="/turismo/logout" class="dropdown-item">Salir</a></li>
+						<li><a href="logout" class="dropdown-item">Salir</a></li>
 					</ul>
 				</li>
 			</ul>
