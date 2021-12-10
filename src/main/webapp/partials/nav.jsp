@@ -15,12 +15,11 @@
 		
 						<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
 							style="-bs-scroll-height: 100px;">
-							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="welcome.jsp">Inicio</a></li>
+							
 							<li class="nav-item"><a class="nav-link" href="misAtracciones.do">Atracciones</a></li>
 							
 							<li class="nav-item"><a class="nav-link " href="misPromociones.do">Promociones</a></li>
-							<li class="nav-item"><a class="nav-link " href="contact.jsp">Contacto</a></li>
+							<li class="nav-item"><a class="nav-link " href="all.do">Ver todo</a></li>
 						</ul>
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown">

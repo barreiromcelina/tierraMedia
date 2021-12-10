@@ -1,5 +1,6 @@
 package services;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -17,8 +18,10 @@ public class promoService {
 		return DAOFactory.getPromocionDAO().findAll();
 	}
 
-	public Map<String, Producto> crearMapaAtraccion(ArrayList<Producto> misAtracciones) {
+	public Map<String, Producto> crearMapaAtraccion() throws SQLException {
 
+		atraccionService aService = new atraccionService();
+		List<Producto> misAtracciones = aService.obtenerAllAtracciones();
 		Map<String, Producto> miMapaAtracciones = new HashMap<String, Producto>();
 
 		for (Producto i : misAtracciones) {

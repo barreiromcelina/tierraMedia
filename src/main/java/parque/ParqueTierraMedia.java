@@ -28,7 +28,7 @@ public class ParqueTierraMedia {
 		listaProductos.addAll(promos);
 		listaProductos.addAll(atracciones);
 
-		return listaProductos;
+		return listaProductos; //lo use en productoService
 	}
 
 	public void ofrecerProducto(ArrayList<Usuario> misUsuarios) {
