@@ -34,7 +34,7 @@
 						<li><a class="dropdown-item disabled" style="color: black;">
 							<i title="tiempo" style="color: blue;" class="bi bi-clock"></i> <c:out value="${user.tiempoDisponible} h"></c:out>
 						</a></li>
-						<li><a class="dropdown-item disabled" style="color: black;" href="itinerario">
+						<li><a href="itinerario.do" class="dropdown-item " style="color: black;" >
 							<i title="book" style="color: green;" class="bi bi-book"> </i>Mi Itinerario
 						</a></li>
 						<li><hr class="dropdown-divider"></li>

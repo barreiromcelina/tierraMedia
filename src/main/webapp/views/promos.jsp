@@ -6,7 +6,7 @@
 </head>
 <body>
 	<jsp:include page="/partials/header.jsp"></jsp:include>
-	<br><br><br><br>
+	<br><br><br><br><br>
 	<div class="t-5">
 	<div class="p-3">
 	
