@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4 sticky-top">
 	<div class="container">
 		<a href="welcome.jsp" class="u-image u-logo u-image-1"
 						data-image-width="221" data-image-height="104"> <img
@@ -17,20 +17,9 @@
 							style="-bs-scroll-height: 100px;">
 							<li class="nav-item"><a class="nav-link active"
 								aria-current="page" href="welcome.jsp">Inicio</a></li>
-							<li class="nav-item"><a class="nav-link" href="login.jsp">Iniciar
-									sesión</a></li>
-							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" 
-								id="navbarScrollingDropdown" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false"> Atracciones
-							</a>
-								<ul class="dropdown-menu"
-									aria-labelledby="navbarScrollingDropdown">
-									<li><a class="dropdown-item" href="atracciones#Aventura">Aventura</a></li>
-									<li><a class="dropdown-item" href="atracciones#Degustacion">Degustación</a></li>
-									<li><a class="dropdown-item" href="atracciones#Paisaje">Paisaje</a></li>
-								</ul></li>
-							<li class="nav-item"><a class="nav-link " href="promos">Promociones</a></li>
+							<li class="nav-item"><a class="nav-link" href="misAtracciones.do">Atracciones</a></li>
+							
+							<li class="nav-item"><a class="nav-link " href="misPromociones.do">Promociones</a></li>
 							<li class="nav-item"><a class="nav-link " href="contact.jsp">Contacto</a></li>
 						</ul>
 			<ul class="navbar-nav">

@@ -14,7 +14,7 @@
 			<thead>
 				<tr>
 					<th>Promoci&oacute;n</th>
-					<th>Costo</th>
+					<th>Costo </th>
 					<th>Duraci&oacute;n</th>
 					<th>Acciones</th>
 				</tr>
@@ -40,17 +40,18 @@
 						
 						<td><c:if test="${user.admin}">
 								<a href=""
-									class="btn btn-light rounded-0" role="button"><i
+									class="btn btn-info rounded" role="button" title= "Editar"><i
 									class="bi bi-pencil-fill"></i></a>
 								<a href=""
-									class="btn btn-danger rounded" role="button"><i
+									class="btn btn-danger rounded" role="button" title= "Eliminar"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
 
 								<c:when
 									test="${user.puedePagar(promo) && user.tieneTiempo(promo) && promo.hayCupo()}">
 									<a href=""
-										class="btn btn-success rounded" role="button">Comprar</a>
+										class="btn btn-success rounded" role="button" title= "Comprar"> <i
+									class="bi bi-cart3"></i></a>
 								</c:when>
 								<c:otherwise>
 									<a href="#" class="btn btn-secondary rounded disabled"

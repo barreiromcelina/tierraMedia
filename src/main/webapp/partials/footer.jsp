@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <footer>
-<div class="card text-center ">
+<div class="card text-center sticky-bottom">
   
   <div class="card-body">
     <h6 class="card-title">Seguinos en nuestras redes</h6>

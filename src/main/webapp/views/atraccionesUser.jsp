@@ -8,9 +8,9 @@
 
 <body>
 	<jsp:include page="../partials/nav.jsp"></jsp:include>
-	
+
 	<div class="col-lg-6 mx-auto py-md-3">
-	<table class="table table-stripped table-hover">
+		<table class="table table-stripped table-hover">
 			<thead>
 				<tr>
 					<th>Atracci&oacute;n</th>
@@ -24,28 +24,32 @@
 				<c:forEach items="${atraccionesUser}" var="attraction">
 					<tr>
 						<td><strong><c:out value="${attraction.nombre}"></c:out></strong>
-							<p>Esta es una atracción de <c:out value="${attraction.tipo}"></c:out></p></td>
+							<p>
+								Esta es una atracción de
+								<c:out value="${attraction.tipo}"></c:out>
+							</p></td>
 						<td><c:out value="${attraction.costo}"></c:out></td>
 						<td><c:out value="${attraction.tiempoPromedio}"></c:out></td>
 						<td><c:out value="${attraction.cupo}"></c:out></td>
 
 						<td><c:if test="${user.admin}">
 								<a href="/turismo/attractions/edit.do?id=${attraction.id}"
-									class="btn btn-light rounded-0" role="button"><i
+									class="btn btn-info rounded" role="button" title= "Editar"><i
 									class="bi bi-pencil-fill"></i></a>
 								<a href="/turismo/attractions/delete.do?id=${attraction.id}"
-									class="btn btn-danger rounded" role="button"><i
+									class="btn btn-danger rounded" role="button" title= "Eliminar"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
 
 								<c:when
 									test="${user.puedePagar(attraction) && user.tieneTiempo(attraction) && attraction.hayCupo()}">
 									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
-										class="btn btn-success rounded" role="button">Comprar</a>
+										class="btn btn-success rounded" role="button" title= "Comprar"> <i
+										class="bi bi-cart3"></i></a>
 								</c:when>
 								<c:otherwise>
 									<a href="#" class="btn btn-secondary rounded disabled"
-										role="button">No se puede comprar</a>
+										role="button"><i class="bi bi-cart3"></i></a>
 								</c:otherwise>
 							</c:choose></td>
 					</tr>
