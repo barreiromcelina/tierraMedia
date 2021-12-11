@@ -62,14 +62,40 @@ public class PromocionDAOImpl implements PromocionDAO{
 
 	@Override
 	public int countAll() {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			String sql = "SELECT COUNT(1) AS TOTAL FROM PROMOCION";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet resultados = statement.executeQuery();
+
+			resultados.next();
+			int total = resultados.getInt("TOTAL");
+
+			return total;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 	@Override
 	public int insert(Producto t) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			String sql = "INSERT INTO PROMOCION (NOMBRE, INCLUYE, TIPOATRACCION, TIPOPROMOCION, VALOR) VALUES (?, ?, ?, ?, ?)";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int i = 1;
+			statement.setString(i++, t.getNombre());
+			statement.setString(i++, t.getNombreEnPromo());
+			statement.setString(i++, t.getTipo().toString()); // checkear que esto funcione realmente
+			statement.setString(i++, ((PromocionAbsoluta) t).getTipoPromo().toString()); //hacer una para cada tipo?
+			statement.setDouble(i++, t.getCosto());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 		
 	}
 
@@ -82,8 +108,18 @@ public class PromocionDAOImpl implements PromocionDAO{
 
 	@Override
 	public int delete(Producto t) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			String sql = "UPDATE PROMOCION SET BORRADO = 1 WHERE nombre = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, t.getNombre());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 	@Override

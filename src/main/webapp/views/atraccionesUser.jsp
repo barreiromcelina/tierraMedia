@@ -42,8 +42,8 @@
 							</c:if> <c:choose>
 
 								<c:when
-									test="${user.puedePagar(attraction) && user.tieneTiempo(attraction) && attraction.hayCupo()}">
-									<a href="/turismo/attractions/buy.do?id=${attraction.id}"
+									test="${user.puedePagar(attraction) && user.tieneTiempo(attraction) && attraction.hayCupo() && !miItinerario.contiene(attraction)}">
+									<a href="comprarAtr.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button" title= "Comprar"> <i
 										class="bi bi-cart3"></i></a>
 								</c:when>

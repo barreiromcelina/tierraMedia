@@ -14,7 +14,7 @@ public class Usuario {
 	private Double presupuesto;
 	private Double tiempoDisponible;
 	private TipoAtraccion tipoAtraccionPreferida;
-	private ArrayList<Producto> itinerario = new ArrayList<Producto>();
+	private ArrayList<Producto> itinerario= new ArrayList<Producto>();
 
 	public Usuario(int id, boolean admin, String nombre, String password, double presupuesto, 
 			double tiempoDisponible, TipoAtraccion tipoAtraccionPreferida) {
