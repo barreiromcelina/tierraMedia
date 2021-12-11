@@ -19,7 +19,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	@Override
 	public ArrayList<Producto> findAll() {
 		try {
-			String sql = "SELECT * FROM ATRACCION";
+			String sql = "SELECT * FROM ATRACCION WHERE BORRADO = 0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();

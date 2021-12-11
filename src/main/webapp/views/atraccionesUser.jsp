@@ -33,10 +33,10 @@
 						<td><c:out value="${attraction.cupo}"></c:out></td>
 
 						<td><c:if test="${user.admin}">
-								<a href="/turismo/attractions/edit.do?id=${attraction.id}"
+								<a href="editAtr.do?id=${attraction.id}"
 									class="btn btn-info rounded" role="button" title= "Editar"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="/turismo/attractions/delete.do?id=${attraction.id}"
+								<a href="deleteAtr.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button" title= "Eliminar"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>

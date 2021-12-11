@@ -15,6 +15,8 @@ public class Usuario {
 	private Double tiempoDisponible;
 	private TipoAtraccion tipoAtraccionPreferida;
 	private ArrayList<Producto> itinerario= new ArrayList<Producto>();
+	private double gastoAcumulado;
+	private double tiempoAcumulado;
 
 	public Usuario(int id, boolean admin, String nombre, String password, double presupuesto, 
 			double tiempoDisponible, TipoAtraccion tipoAtraccionPreferida) {
@@ -32,6 +34,22 @@ public class Usuario {
 
 	public int getId() {
 		return id;
+	}
+
+	public double getGastoAcumulado() {
+		return gastoAcumulado;
+	}
+
+	public double getTiempoAcumulado() {
+		return tiempoAcumulado;
+	}
+
+	public void setGastoAcumulado(double gastoAcumulado) {
+		this.gastoAcumulado = gastoAcumulado;
+	}
+
+	public void setTiempoAcumulado(double tiempoAcumulado) {
+		this.tiempoAcumulado = tiempoAcumulado;
 	}
 
 	public String getPassword() {
@@ -112,6 +130,8 @@ public class Usuario {
 	public void comprar(Producto producto) {
 		this.presupuesto -= producto.getCosto();
 		this.tiempoDisponible -= producto.getTiempoPromedio();
+		this.gastoAcumulado += producto.getCosto();
+		this.tiempoAcumulado += producto.getTiempoPromedio();
 		producto.ocuparUnLugar();
 	}
 	

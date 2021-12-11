@@ -24,7 +24,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 		ArrayList<Producto> misPromos = new ArrayList<Producto>();
 		
 		try {
-			String sql = "SELECT * FROM PROMOCION";
+			String sql = "SELECT * FROM PROMOCION ";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();

@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.Atraccion;
 import model.OrdenarSegunPreferencia;
 import model.Producto;
 import model.Usuario;
@@ -33,6 +34,12 @@ public class promoService {
 		List<Producto> promos = DAOFactory.getPromocionDAO().findAll(misAtracciones);
 		Collections.sort(promos, new OrdenarSegunPreferencia(usuario.getTipoAtraccionPreferida()));
 		return promos;
+	}
+
+	public void borrar(Integer id) {
+		Atraccion atr = (Atraccion) DAOFactory.getAtraccionDAO().find(id);
+		DAOFactory.getAtraccionDAO().delete(atr);
+		
 	}
 	
 }
