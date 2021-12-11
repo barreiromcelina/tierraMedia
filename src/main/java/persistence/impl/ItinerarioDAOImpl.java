@@ -14,7 +14,6 @@ import persistence.commons.MissingDataException;
 
 public class ItinerarioDAOImpl implements ItinerarioDAO {
 
-	
 	@Override
 	public ArrayList<Usuario> findAll() {
 		// TODO Auto-generated method stub
@@ -27,12 +26,13 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 		return 0;
 	}
 
-	//Recibe el Usuario desde el Escritor para guardar su Itinerario en la Base de Datos
+	// Recibe el Usuario desde el Escritor para guardar su Itinerario en la Base de
+	// Datos
 	@Override
 	public int insert(Usuario u) {
-		double gasto = u.PRESUPUESTO_INICIAL -u.getPresupuesto();
-		double tiempo = u.TIEMPO_INICIAL- u.getTiempoDisponible();
-		
+		double gasto = u.PRESUPUESTO_INICIAL - u.getPresupuesto();
+		double tiempo = u.TIEMPO_INICIAL - u.getTiempoDisponible();
+
 		try {
 			String sql = "INSERT INTO main.Itinerarios (ItinerarioPersona, Gasto, Duracion, Usuario) VALUES (?, ?, ?, ?);";
 			Connection conn = ConnectionProvider.getConnection();
@@ -43,7 +43,7 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 			statement.setString(4, u.getNombre());
 
 			int rows = statement.executeUpdate();
-			
+
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
@@ -51,7 +51,8 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 
 	}
 
-	//Recibiria el Usuario desde el Escritor para actualizar el Itinerario en la Base de Datos
+	// Recibiria el Usuario desde el Escritor para actualizar el Itinerario en la
+	// Base de Datos
 	@Override
 	public int update(Usuario u) {
 		try {
@@ -64,7 +65,7 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 			statement.setString(4, u.getNombre());
 
 			int rows = statement.executeUpdate();
-			
+
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
@@ -83,7 +84,7 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public String findItinerario(Usuario u) {
 		try {
 			String sql = "SELECT ItinerarioPersona FROM Itinerarios WHERE USUARIO = ?";
@@ -92,13 +93,26 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 			statement.setString(1, u.getNombre());
 			ResultSet resultados = statement.executeQuery();
 
-
 			return resultados.getString(1);
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
-		
-		
+
+	}
+	
+	public Integer findUser(Usuario u) {
+		try {
+			String sql = "SELECT COUNT(USUARIO) FROM Itinerarios WHERE USUARIO = ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, u.getNombre());
+			ResultSet resultados = statement.executeQuery();
+
+			return resultados.getInt(1);
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+
 	}
 
 	@Override
@@ -109,7 +123,6 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, u.getNombre());
 			ResultSet resultados = statement.executeQuery();
-
 
 			return resultados.getInt(1);
 		} catch (Exception e) {
@@ -125,7 +138,6 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setString(1, u.getNombre());
 			ResultSet resultados = statement.executeQuery();
-
 
 			return resultados.getInt(1);
 		} catch (Exception e) {

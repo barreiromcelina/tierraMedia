@@ -36,7 +36,7 @@ public class ItinerarioServelt extends HttpServlet implements Servlet {
 
 		 miItinerario = iService.obtenerItinerario(user);
 		 Integer costoTotal = iService.obtenerCostoTotal(user);
-		 Integer tiempoTotal= iService.obtenerTiempoTotal(user);
+		 Integer tiempoTotal = iService.obtenerTiempoTotal(user);
 		 
 	
 		req.setAttribute("miItinerario", miItinerario);
