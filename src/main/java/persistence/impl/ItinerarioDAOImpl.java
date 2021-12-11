@@ -22,8 +22,19 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 
 	@Override
 	public int countAll() {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			String sql = "SELECT COUNT(1) AS TOTAL FROM ITINERARIOS";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			ResultSet resultados = statement.executeQuery();
+
+			resultados.next();
+			int total = resultados.getInt("TOTAL");
+
+			return total;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 	// Recibe el Usuario desde el Escritor para guardar su Itinerario en la Base de
@@ -75,8 +86,18 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 
 	@Override
 	public int delete(Usuario u) {
-		// TODO Auto-generated method stub
-		return 0;
+		try {
+			String sql = "UPDATE ITINERARIOS SET BORRADO = 1 WHERE nombre = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, u.getNombre());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 	@Override
