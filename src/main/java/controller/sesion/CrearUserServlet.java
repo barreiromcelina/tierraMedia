@@ -1,6 +1,8 @@
 package controller.sesion;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
@@ -28,10 +30,18 @@ public class CrearUserServlet extends HttpServlet implements Servlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		ArrayList<String> tipos = new ArrayList<String>();
+				
+		tipos = uService.traerTiposPreferidos();
+		req.getSession().setAttribute("tipos", tipos);
+		/*ArrayList<String> prueba = new ArrayList<String>();
+		prueba.add("hola");
+		prueba.add("chau");
+		req.getSession().setAttribute("pruebas", prueba);*/
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/crearUser.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String nombre = req.getParameter("name");
