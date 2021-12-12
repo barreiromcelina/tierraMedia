@@ -140,7 +140,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public Usuario find(Integer id) {
 		try {
-			String sql = "SELECT * FROM Usuarios WHERE ID = ?";
+			String sql = "SELECT * FROM Usuarios WHERE id_usuario = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);

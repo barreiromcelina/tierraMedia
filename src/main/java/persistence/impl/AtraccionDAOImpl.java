@@ -84,7 +84,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	@Override
 	public int update(Producto atr) {
 		try {
-			String sql = "UPDATE Atraccion SET NOMBRE = ?, COSTO = ?, TIPO = ?, CUPO = ? WHERE ID = ?";
+			String sql = "UPDATE Atraccion SET NOMBRE = ?, COSTO = ?, TIPO = ?, CUPO = ? WHERE id_atraccion = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -105,7 +105,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	@Override
 	public int delete(Producto t) {
 		try {
-			String sql = "UPDATE ATRACCION SET BORRADO = 1 WHERE ID = ?";
+			String sql = "UPDATE ATRACCION SET BORRADO = 1 WHERE id_atraccion = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	@Override
 	public Producto find(Integer id) {
 		try {
-			String sql = "SELECT * FROM ATRACCION WHERE id = ?";
+			String sql = "SELECT * FROM ATRACCION WHERE id_atraccion = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setInt(1, id);
