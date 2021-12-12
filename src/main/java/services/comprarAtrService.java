@@ -23,6 +23,9 @@ public class comprarAtrService {
 		Map<String, String> errors = new HashMap<String, String>();
 
 		Usuario user = usuarioDAO.find(userId);
+		if(itinerarioDAO.findUser(user)<=0) {
+			itinerarioDAO.insert(user);
+		}
 		Atraccion atraccion = (Atraccion) atraccionDAO.find(atrId);
 		
 		ArrayList<Producto> miItinerario = user.getItinerario();
