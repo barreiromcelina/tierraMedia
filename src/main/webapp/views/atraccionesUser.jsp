@@ -3,6 +3,9 @@
 <html>
 <head>
 <jsp:include page="../partials/head.jsp"></jsp:include>
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
 </head>
 
 
@@ -10,7 +13,7 @@
 	<jsp:include page="../partials/nav.jsp"></jsp:include>
 
 	<div class="col-lg-6 mx-auto py-md-3">
-		<table class="table table-stripped table-hover">
+		<table id="atracciones" class="table table-stripped table-hover">
 			<thead>
 				<tr>
 					<th>Atracci&oacute;n</th>
@@ -25,7 +28,7 @@
 					<tr>
 						<td><strong><c:out value="${attraction.nombre}"></c:out></strong>
 							<p>
-								Esta es una atracción de
+								Esta es una atracciÃ³n de
 								<c:out value="${attraction.tipo}"></c:out>
 							</p></td>
 						<td><c:out value="${attraction.costo}"></c:out></td>
@@ -33,10 +36,10 @@
 						<td><c:out value="${attraction.cupo}"></c:out></td>
 
 						<td><c:if test="${user.admin}">
-								<a href="/turismo/attractions/edit.do?id=${attraction.id}"
+								<a href="editAtr.do?id=${attraction.id}"
 									class="btn btn-info rounded" role="button" title= "Editar"><i
 									class="bi bi-pencil-fill"></i></a>
-								<a href="/turismo/attractions/delete.do?id=${attraction.id}"
+								<a href="deleteAtr.do?id=${attraction.id}"
 									class="btn btn-danger rounded" role="button" title= "Eliminar"><i
 									class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
@@ -57,6 +60,17 @@
 			</tbody>
 		</table>
 	</div>
+	
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#atracciones').DataTable();
+            } );
+    </script>
+    
+    
+	
 	<jsp:include page="/partials/footer.jsp"></jsp:include>
 
 </body>

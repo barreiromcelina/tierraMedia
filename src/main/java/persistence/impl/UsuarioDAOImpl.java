@@ -18,7 +18,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	//Trae los datos de los Usuarios desde la Base de Datos
 	public ArrayList<Usuario> findAll() {
 		try {
-			String sql = "SELECT * FROM USUARIOS";
+			String sql = "SELECT * FROM Usuarios";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -37,8 +37,10 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	//convierte el ResultSet en Usuario
 	private static Usuario toUsuario(ResultSet resultados) throws SQLException {
 		// ----id----admin----nombre----password----presupuesto----tiempo----Preferencia---------------
+		
 		return new Usuario(resultados.getInt(1), resultados.getBoolean(2), resultados.getString(3), resultados.getString(4), 
 				resultados.getDouble(5), resultados.getDouble(6), TipoAtraccion.valueOf(resultados.getString(7)));
+		 
 	}
 
 	//Retorna el total de registros en la BD
