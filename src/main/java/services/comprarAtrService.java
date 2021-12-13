@@ -23,9 +23,17 @@ public class comprarAtrService {
 		Map<String, String> errors = new HashMap<String, String>();
 
 		Usuario user = usuarioDAO.find(userId);
+		if(itinerarioDAO.findUser(user)<=0) {
+			itinerarioDAO.insert(user);
+			ArrayList<Producto> miItinerario = user.getItinerario();
+		}
+		
 		Atraccion atraccion = (Atraccion) atraccionDAO.find(atrId);
 		
-		ArrayList<Producto> miItinerario = user.getItinerario();
+		//ver si pongo un if aca
+		ArrayList<Producto> miItinerario = itinerarioDAO.findItinerarioObjetcs(userId);
+		user.setGastoAcumulado(itinerarioDAO.findCosto(user));
+		user.setTiempoAcumulado(itinerarioDAO.findTiempo(user));
 
 		if (!atraccion.hayCupo()) {
 			errors.put("attraction", "No hay cupo disponible");
@@ -43,21 +51,14 @@ public class comprarAtrService {
 			miItinerario.add(atraccion);
 			user.setItinerario(miItinerario);
 			
-
 			atraccionDAO.update(atraccion);
 			usuarioDAO.update(user);
 
-			if(itinerarioDAO.findUser(user)>0) {
-				itinerarioDAO.update(user);
-			}else {
-				itinerarioDAO.insert(user);
-				itinerarioDAO.update(user);
-
-			}
+			itinerarioDAO.update(user);
+			itinerarioDAO.insertItinerarioAtraccion(userId, atrId);
+			
 		}
-
 		
 		return errors;
 	}
-
 }

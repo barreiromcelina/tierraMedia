@@ -12,6 +12,8 @@ public interface ItinerarioDAO extends GenericDAO<Usuario> {
 	public Integer findCosto(Usuario u);
 	public Integer findTiempo(Usuario u);
 	public Integer findUser(Usuario u);
+	public ArrayList<Producto> findItinerarioObjetcs(Integer userId);
+	public Integer insertItinerarioAtraccion(int userId, Integer atrId);
 
 	
 

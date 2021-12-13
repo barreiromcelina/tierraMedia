@@ -1,2 +1,15 @@
 /bin/
+/target/**
+.classpath
+.project
+.settings/
+target/**
+target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
 /target/
+target/classes/model/Usuario.class
+target/classes/persistence/impl/AtraccionDAOImpl.class
+target/classes/persistence/impl/ItinerarioDAOImpl.class
+target/classes/persistence/impl/PromocionDAOImpl.class
+target/classes/persistence/impl/UsuarioDAOImpl.class
+target/m2e-wtp/web-resources/META-INF/maven/LosDiscipulos/tierraMedia/pom.properties
