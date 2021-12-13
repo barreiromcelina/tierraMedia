@@ -79,9 +79,9 @@ public abstract class Promocion extends Producto {
 	
 
 	public boolean hayCupo() {
-		boolean hayCupo = false;
+		boolean hayCupo = true;
 		Iterator<Atraccion> itr = promos.listIterator();
-		while (!hayCupo && itr.hasNext()) {
+		while (hayCupo && itr.hasNext()) {
 			hayCupo = itr.next().hayCupo();
 		}
 		return hayCupo;

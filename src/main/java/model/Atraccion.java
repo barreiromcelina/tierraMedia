@@ -19,7 +19,7 @@ public class Atraccion extends Producto {
 	}
 	
 	public boolean hayCupo() {
-		return this.cupo>0;
+		return this.cupo >= 1;
 	}
 	
 	public Integer getCupo() {
