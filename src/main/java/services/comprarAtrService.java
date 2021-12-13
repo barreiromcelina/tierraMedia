@@ -32,6 +32,8 @@ public class comprarAtrService {
 		
 		//ver si pongo un if aca
 		ArrayList<Producto> miItinerario = itinerarioDAO.findItinerarioObjetcs(userId);
+		user.setGastoAcumulado(itinerarioDAO.findCosto(user));
+		user.setTiempoAcumulado(itinerarioDAO.findTiempo(user));
 
 		if (!atraccion.hayCupo()) {
 			errors.put("attraction", "No hay cupo disponible");
