@@ -10,6 +10,7 @@ import java.util.Map;
 import model.Atraccion;
 import model.OrdenarSegunPreferencia;
 import model.Producto;
+import model.Promocion;
 import model.Usuario;
 import persistence.commons.DAOFactory;
 
@@ -38,8 +39,15 @@ public class promoService {
 
 	public void borrar(Integer id) {
 		Atraccion atr = (Atraccion) DAOFactory.getAtraccionDAO().find(id);
-		DAOFactory.getAtraccionDAO().delete(atr);
+		DAOFactory.getPromocionDAO().delete(atr);
 		
 	}
+
+	public void borrarPromo(Integer id) {
+		DAOFactory.getPromocionDAO().deletePromo(id);
+		
+	}
+	
+	
 	
 }

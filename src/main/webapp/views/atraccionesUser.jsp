@@ -28,7 +28,7 @@
 					<tr>
 						<td><strong><c:out value="${attraction.nombre}"></c:out></strong>
 							<p>
-								Esta es una atracciÃ³n de
+								Esta es una atracción de
 								<c:out value="${attraction.tipo}"></c:out>
 							</p></td>
 						<td><c:out value="${attraction.costo}"></c:out></td>
@@ -65,7 +65,9 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#atracciones').DataTable();
+            $('#atracciones').DataTable({
+        		language: { url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json" }
+        	});
             } );
     </script>
     

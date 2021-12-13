@@ -43,7 +43,7 @@
 						<td><c:if test="${user.admin}">
 								<a href="" class="btn btn-info rounded" role="button"
 									title="Editar"><i class="bi bi-pencil-fill"></i></a>
-								<a href="" class="btn btn-danger rounded" role="button"
+								<a href="deletePromo.do?id=${promo.id}" class="btn btn-danger rounded" role="button"
 									title="Eliminar"><i class="bi bi-x-circle-fill"></i></a>
 							</c:if> <c:choose>
 
