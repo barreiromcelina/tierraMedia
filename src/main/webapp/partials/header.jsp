@@ -36,7 +36,6 @@
 							<li class="nav-item"><a class="nav-link " href="promos">Promociones</a></li>
 							<li class="nav-item"><a class="nav-link " href="contact.jsp">Contacto</a></li>
 						</ul>
-						
 					</div>
 				</div>
 			</nav>
