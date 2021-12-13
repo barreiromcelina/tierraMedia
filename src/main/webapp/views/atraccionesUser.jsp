@@ -3,8 +3,9 @@
 <html>
 <head>
 <jsp:include page="../partials/head.jsp"></jsp:include>
+<jsp:include page="../partials/dataTable.jsp"></jsp:include>
 
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+
 
 </head>
 
@@ -13,7 +14,7 @@
 	<jsp:include page="../partials/nav.jsp"></jsp:include>
 
 	<div class="col-lg-6 mx-auto py-md-3">
-		<table id="atracciones" class="table table-stripped table-hover">
+		<table id="dataTable" class="table table-stripped table-hover">
 			<thead>
 				<tr>
 					<th>Atracci&oacute;n</th>
@@ -45,7 +46,7 @@
 							</c:if> <c:choose>
 
 								<c:when
-									test="${user.puedePagar(attraction) && user.tieneTiempo(attraction) && attraction.hayCupo() && !miItinerario.contiene(attraction)}">
+									test="${user.puedePagar(attraction) && user.tieneTiempo(attraction) && attraction.hayCupo() && !user.itinerarioContiene(attraction)}">
 									<a href="comprarAtr.do?id=${attraction.id}"
 										class="btn btn-success rounded" role="button" title= "Comprar"> <i
 										class="bi bi-cart3"></i></a>
@@ -61,15 +62,7 @@
 		</table>
 	</div>
 	
-	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#atracciones').DataTable({
-        		language: { url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json" }
-        	});
-            } );
-    </script>
+
     
     
 	

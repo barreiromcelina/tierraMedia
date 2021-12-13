@@ -52,7 +52,7 @@ public class CrearUserServlet extends HttpServlet implements Servlet {
 		
 
 		uService.create(nombre, contraseña,presupuesto, tiempoDisponible, tipoPreferido);
-			resp.sendRedirect("/tierraMedia/views/index.jsp");
+			resp.sendRedirect("/tierraMedia/views/login.jsp");
 		
 	}
 }

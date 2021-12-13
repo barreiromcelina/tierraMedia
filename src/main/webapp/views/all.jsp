@@ -67,7 +67,7 @@
 							 <c:choose>
 
 								<c:when
-									test="${user.puedePagar(producto) && user.tieneTiempo(producto) && producto.hayCupo()}">
+									test="${user.puedePagar(producto) && user.tieneTiempo(producto) && producto.hayCupo() && !user.itinerarioContiene(producto)}">
 									<a href="comprarAtr.do?id=${producto.id}" class="btn btn-success rounded" role="button"
 										title="Comprar"> <i class="bi bi-cart3"></i></a>
 								</c:when>
@@ -92,7 +92,7 @@
 							<c:choose>
 
 								<c:when
-									test="${user.puedePagar(producto) && user.tieneTiempo(producto) && producto.hayCupo()}">
+									test="${user.puedePagar(producto) && user.tieneTiempo(producto) && producto.hayCupo() && !user.itinerarioContiene(producto)}">
 
 									<a href="comprarPromo.do?id=${producto.id}" class="btn btn-success rounded" role="button"
 

@@ -25,6 +25,13 @@ public class itinerarioService {
 		return DAOFactory.getItinerarioDAO().findTiempo(user);
 	}
 	
+	public ArrayList<Producto> settearItinerario(Usuario user){
+		ArrayList<Producto> miItinerario = DAOFactory.getItinerarioDAO().findItinerarioObjetcs(user.getId());
+		user.setItinerario(miItinerario);
+		
+		return miItinerario;
+	}
+	
 	
 
 }

@@ -53,7 +53,7 @@
 							</c:if> <c:choose>
 
 								<c:when
-									test="${user.puedePagar(promo) && user.tieneTiempo(promo) && promo.hayCupo()}">
+									test="${user.puedePagar(promo) && user.tieneTiempo(promo) && promo.hayCupo() && !user.itinerarioContiene(promo)}">
 
 
 									<a href="comprarPromo.do?id=${promo.id}" class="btn btn-success rounded" role="button"

@@ -47,7 +47,7 @@ public class ParqueTierraMedia {
 
 					Iterator<Producto> itr = miItinerario.iterator();
 					while (!yaEsta && itr.hasNext()) {
-						yaEsta = itr.next().contiene(producto);
+						yaEsta = itr.next().contiene(producto);   //lo puse en un metodo itinearioContiene en class Usuario
 					}
 
 					/*

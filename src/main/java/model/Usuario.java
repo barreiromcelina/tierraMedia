@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import utils.Crypt;
 
@@ -135,14 +136,16 @@ public class Usuario {
 		producto.ocuparUnLugar();
 	}
 	
-	
-	
-	public static void main(String[] args) {
-		Usuario user= new Usuario(-1, false, "Celina", "celina", 0, 0, null);
-		
-		user.setPassword("1234");
-		System.out.println(user.getPassword());
-		
+	public boolean itinerarioContiene(Producto p) {
+		Boolean yaEsta = false;
+
+		Iterator<Producto> itr = itinerario.iterator();
+		while (!yaEsta && itr.hasNext()) {
+			yaEsta = itr.next().contiene(p);
+		}
+		return yaEsta;
 	}
+	
+
 
 }
