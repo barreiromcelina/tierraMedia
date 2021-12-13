@@ -13,6 +13,8 @@ import model.PromocionAbsoluta;
 import model.PromocionAxB;
 import model.PromocionPorcentual;
 import model.TipoAtraccion;
+import model.nullobjects.NullAtr;
+import model.nullobjects.NullUser;
 import persistence.PromocionDAO;
 import persistence.commons.ConnectionProvider;
 import persistence.commons.MissingDataException;
@@ -24,7 +26,7 @@ public class PromocionDAOImpl implements PromocionDAO{
 		ArrayList<Producto> misPromos = new ArrayList<Producto>();
 		
 		try {
-			String sql = "SELECT * FROM PROMOCION ";
+			String sql = "SELECT * FROM PROMOCION WHERE BORRADO = 0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
@@ -35,8 +37,13 @@ public class PromocionDAOImpl implements PromocionDAO{
 				
 
 				for (String s : cadaAtr) {
-					atrEnLaPromo.add((Atraccion) misAtracciones.get(s)); // mi array de atracciones que es un atributo de la clase
-																// Promocion
+					
+					Atraccion unAtr= (Atraccion) misAtracciones.get(s);
+					if (unAtr==null) {
+			    		unAtr = NullAtr.build();
+			    	} else {
+					atrEnLaPromo.add(unAtr); // mi array de atracciones que es un atributo de la clase
+			    	}									// Promocion
 				}
 
 				if (resultados.getString(5).equals("ABSOLUTA")) {
@@ -109,11 +116,27 @@ public class PromocionDAOImpl implements PromocionDAO{
 	@Override
 	public int delete(Producto t) {
 		try {
-			String sql = "UPDATE PROMOCION SET BORRADO = 1 WHERE nombre = ?";
+			String sql = "UPDATE PROMOCION SET BORRADO = 1 WHERE incluye LIKE ? ";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, t.getNombre());
+			statement.setString(1, "%" + t.getNombre() + "%" ); 
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+	
+	@Override
+	public int deletePromo(Integer id) {
+		try {
+			String sql = "UPDATE PROMOCION SET BORRADO = 1 WHERE id = ? ";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setInt(1, id ); 
 			int rows = statement.executeUpdate();
 
 			return rows;
@@ -130,7 +153,29 @@ public class PromocionDAOImpl implements PromocionDAO{
 
 	@Override
 	public Producto find(Integer id) {
-		// TODO Auto-generated method stub
+		/*
+		 * try { String sql = "SELECT * FROM PROMOCION WHERE id = ?"; Connection conn =
+		 * ConnectionProvider.getConnection(); PreparedStatement statement =
+		 * conn.prepareStatement(sql); statement.setInt(1, id);
+		 * 
+		 * ResultSet resultados = statement.executeQuery();
+		 * 
+		 * Promocion unaPromo = null; if (resultados.getString(5).equals("ABSOLUTA")) {
+		 * unaPromo = new PromocionAbsoluta(resultados.getInt(1), null,
+		 * resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)),
+		 * resultados.getDouble(6));
+		 * 
+		 * } else if (resultados.getString(5).equals("PORCENTUAL")) { unaPromo = new
+		 * PromocionPorcentual(resultados.getInt(1),null, resultados.getString(3),
+		 * TipoAtraccion.valueOf(resultados.getString(4)), resultados.getDouble(6));
+		 * 
+		 * } else { unaPromo = new PromocionAxB(resultados.getInt(1),null,
+		 * resultados.getString(3), TipoAtraccion.valueOf(resultados.getString(4)));
+		 * 
+		 * }
+		 * 
+		 * return unaPromo; } catch (Exception e) { throw new MissingDataException(e); }
+		 */
 		return null;
 	}
 

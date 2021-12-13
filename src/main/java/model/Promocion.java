@@ -16,6 +16,20 @@ public abstract class Promocion extends Producto {
 		super.costo = this.getCosto();
 		super.tiempoPromedio = this.getTiempoPromedio();
 	}
+	
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 
 	public Double getCosto() {
 		double costo = 0;

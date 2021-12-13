@@ -62,5 +62,9 @@ public abstract class Producto {
 	public String getNombreEnPromo() {
 		return null;
 	}		
+	
+	public boolean isNull() {
+		return false;
+	}
 
 }

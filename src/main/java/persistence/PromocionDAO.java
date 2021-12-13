@@ -9,5 +9,9 @@ import persistence.commons.GenericDAO;
 public interface PromocionDAO extends GenericDAO<Producto> {
 
 	public ArrayList<Producto> findAll(HashMap<String, Producto> misAtracciones);
+
+	
+
+	int deletePromo(Integer id);
 	
 }
