@@ -89,7 +89,7 @@
 
 								<c:when
 									test="${user.puedePagar(producto) && user.tieneTiempo(producto) && producto.hayCupo()}">
-									<a href="" class="btn btn-success rounded" role="button"
+									<a href="comprarPromo.do?id=${producto.id}" class="btn btn-success rounded" role="button"
 										title="Comprar"> <i class="bi bi-cart3"></i></a>
 								</c:when>
 								<c:otherwise>
