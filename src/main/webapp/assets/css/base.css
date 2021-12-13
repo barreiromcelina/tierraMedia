@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+h1 {
+	
+	font-size: 5em;
+	color: white;
+}
+
+h5{
+	color:white;
+}
+body { padding-top: 5px; }
+
+.carousel{
+	padding-top: 20px;
+	
+}
