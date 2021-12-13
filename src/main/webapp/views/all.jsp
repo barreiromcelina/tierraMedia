@@ -4,6 +4,7 @@
 <head>
 <jsp:include page="../partials/head.jsp"></jsp:include>
 <jsp:include page="../partials/dataTable.jsp"></jsp:include>
+
 </head>
 
 
@@ -11,7 +12,9 @@
 	<jsp:include page="../partials/nav.jsp"></jsp:include>
 	
 	<div class="col-lg-8 mx-auto py-md-3">
+
 	<table id="dataTable" class="table table-stripped table-hover">
+
 			<thead>
 				<tr>
 					<th>Producto</th>
@@ -90,7 +93,9 @@
 
 								<c:when
 									test="${user.puedePagar(producto) && user.tieneTiempo(producto) && producto.hayCupo()}">
-									<a href="" class="btn btn-success rounded" role="button"
+
+									<a href="comprarPromo.do?id=${producto.id}" class="btn btn-success rounded" role="button"
+>
 										title="Comprar"> <i class="bi bi-cart3"></i></a>
 								</c:when>
 								<c:otherwise>
