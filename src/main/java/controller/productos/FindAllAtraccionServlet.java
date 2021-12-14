@@ -29,11 +29,7 @@ public class FindAllAtraccionServlet extends HttpServlet implements Servlet {
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Producto> misAtracciones=null;
-		try {
-			 misAtracciones = atrService.obtenerAllAtracciones();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		misAtracciones = atrService.obtenerAllAtracciones();
 	
 		req.setAttribute("misAtracciones", misAtracciones);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/atracciones.jsp");

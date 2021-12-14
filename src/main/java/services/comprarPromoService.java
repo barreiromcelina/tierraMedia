@@ -1,5 +1,6 @@
 package services;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,8 @@ public class comprarPromoService {
 	PromocionDAO promocionDAO = DAOFactory.getPromocionDAO();
 	UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
 	ItinerarioDAO itinerarioDAO = DAOFactory.getItinerarioDAO();
+	itinerarioService itinerarioService = new itinerarioService();
+	promoService pService = new promoService();
 
 	public Map<String, String> comprar(int userId, Integer promoId) {
 		Map<String, String> errors = new HashMap<String, String>();
@@ -27,16 +30,25 @@ public class comprarPromoService {
 			ArrayList<Producto> miItinerario = user.getItinerario();
 		}
 
-		Promocion promocion = (Promocion) promocionDAO.find(promoId);
+		
+		HashMap<String, Producto> mapaAtracciones = (HashMap<String, Producto>) pService.crearMapaAtraccion();
+		Promocion promocion = (Promocion) promocionDAO.find(mapaAtracciones, promoId);
 
-		ArrayList<Producto> miItinerario = itinerarioDAO.findItinerarioObjetcs(userId);
+		ArrayList<Producto> miItinerario = itinerarioService.obtenerItinerarioObjects(userId);
 		user.setGastoAcumulado(itinerarioDAO.findCosto(user));
 		user.setTiempoAcumulado(itinerarioDAO.findTiempo(user));
 
-		// Aqui deberia ir la logica que verifica si
-		// Cada atraccion contenida en la promo, tiene cupo
-		// el usuario puede pagar
-		// el usuario dispone de tiempo
+		
+		if (!promocion.hayCupo()) { 
+			errors.put("attraction", "No hay cupo disponible");
+		}
+		if (!user.puedePagar(promocion)) { 
+			errors.put("user", "No tienes dinero suficiente");
+		}
+		if (!user.tieneTiempo(promocion)) { 
+			errors.put("user", "No tienes tiempo suficiente");
+		}
+		
 
 		if (errors.isEmpty()) {
 			user.comprar(promocion);
@@ -48,7 +60,7 @@ public class comprarPromoService {
 			usuarioDAO.update(user);
 
 			itinerarioDAO.update(user);
-			itinerarioDAO.insertItinerarioAtraccion(userId, promoId);
+			itinerarioDAO.insertItinerarioPromocion(userId, promoId);
 		}
 
 		return errors;

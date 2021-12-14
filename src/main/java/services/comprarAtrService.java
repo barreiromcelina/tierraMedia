@@ -1,5 +1,6 @@
 package services;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,7 @@ public class comprarAtrService {
 	AtraccionDAO atraccionDAO = DAOFactory.getAtraccionDAO();
 	UsuarioDAO usuarioDAO = DAOFactory.getUsuarioDAO();
 	ItinerarioDAO itinerarioDAO = DAOFactory.getItinerarioDAO();
+	itinerarioService itinerarioService = new itinerarioService();
 	
 
 	public Map<String, String> comprar(int userId, Integer atrId) {
@@ -30,8 +32,7 @@ public class comprarAtrService {
 		
 		Atraccion atraccion = (Atraccion) atraccionDAO.find(atrId);
 		
-		//ver si pongo un if aca
-		ArrayList<Producto> miItinerario = itinerarioDAO.findItinerarioObjetcs(userId);
+		ArrayList<Producto> miItinerario = itinerarioService.obtenerItinerarioObjects(userId);
 		user.setGastoAcumulado(itinerarioDAO.findCosto(user));
 		user.setTiempoAcumulado(itinerarioDAO.findTiempo(user));
 

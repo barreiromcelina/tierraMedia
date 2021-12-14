@@ -13,5 +13,9 @@ public interface PromocionDAO extends GenericDAO<Producto> {
 	
 
 	int deletePromo(Integer id);
+
+
+
+	public Producto find(HashMap<String, Producto> misAtracciones, Integer id);
 	
 }

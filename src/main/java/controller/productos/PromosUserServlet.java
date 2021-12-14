@@ -41,12 +41,7 @@ public class PromosUserServlet extends HttpServlet implements Servlet {
 		Usuario user = (Usuario) req.getSession().getAttribute("user");
 		
 		Map<String, Producto> mapAtr=null;
-		try {
-			mapAtr = pService.crearMapaAtraccion();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		mapAtr = pService.crearMapaAtraccion();
 		 List<Producto> promosUser = pService.obtenerAllPromoOrdenadas(user, (HashMap<String, Producto>)mapAtr);
 	
 		req.setAttribute("promosUser", promosUser);

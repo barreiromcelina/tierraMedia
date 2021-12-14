@@ -20,7 +20,7 @@ public class promoService {
 		return DAOFactory.getPromocionDAO().findAll();
 	}
 
-	public Map<String, Producto> crearMapaAtraccion() throws SQLException {
+	public Map<String, Producto> crearMapaAtraccion() {
 
 		atraccionService aService = new atraccionService();
 		List<Producto> misAtracciones = aService.obtenerAllAtracciones();

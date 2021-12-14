@@ -18,7 +18,7 @@ import persistence.commons.DAOFactory;
 
 public class atraccionService {
 
-	public List<Producto> obtenerAllAtracciones() throws SQLException {
+	public List<Producto> obtenerAllAtracciones() {
 		return DAOFactory.getAtraccionDAO().findAll();
 	}
 

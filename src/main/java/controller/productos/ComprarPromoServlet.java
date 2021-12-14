@@ -31,8 +31,10 @@ public class ComprarPromoServlet extends HttpServlet implements Servlet {
 		Integer promoId = Integer.parseInt(req.getParameter("id"));
 		Usuario user = (Usuario) req.getSession().getAttribute("user");
 		
-		//El metodo para comprar una promocion esta incompleto
-		//Map<String, String> errors = comprarPromoService.comprar(user.getId(), promoId);
+		
+		Map<String, String> errors = comprarPromoService.comprar(user.getId(), promoId);
+		
+		
 		
 		
 		
