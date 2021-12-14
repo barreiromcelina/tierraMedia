@@ -62,7 +62,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	@Override
 	public int insert(Producto t) {
 		try {
-			String sql = "INSERT INTO ATRACCION (NOMBRE, COSTO, TIPO, CUPO, DURACION) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO ATRACCION (NOMBRE, COSTO, TIPO, CUPO, TIEMPO) VALUES (?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);

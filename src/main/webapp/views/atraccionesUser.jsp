@@ -12,8 +12,13 @@
 
 <body>
 	<jsp:include page="../partials/nav.jsp"></jsp:include>
+	
+	
 
 	<div class="col-lg-6 mx-auto py-md-3">
+	<c:if test="${user.admin}"><div ><a href="crearAtr.do"
+										class="btn btn-warning rounded" role="button" title= "Agregar atracción"> <i
+										class="bi bi-plus-lg" style="font-size: 1.3rem; color: white;"></i></a></div> <br></c:if>
 		<table id="dataTable" class="table table-stripped table-hover">
 			<thead>
 				<tr>

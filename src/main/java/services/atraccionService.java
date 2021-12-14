@@ -66,4 +66,10 @@ public class atraccionService {
 		return atraccion ;
 	}
 
+	public void create(String nombre, Double costo, Integer cupo, Double tiempo, TipoAtraccion tipo) {
+		Atraccion atraccion = new Atraccion(-1, nombre, costo, tipo, cupo, tiempo);
+		DAOFactory.getAtraccionDAO().insert(atraccion);
+		
+	}
+
 }
