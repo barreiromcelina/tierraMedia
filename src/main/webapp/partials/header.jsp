@@ -7,7 +7,7 @@
 				<div class="container-fluid">
 					<a href="welcome.jsp" class="u-image u-logo u-image-1"
 						data-image-width="221" data-image-height="104"> <img
-						src="../assets/images/logoSF.png" class="u-logo-image u-logo-image-1">
+						src="/tierraMedia/assets/images/logoSF.png" class="u-logo-image u-logo-image-1">
 					</a>
 					<button class="navbar-toggler" type="button"
 						data-bs-toggle="collapse" data-bs-target="#navbarScroll"
@@ -20,7 +20,7 @@
 							style="-bs-scroll-height: 100px;">
 							<li class="nav-item"><a class="nav-link active"
 								aria-current="page" href="welcome.jsp">Inicio</a></li>
-							<li class="nav-item"><a class="nav-link" href="login.jsp">Iniciar
+							<li class="nav-item"><a class="nav-link" href="/tierraMedia/views/login.jsp">Iniciar
 									sesión</a></li>
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle" 
@@ -34,7 +34,7 @@
 									<li><a class="dropdown-item" href="atracciones#Paisaje">Paisaje</a></li>
 								</ul></li>
 							<li class="nav-item"><a class="nav-link " href="promos">Promociones</a></li>
-							<li class="nav-item"><a class="nav-link " href="contact.jsp">Contacto</a></li>
+							<li class="nav-item"><a class="nav-link " href="/tierraMedia/views/contact.jsp">Contacto</a></li>
 						</ul>
 					</div>
 				</div>
