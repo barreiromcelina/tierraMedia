@@ -15,6 +15,32 @@ public abstract class Producto {
 		this.costo = costo;
 		this.tiempoPromedio = tiempoPromedio;
 	}
+	
+	
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+
+	public void setTipo(TipoAtraccion tipo) {
+		this.tipo = tipo;
+	}
+
+
+
+	public void setCosto(Double costo) {
+		this.costo = costo;
+	}
+
+
+
+	public void setTiempoPromedio(Double tiempoPromedio) {
+		this.tiempoPromedio = tiempoPromedio;
+	}
+
+
 
 	public boolean esPromo() {
 		return false;
