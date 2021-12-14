@@ -28,13 +28,13 @@
 				</div>
 				<div class="mb-3">
 					<label for="presupuesto" class="col-form-label">Presupuesto:</label>
-					<input class="form-control" type="number" id="presupuesto"
+					<input class="form-control" type="number" id="presupuesto" step="any"
 						name="presupuesto" required value="${user.presupuesto}"></input>
 				</div>
 				<div class="mb-3">
 					<label for="tiempoDisponible" class="col-form-label">Tiempo
 						disponible:</label> <input class="form-control" type="number"
-						id="tiempoDisponible" name="tiempo" required
+						id="tiempoDisponible" step="any" name="tiempo" required
 						value="${user.tiempoDisponible}"></input>
 				</div>
 				<div class="mb-3">

@@ -23,12 +23,12 @@
 
 				<div class="mb-3">
 					<label for="costo" class="col-form-label">Costo:</label> <input
-						class="form-control" type="number" id="costo" name="costo"
+						class="form-control" type="number" id="costo" step="any" name="costo"
 						required value="${atraccion.costo}"></input>
 				</div>
 				<div class="mb-3">
 					<label for="tiempo" class="col-form-label">Tiempo Promedio:</label>
-					<input class="form-control" type="number" id="tiempo" name="tiempo"
+					<input class="form-control" type="number" id="tiempo" step="any" name="tiempo"
 						required value="${atraccion.tiempoPromedio}"></input>
 				</div>
 

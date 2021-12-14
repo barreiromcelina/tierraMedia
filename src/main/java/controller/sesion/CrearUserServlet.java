@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.TipoAtraccion;
+import model.Usuario;
 import services.userService;
 
 
@@ -51,8 +52,9 @@ public class CrearUserServlet extends HttpServlet implements Servlet {
 		TipoAtraccion tipoPreferido = TipoAtraccion.valueOf(req.getParameter("tipoPreferido"));
 		
 
-		uService.create(nombre, contraseña,presupuesto, tiempoDisponible, tipoPreferido);
-			resp.sendRedirect("/tierraMedia/views/login.jsp");
+		Usuario u = uService.create(nombre, contraseña,presupuesto, tiempoDisponible, tipoPreferido);
+		req.getSession().setAttribute("user", u);
+			resp.sendRedirect("/tierraMedia/views/index.jsp");
 		
 	}
 }
