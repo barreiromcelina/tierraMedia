@@ -112,8 +112,28 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 	@Override
 	public int update(Producto t) {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		try {
+			String sql = "UPDATE PROMOCION SET NOMBRE=?, INCLUYE=?, TIPO_ATRACCION=?, TIPO_PROMOCION=?, VALOR=? WHERE id_promocion = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int i = 1;
+			statement.setString(i++, t.getNombre());
+			statement.setString(i++, ((Promocion) t).getNombresParaBaseDatos());
+			statement.setString(i++, t.getTipo().toString()); // checkear que esto funcione realmente
+
+			statement.setString(i++, ((Promocion) t).getTipoPromo().toString()); // hacer una para cada tipo?
+
+			statement.setDouble(i++, t.getCosto());
+			statement.setDouble(i++, ((Promocion) t).getId());
+			int rows = statement.executeUpdate();
+
+			return rows;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+
 
 	}
 
@@ -207,7 +227,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 	@Override
 	public Producto find(Integer id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

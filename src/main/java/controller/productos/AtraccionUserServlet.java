@@ -18,7 +18,7 @@ import services.itinerarioService;
 import services.userService;
 
 @WebServlet("/views/misAtracciones.do")
-public class AtraccionUser extends HttpServlet implements Servlet {
+public class AtraccionUserServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 9197858196736103965L;
 	private atraccionService atrService;

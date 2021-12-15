@@ -177,7 +177,7 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 	@Override
 	public ArrayList<Producto> findItinerarioPromos(HashMap<String, Producto> misAtracciones, Integer userId) {
 		try {
-			String sql = "SELECT Promocion.id_promocion, Promocion.incluye, Promocion.nombre, Promocion.[tipo atraccion], Promocion.[tipo de promocion], Promocion.valor "
+			String sql = "SELECT Promocion.id_promocion, Promocion.incluye, Promocion.nombre, Promocion.tipo_atraccion, Promocion.tipo_promocion, Promocion.valor "
 					+ "FROM Itinerarios "
 					+ "JOIN Itinerarios_Promocion ON Itinerarios_Promocion.id_itinerario = Itinerarios.id_itinerario "
 					+ "JOIN Promocion ON Promocion.id_promocion = Itinerarios_Promocion.id_promocion "

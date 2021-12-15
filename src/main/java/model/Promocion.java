@@ -8,6 +8,7 @@ public abstract class Promocion extends Producto {
 
 	protected ArrayList<Atraccion> promos;
 	private Integer id;
+	private TipoPromo tipoPromo;
 
 	public Promocion(Integer id, ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo) {
 		super(nombre, tipo, 0, 0);
@@ -18,6 +19,24 @@ public abstract class Promocion extends Producto {
 	}
 	
 	
+
+	public void setPromos(ArrayList<Atraccion> promos) {
+		this.promos = promos;
+	}
+
+
+
+	public TipoPromo getTipoPromo() {
+		return tipoPromo;
+	}
+
+
+
+	public void setTipoPromo(TipoPromo tipoPromo) {
+		this.tipoPromo = tipoPromo;
+	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -62,6 +81,14 @@ public abstract class Promocion extends Producto {
 		String nombres = "";
 		for (Atraccion atraccion : promos) {
 			nombres += "|" + atraccion.getNombre() + "|";
+		}
+		return nombres;
+	}
+	
+	public String getNombresParaBaseDatos() {
+		String nombres = "";
+		for (Atraccion atraccion : promos) {
+			nombres += atraccion.getNombre() + "&";
 		}
 		return nombres;
 	}

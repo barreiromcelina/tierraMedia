@@ -18,6 +18,8 @@ public class PromocionAbsoluta extends Promocion {
 		this.nombre= nombre;
 
 	}
+	
+	
 
 	@Override
 	public Double getCosto() {
