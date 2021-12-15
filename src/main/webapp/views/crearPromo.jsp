@@ -12,7 +12,7 @@
 	<br>
 	<br>
 	<div class="col-lg-5 mx-auto p-3 py-md-5">
-		<form action="editPromo.do" method="post">
+		<form action="crearPromo.do" method="post">
 			<input type="hidden" name="id" value="${promocion.id}">
 			<div class="modal-body">
 				<div class="mb-3">
@@ -24,7 +24,7 @@
 				<div class="mb-3">
 					<label for="tipoAtr" class="col-form-label ">Tipo:
 						</label> <select name="tipoAtr" class="form-select"
-						aria-label="Default select example" disabled="true">
+						aria-label="Default select example">
 						<c:forEach items="${tiposAtr}" var="unTipo">
 							<option value="${unTipo }"
 								${promocion.tipo == unTipo ? "selected": "" }><c:out
@@ -56,11 +56,11 @@
 						</label> <select multiple name="atrEnPromo" class="form-select"
 						aria-label="Default select example">
 						<c:forEach items="${atracciones}" var="atr">
-							<c:if test="${promocion.tipo == atr.tipo}">
+							
 								<option value="${atr.nombre }"
 									${promocion.contiene(atr) ? "selected" : "" }><c:out
 										value="${atr.nombre} - "></c:out><c:out value="${atr.tipo}"></c:out></option>
-							</c:if>
+							
 						</c:forEach>
 					</select>
 

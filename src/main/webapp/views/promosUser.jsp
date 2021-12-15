@@ -13,7 +13,7 @@
 	<jsp:include page="../partials/nav.jsp"></jsp:include>
 
 	<div class="col-lg-8 mx-auto py-md-3">
-	<c:if test="${user.admin}"><div><a href="crearAtr.do"
+	<c:if test="${user.admin}"><div><a href="crearPromo.do"
 										class="btn btn-warning rounded" role="button" title= "Agregar promoción"> <i
 										class="bi bi-plus-lg" style="font-size: 1.3rem; color: white;"></i></a></div> <br></c:if>
 

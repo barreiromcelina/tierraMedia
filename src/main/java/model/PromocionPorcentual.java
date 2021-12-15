@@ -15,6 +15,8 @@ public class PromocionPorcentual extends Promocion {
 		this.nombre = nombre;
 	}
 	
+	
+	
 	public TipoPromo getTipoPromo() {
 		return tipoPromo;
 	}

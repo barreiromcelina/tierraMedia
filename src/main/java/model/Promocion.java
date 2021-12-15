@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.ListIterator;
 
-public abstract class Promocion extends Producto {
+public class Promocion extends Producto {
 
 	protected ArrayList<Atraccion> promos;
 	private Integer id;
@@ -117,6 +117,19 @@ public abstract class Promocion extends Producto {
 
 	public ArrayList<Atraccion> getPromos() {
 		return this.promos;
+	}
+
+
+
+	public double getDescuento() {
+		return 0;
+	}
+
+
+
+	public void setDescuento(Double valor) {
+		
+		
 	}
 
 }

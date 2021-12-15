@@ -89,18 +89,28 @@ public class PromocionDAOImpl implements PromocionDAO {
 	@Override
 	public int insert(Producto t) {
 		try {
-			String sql = "INSERT INTO PROMOCION (NOMBRE, INCLUYE, TIPOATRACCION, TIPOPROMOCION, VALOR) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO PROMOCION (NOMBRE, INCLUYE, TIPO_ATRACCION, TIPO_PROMOCION, VALOR) VALUES (?, ?, ?, ?, ?)";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
 			int i = 1;
 			statement.setString(i++, t.getNombre());
-			statement.setString(i++, t.getNombreEnPromo());
+			statement.setString(i++, ((Promocion) t).getNombresParaBaseDatos());
 			statement.setString(i++, t.getTipo().toString()); // checkear que esto funcione realmente
 
-			statement.setString(i++, ((PromocionAbsoluta) t).getTipoPromo().toString()); // hacer una para cada tipo?
+			statement.setString(i++, ((Promocion) t).getTipoPromo().toString()); // hacer una para cada tipo?
 
-			statement.setDouble(i++, t.getCosto());
+			if (((Promocion) t).getTipoPromo().toString().equals("ABSOLUTA")) {
+				statement.setDouble(i++, t.getCosto());}
+			else if (((Promocion) t).getTipoPromo().toString().equals("PORCENTUAL")) {
+				statement.setDouble(i++, ((Promocion) t).getDescuento());
+			} else {
+				statement.setDouble(i++, 0);
+			
+			
+			}
+			
+			
 			int rows = statement.executeUpdate();
 
 			return rows;

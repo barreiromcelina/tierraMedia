@@ -108,6 +108,32 @@ public class promoService {
 		return promocion;
 		
 	}
+
+	public void create(String nombre, TipoPromo tipo, Double valor, String[] atrEnPromo, TipoAtraccion tipoAtr) {
+		ArrayList<Atraccion> atrEnLaPromo = new ArrayList<Atraccion>();
+		HashMap<String, Producto> misAtracciones = (HashMap<String, Producto>) this.crearMapaAtraccion();
+		for (String s : atrEnPromo) {
+
+			Atraccion unAtr = (Atraccion) misAtracciones.get(s);
+			if (unAtr == null) {
+				unAtr = NullAtr.build();
+			} else {
+				atrEnLaPromo.add(unAtr); // mi array de atracciones que es un atributo de la clase
+			} // Promocion
+		}
+		Promocion promocion = new Promocion(-1, atrEnLaPromo, nombre, tipoAtr);
+		promocion.setTipoPromo(tipo);
+		
+		
+		
+		if (promocion.getTipoPromo().toString().equals("ABSOLUTA")) {
+			promocion.setCosto(valor);}
+		else if (promocion.getTipoPromo().toString().equals("PORCENTUAL")) {
+			promocion.setDescuento(valor);
+		} 
+		DAOFactory.getPromocionDAO().insert(promocion);
+		
+	}
 	
 	
 	
