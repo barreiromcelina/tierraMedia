@@ -184,7 +184,7 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 					+ "WHERE Itinerarios.id_usuario = ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, 9);
+			statement.setInt(1, userId);
 
 			ResultSet resultados = statement.executeQuery();
 			ArrayList<Producto> misPromos = new ArrayList<Producto>();

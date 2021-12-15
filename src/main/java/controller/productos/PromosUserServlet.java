@@ -17,6 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.Producto;
 import model.Usuario;
 import services.atraccionService;
+import services.itinerarioService;
 import services.promoService;
 
 
@@ -26,6 +27,7 @@ public class PromosUserServlet extends HttpServlet implements Servlet {
 	private static final long serialVersionUID = -2280565863967334432L;
 	private promoService pService;
 	private atraccionService atrService;
+	private itinerarioService iService;
 
 	
 	@Override
@@ -33,6 +35,7 @@ public class PromosUserServlet extends HttpServlet implements Servlet {
 		super.init();
 		pService= new promoService();
 		atrService= new atraccionService();
+		iService = new itinerarioService();
 		
 	}
 	
@@ -43,8 +46,10 @@ public class PromosUserServlet extends HttpServlet implements Servlet {
 		Map<String, Producto> mapAtr=null;
 		mapAtr = pService.crearMapaAtraccion();
 		 List<Producto> promosUser = pService.obtenerAllPromoOrdenadas(user, (HashMap<String, Producto>)mapAtr);
+		 List<Producto> itinerarioUser = iService.settearItinerario(user);
 	
 		req.setAttribute("promosUser", promosUser);
+		req.setAttribute("itinerarioUser", itinerarioUser);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/promosUser.jsp");
 		dispatcher.forward(req, resp);
 }
