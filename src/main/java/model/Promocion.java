@@ -9,16 +9,36 @@ public class Promocion extends Producto {
 	protected ArrayList<Atraccion> promos;
 	private Integer id;
 	private TipoPromo tipoPromo;
+	private Double valor;
 
 	public Promocion(Integer id, ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo) {
 		super(nombre, tipo, 0, 0);
 		this.id = id;
 		this.promos = promos;
+		this.valor= this.getValor();
 		super.costo = this.getCosto();
 		super.tiempoPromedio = this.getTiempoPromedio();
 	}
 	
 	
+	
+	
+
+	public Double getValor() {
+		return valor;
+	}
+
+
+
+
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+
+
+
 
 	public void setPromos(ArrayList<Atraccion> promos) {
 		this.promos = promos;
@@ -120,16 +140,5 @@ public class Promocion extends Producto {
 	}
 
 
-
-	public double getDescuento() {
-		return 0;
-	}
-
-
-
-	public void setDescuento(Double valor) {
-		
-		
-	}
 
 }

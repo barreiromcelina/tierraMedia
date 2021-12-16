@@ -87,7 +87,7 @@ public class promoService {
 		Promocion promocion = this.find(id);
 		
 		promocion.setNombre(nombre);
-		promocion.setCosto(valor);
+		promocion.setValor(valor);
 		promocion.setTipoPromo(tipo);
 		
 		ArrayList<Atraccion> atrEnLaPromo = new ArrayList<Atraccion>();
@@ -123,14 +123,7 @@ public class promoService {
 		}
 		Promocion promocion = new Promocion(-1, atrEnLaPromo, nombre, tipoAtr);
 		promocion.setTipoPromo(tipo);
-		
-		
-		
-		if (promocion.getTipoPromo().toString().equals("ABSOLUTA")) {
-			promocion.setCosto(valor);}
-		else if (promocion.getTipoPromo().toString().equals("PORCENTUAL")) {
-			promocion.setDescuento(valor);
-		} 
+		promocion.setValor(valor);
 		DAOFactory.getPromocionDAO().insert(promocion);
 		
 	}

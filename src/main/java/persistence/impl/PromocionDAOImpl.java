@@ -99,16 +99,9 @@ public class PromocionDAOImpl implements PromocionDAO {
 			statement.setString(i++, t.getTipo().toString()); // checkear que esto funcione realmente
 
 			statement.setString(i++, ((Promocion) t).getTipoPromo().toString()); // hacer una para cada tipo?
-
-			if (((Promocion) t).getTipoPromo().toString().equals("ABSOLUTA")) {
-				statement.setDouble(i++, t.getCosto());}
-			else if (((Promocion) t).getTipoPromo().toString().equals("PORCENTUAL")) {
-				statement.setDouble(i++, ((Promocion) t).getDescuento());
-			} else {
-				statement.setDouble(i++, 0);
+			statement.setDouble(i++, ((Promocion) t).getValor());
 			
-			
-			}
+		
 			
 			
 			int rows = statement.executeUpdate();
@@ -135,7 +128,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 			statement.setString(i++, ((Promocion) t).getTipoPromo().toString()); // hacer una para cada tipo?
 
-			statement.setDouble(i++, t.getCosto());
+			statement.setDouble(i++, ((Promocion) t).getValor());
 			statement.setDouble(i++, ((Promocion) t).getId());
 			int rows = statement.executeUpdate();
 
