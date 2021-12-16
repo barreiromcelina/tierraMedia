@@ -1,10 +1,13 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Atraccion extends Producto {
 
 	private Integer id;
 	private Integer cupo;
-	
+	private Map<String, String> errors;
 
 	public Atraccion(Integer id, String nombre, double costo, TipoAtraccion tipo,
 			int cupo, double tiempoPromedio) {
@@ -59,6 +62,28 @@ public class Atraccion extends Producto {
 		return this.equals(producto);
 	}
 	
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (costo <= 0) {
+			errors.put("Costo", "Debe ser mayor a cero");
+		}
+		if (tiempoPromedio <= 0) {
+			errors.put("Tiempo", "Debe ser mayor a cero");
+		}
+		if (cupo <= 0) {
+			errors.put("Cupo", "Debe ser mayor a cero");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
+	}
 	
 	
 	

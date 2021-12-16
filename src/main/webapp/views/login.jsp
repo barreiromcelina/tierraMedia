@@ -25,7 +25,7 @@
 			
 			
 			<c:if test="${message != null}">
-				<div class="alert alert-success">
+				<div class="alert alert-success ">
 					<p>
 						<c:out value="${message}" />
 					</p>

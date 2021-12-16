@@ -52,9 +52,17 @@ public class CrearUserServlet extends HttpServlet implements Servlet {
 		TipoAtraccion tipoPreferido = TipoAtraccion.valueOf(req.getParameter("tipoPreferido"));
 		
 
-		Usuario u = uService.create(nombre, contraseña,presupuesto, tiempoDisponible, tipoPreferido);
-		req.getSession().setAttribute("user", u);
-			resp.sendRedirect("/tierraMedia/views/index.jsp");
-		
+		Usuario user = uService.create(nombre, contraseña,presupuesto, tiempoDisponible, tipoPreferido);
+		req.getSession().setAttribute("user", user);
+		req.setAttribute("message", "USUARIO CREADO CON ÉXITO. Vuelva a ingresar usuario y contraseña para acceder");
+		if(user.isValid()){
+		RequestDispatcher dispatcher = getServletContext()
+    		      .getRequestDispatcher("/views/login.jsp");
+    		    dispatcher.forward(req, resp);
+		}else {
+			RequestDispatcher dispatcher = getServletContext()
+	    		      .getRequestDispatcher("/views/crearUser.jsp");
+	    		    dispatcher.forward(req, resp);
+		}
 	}
 }

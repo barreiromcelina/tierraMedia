@@ -30,7 +30,14 @@ public class EditAtrServlet extends HttpServlet implements Servlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer atrId = Integer.parseInt(req.getParameter("id"));
+		ArrayList<String> tipos = new ArrayList<String>();
+		
+		
 		Atraccion atraccion = atrService.find(atrId);
+		tipos = atrService.traerTiposAtraccion();
+		
+		
+		req.getSession().setAttribute("tipos", tipos);
 		req.setAttribute("atraccion", atraccion);
 		
 
@@ -47,8 +54,14 @@ public class EditAtrServlet extends HttpServlet implements Servlet {
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
 		
 
-		atrService.update(id, nombre, costo, cupo, tiempo);
+		Atraccion atraccion = atrService.update(id, nombre, costo, cupo, tiempo);
+		if(atraccion.isValid()) {
 			resp.sendRedirect("misAtracciones.do");
+			} else {
+				req.setAttribute("atraccion", atraccion);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/crearAtraccion.jsp");
+				dispatcher.forward(req, resp);
+			}
 		
 	}
 	

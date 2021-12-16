@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Atraccion;
 import model.TipoAtraccion;
 import services.atraccionService;
 
@@ -47,8 +48,15 @@ public class CrearAtrServlet extends HttpServlet implements Servlet {
 		Integer cupo = Integer.parseInt(req.getParameter("cupo"));
 		TipoAtraccion tipo = TipoAtraccion.valueOf(req.getParameter("tipo"));
 
-		atrService.create(nombre, costo, cupo, tiempo, tipo);
-		resp.sendRedirect("misAtracciones.do");
+		
+		Atraccion atraccion = atrService.create(nombre, costo, cupo, tiempo, tipo);
+		if(atraccion.isValid()) {
+		resp.sendRedirect("misAtracciones.do");}
+		else {
+			req.setAttribute("atraccion", atraccion);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/crearAtraccion.jsp");
+			dispatcher.forward(req, resp);
+		}
 
 	}
 

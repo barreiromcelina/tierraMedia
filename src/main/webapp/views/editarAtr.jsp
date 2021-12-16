@@ -14,11 +14,29 @@
 	<div class="col-lg-5 mx-auto p-3 py-md-5">
 		<form action="editAtr.do" method="post">
 		<input type="hidden" name="id" value="${atraccion.id}">
+		
+		<c:if test="${atraccion != null && !atraccion.isValid()}">
+			<br><div class="alert alert-danger">
+				<p> <c:out value=" ${atraccion.errors}"></c:out> </p>
+			</div>
+		</c:if>
+		
 			<div class="modal-body">
 				<div class="mb-3">
 					<label for="name" class="col-form-label">Nombre:</label> <input
 						type="text" class="form-control" id="name" name="name" required
 						value="${atraccion.nombre}">
+				</div>
+				
+				<div class="mb-3">
+					<label for="tipo" class="col-form-label">Tipo
+						atraccion:</label> <select name="tipo"
+						class="form-select" aria-label="Default select example" disabled="true">
+						<c:forEach items="${tipos}" var="unTipo">
+							<option value="${unTipo }" ${atraccion.tipo == unTipo ? "selected": "" }><c:out value="${unTipo }"></c:out></option>
+						</c:forEach>
+					</select>
+
 				</div>
 
 				<div class="mb-3">

@@ -1,7 +1,9 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import utils.Crypt;
 
@@ -18,6 +20,7 @@ public class Usuario {
 	private ArrayList<Producto> itinerario= new ArrayList<Producto>();
 	private double gastoAcumulado;
 	private double tiempoAcumulado;
+	private Map<String, String> errors;
 
 	public Usuario(int id, boolean admin, String nombre, String password, double presupuesto, 
 			double tiempoDisponible, TipoAtraccion tipoAtraccionPreferida) {
@@ -144,6 +147,26 @@ public class Usuario {
 			yaEsta = itr.next().contiene(p);
 		}
 		return yaEsta;
+	}
+	
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
+	
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		if (presupuesto <= 0) {
+			errors.put("Presupuesto", "Debe ser mayor a cero");
+		}
+		if (tiempoDisponible <= 0) {
+			errors.put("Tiempo", "Debe ser mayor a cero");
+		}
+	}
+	
+	public Map<String, String> getErrors() {
+		return errors;
 	}
 	
 

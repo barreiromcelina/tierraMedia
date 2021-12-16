@@ -33,6 +33,17 @@
 					</select>
 
 				</div>
+				
+				<div class="mb-3">
+					<label for="tipo" class="col-form-label">Tipo de promoción:</label>
+					<select name="tipo" class="form-select"
+						aria-label="Default select example" disabled="true">
+						<c:forEach items="${tipos}" var="unTipo">
+							<option value="${unTipo }" ${promocion.tipoPromo == unTipo ? "selected": "" }><c:out value="${unTipo }"></c:out></option>
+						</c:forEach>
+					</select>
+
+				</div>
 
 				<div class="mb-3">
 					<label for="valor" class="col-form-label">Valor:
@@ -40,16 +51,7 @@
 						class="form-control" type="number" id="valor" step="any"
 						name="valor" required value="${promocion.valor}"></input>
 				</div>
-				<div class="mb-3">
-					<label for="tipo" class="col-form-label">Tipo de promoción:</label>
-					<select name="tipo" class="form-select"
-						aria-label="Default select example">
-						<c:forEach items="${tipos}" var="unTipo">
-							<option value="${unTipo }" ${promocion.tipoPromo == unTipo ? "selected": "" }><c:out value="${unTipo }"></c:out></option>
-						</c:forEach>
-					</select>
-
-				</div>
+				
 
 				<div class="mb-3">
 					<label for="atrEnPromo" class="col-form-label">Atracciones en la promo:

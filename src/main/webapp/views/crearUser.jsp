@@ -13,7 +13,15 @@
 	<br>
 	<div class="col-lg-5 mx-auto p-3 py-md-5">
 		<form action="crearUser" method="post">
+		
+		<c:if test="${user != null && !user.isValid()}">
+			<br><div class="alert alert-danger">
+				<p> <c:out value=" ${user.errors}"></c:out> </p>
+			</div>
+		</c:if>
 			<div class="modal-body">
+			
+			
 				<div class="mb-3">
 					<label for="name" class="col-form-label">Nombre:</label> <input
 						type="text" class="form-control" id="name" name="name" required
