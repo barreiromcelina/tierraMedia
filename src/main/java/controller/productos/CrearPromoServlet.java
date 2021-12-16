@@ -60,8 +60,26 @@ public class CrearPromoServlet extends HttpServlet implements Servlet {
 		TipoAtraccion tipoAtr = TipoAtraccion.valueOf(req.getParameter("tipoAtr"));
 		String[] atrEnPromo= req.getParameterValues("atrEnPromo");
 
-		pService.create(nombre, tipo, valor, atrEnPromo, tipoAtr);
+		Promocion promocion = null;
+		if(req.getParameter("tipo").equals("ABSOLUTA")) {
+		 promocion = pService.createPromoAbsoluta(nombre, tipo, valor, atrEnPromo, tipoAtr);
+		}
+		
+		if(req.getParameter("tipo").equals("PORCENTUAL")) {
+			 promocion = pService.createPromoPorcentual(nombre, tipo, valor, atrEnPromo, tipoAtr);
+			}
+		
+		if(req.getParameter("tipo").equals("A_X_B")) {
+			 promocion = pService.createPromoAxB(nombre, tipo, valor, atrEnPromo, tipoAtr);
+			}
+		
+		if(promocion.isValid()) {
 		resp.sendRedirect("misPromociones.do");
+		}else {
+			req.setAttribute("promocion", promocion);
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/crearPromo.jsp");
+			dispatcher.forward(req, resp);
+		}
 
 	}
 	

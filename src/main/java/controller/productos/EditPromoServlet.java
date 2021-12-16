@@ -46,6 +46,7 @@ public class EditPromoServlet extends HttpServlet implements Servlet {
 
 		tiposPromo = pService.traerTiposPromocion();
 		atracciones = atrService.obtenerAllAtracciones();
+		
 		req.setAttribute("promocion", promocion);
 		req.getSession().setAttribute("tipos", tiposPromo);
 		req.getSession().setAttribute("atracciones", atracciones);
@@ -60,11 +61,17 @@ public class EditPromoServlet extends HttpServlet implements Servlet {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 		String nombre = req.getParameter("name");
 		Double valor = Double.parseDouble(req.getParameter("valor"));
-		TipoPromo tipo = TipoPromo.valueOf(req.getParameter("tipo"));
 		String[] atrEnPromo= req.getParameterValues("atrEnPromo");
 
-		pService.update(id, nombre, tipo, valor, atrEnPromo);
-		resp.sendRedirect("misPromociones.do");
+		Promocion promocion = pService.update(id, nombre, valor, atrEnPromo);
+		
+		if(promocion.isValid()) {
+			resp.sendRedirect("misPromociones.do");
+			} else {
+				req.setAttribute("promocion", promocion);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/editarPromo.jsp");
+				dispatcher.forward(req, resp);
+			}
 
 	}
 

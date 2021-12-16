@@ -1,74 +1,55 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.ListIterator;
+import java.util.Map;
 
-public class Promocion extends Producto {
+public abstract class Promocion extends Producto {
 
 	protected ArrayList<Atraccion> promos;
 	private Integer id;
 	private TipoPromo tipoPromo;
-	private Double valor;
+	protected Double valor ;
+	protected Map<String, String> errors;
 
 	public Promocion(Integer id, ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo) {
 		super(nombre, tipo, 0, 0);
 		this.id = id;
 		this.promos = promos;
-		this.valor= this.getValor();
+		this.valor = this.getValor();
 		super.costo = this.getCosto();
 		super.tiempoPromedio = this.getTiempoPromedio();
 	}
-	
-	
-	
-	
 
 	public Double getValor() {
 		return valor;
 	}
 
-
-
-
-
 	public void setValor(Double valor) {
 		this.valor = valor;
 	}
-
-
-
-
 
 	public void setPromos(ArrayList<Atraccion> promos) {
 		this.promos = promos;
 	}
 
-
-
 	public TipoPromo getTipoPromo() {
 		return tipoPromo;
 	}
-
-
 
 	public void setTipoPromo(TipoPromo tipoPromo) {
 		this.tipoPromo = tipoPromo;
 	}
 
-
-
 	public Integer getId() {
 		return id;
 	}
 
-
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
 
 	public Double getCosto() {
 		double costo = 0;
@@ -96,7 +77,6 @@ public class Promocion extends Producto {
 		}
 	}
 
-	
 	public String getNombreEnPromo() {
 		String nombres = "";
 		for (Atraccion atraccion : promos) {
@@ -104,7 +84,7 @@ public class Promocion extends Producto {
 		}
 		return nombres;
 	}
-	
+
 	public String getNombresParaBaseDatos() {
 		String nombres = "";
 		for (Atraccion atraccion : promos) {
@@ -116,14 +96,13 @@ public class Promocion extends Producto {
 	@Override
 	public boolean contiene(Producto producto) {
 		boolean contiene = false;
-			ListIterator<Atraccion> itr = promos.listIterator();
-			while (!contiene && itr.hasNext()) {
-				contiene = producto.contiene(itr.next());
-			}
+		ListIterator<Atraccion> itr = promos.listIterator();
+		while (!contiene && itr.hasNext()) {
+			contiene = producto.contiene(itr.next());
+		}
 
 		return contiene;
 	}
-	
 
 	public boolean hayCupo() {
 		boolean hayCupo = true;
@@ -139,6 +118,25 @@ public class Promocion extends Producto {
 		return this.promos;
 	}
 
+	public boolean isValid() {
+		validate();
+		return errors.isEmpty();
+	}
 
+	public void validate() {
+		errors = new HashMap<String, String>();
+
+		for (Atraccion atraccion : promos) {
+			if (atraccion.getTipo() != this.getTipo()) {
+				errors.put("Atracciones", "Deben ser del mismo tipo de la promo");
+			}
+
+		}
+
+	}
+
+	public Map<String, String> getErrors() {
+		return errors;
+	}
 
 }

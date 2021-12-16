@@ -161,7 +161,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 	@Override
 	public int deletePromo(Integer id) {
 		try {
-			String sql = "UPDATE PROMOCION SET BORRADO = 1 WHERE id = ? ";
+			String sql = "UPDATE PROMOCION SET BORRADO = 1 WHERE id_promocion = ? ";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
