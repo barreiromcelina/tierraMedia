@@ -35,10 +35,6 @@ public class CrearUserServlet extends HttpServlet implements Servlet {
 				
 		tipos = uService.traerTiposPreferidos();
 		req.getSession().setAttribute("tipos", tipos);
-		/*ArrayList<String> prueba = new ArrayList<String>();
-		prueba.add("hola");
-		prueba.add("chau");
-		req.getSession().setAttribute("pruebas", prueba);*/
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/crearUser.jsp");
 		dispatcher.forward(req, resp);
 	}

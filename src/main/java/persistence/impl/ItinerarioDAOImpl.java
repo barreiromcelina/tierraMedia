@@ -49,9 +49,6 @@ public class ItinerarioDAOImpl implements ItinerarioDAO {
 	// Datos
 	@Override
 	public int insert(Usuario u) {
-		double gasto = u.PRESUPUESTO_INICIAL - u.getPresupuesto();
-		double tiempo = u.TIEMPO_INICIAL - u.getTiempoDisponible();
-
 		try {
 			String sql = "INSERT INTO main.Itinerarios (ItinerarioPersona, Gasto, Duracion, Usuario, id_usuario) VALUES (?, ?, ?, ?, ?);";
 			Connection conn = ConnectionProvider.getConnection();
