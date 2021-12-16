@@ -1,12 +1,15 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PromocionAbsoluta extends Promocion {
 
 	private double precioFinal;
 	private final TipoPromo tipoPromo = TipoPromo.ABSOLUTA;
 	private String nombre;
+	
 
 	public TipoPromo getTipoPromo() {
 		return tipoPromo;
@@ -18,7 +21,6 @@ public class PromocionAbsoluta extends Promocion {
 		this.nombre= nombre;
 
 	}
-	
 	
 
 	@Override
@@ -35,6 +37,17 @@ public class PromocionAbsoluta extends Promocion {
 		return getNombre()+ " {Incluye:" + super.getNombreEnPromo()+
 			", Costo Promocional:" + getCosto() + " monedas, Tiempo:" + getTiempoPromedio() + "h}\n";
 	}
+	
+	
+	@Override
+	public void validate() {
+		super.validate();
+
+		if (this.getCosto() <= 0) {
+			errors.put("Precio final", "Debe ser mayor a cero");
+		}
+	}
+	
 	
 	
 

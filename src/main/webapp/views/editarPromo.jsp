@@ -12,8 +12,18 @@
 	<br>
 	<br>
 	<div class="col-lg-5 mx-auto p-3 py-md-5">
+	 
+	
+	
 		<form action="editPromo.do" method="post">
 			<input type="hidden" name="id" value="${promocion.id}">
+			
+			 <c:if test="${promocion != null && !promocion.isValid()}">
+			<br><div class="alert alert-danger">
+				<p> <c:out value=" ${promocion.errors}"></c:out> </p>
+			</div>
+		</c:if>
+			
 			<div class="modal-body">
 				<div class="mb-3">
 					<label for="name" class="col-form-label">Nombre:</label> <input

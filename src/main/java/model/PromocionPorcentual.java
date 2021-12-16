@@ -1,6 +1,8 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PromocionPorcentual extends Promocion {
 
@@ -8,13 +10,13 @@ public class PromocionPorcentual extends Promocion {
 	private double descuento;
 	private String nombre;
 
+
 	public PromocionPorcentual( Integer id,ArrayList<Atraccion> promos, String nombre, TipoAtraccion tipo, double descuento) {
 		super(id, promos, nombre, tipo);
 		this.descuento = descuento;
 		super.costo = this.getCosto();
 		this.nombre = nombre;
 	}
-	
 	
 	
 	public TipoPromo getTipoPromo() {
@@ -44,5 +46,15 @@ public class PromocionPorcentual extends Promocion {
 		return getNombre() + " {Incluye:" + super.getNombreEnPromo() + "Descuento:" + descuento * 100 + "%, Costo Promocional:"
 				+ getCosto() + " monedas, Tiempo:" + getTiempoPromedio() + "h}\n";
 	}
+	
+	@Override
+	public void validate() {
+		super.validate();
+
+		if (descuento <= 0 || descuento >=1) {
+			errors.put("Descuento", "Debe tener valores entre 0 y 1");
+		}
+	}
+	
 
 }

@@ -12,6 +12,9 @@ import model.Atraccion;
 import model.OrdenarSegunPreferencia;
 import model.Producto;
 import model.Promocion;
+import model.PromocionAbsoluta;
+import model.PromocionAxB;
+import model.PromocionPorcentual;
 import model.TipoAtraccion;
 import model.TipoPromo;
 import model.Usuario;
@@ -82,17 +85,11 @@ public class promoService {
 		HashMap<String, Producto> mapaAtracciones = (HashMap<String, Producto>) this.crearMapaAtraccion();
 		return (Promocion) DAOFactory.getPromocionDAO().find(mapaAtracciones, pId);
 	}
-
-	public Promocion update(Integer id, String nombre, TipoPromo tipo, Double valor, String[] atrEnPromo) {
-		Promocion promocion = this.find(id);
-		
-		promocion.setNombre(nombre);
-		promocion.setValor(valor);
-		promocion.setTipoPromo(tipo);
+	
+	private ArrayList<Atraccion> crearAtrEnLaPromo(String[] atrEnPromo) {
 		
 		ArrayList<Atraccion> atrEnLaPromo = new ArrayList<Atraccion>();
 		HashMap<String, Producto> misAtracciones = (HashMap<String, Producto>) this.crearMapaAtraccion();
-
 		for (String s : atrEnPromo) {
 
 			Atraccion unAtr = (Atraccion) misAtracciones.get(s);
@@ -102,6 +99,17 @@ public class promoService {
 				atrEnLaPromo.add(unAtr); // mi array de atracciones que es un atributo de la clase
 			} // Promocion
 		}
+		return atrEnLaPromo;
+	}
+
+
+	public Promocion update(Integer id, String nombre, Double valor, String[] atrEnPromo) {
+		Promocion promocion = this.find(id);
+		
+		promocion.setNombre(nombre);
+		promocion.setValor(valor);
+		
+		ArrayList<Atraccion> atrEnLaPromo = crearAtrEnLaPromo(atrEnPromo);
 		
 		promocion.setPromos(atrEnLaPromo);
 		DAOFactory.getPromocionDAO().update(promocion);
@@ -109,24 +117,40 @@ public class promoService {
 		
 	}
 
-	public void create(String nombre, TipoPromo tipo, Double valor, String[] atrEnPromo, TipoAtraccion tipoAtr) {
-		ArrayList<Atraccion> atrEnLaPromo = new ArrayList<Atraccion>();
-		HashMap<String, Producto> misAtracciones = (HashMap<String, Producto>) this.crearMapaAtraccion();
-		for (String s : atrEnPromo) {
+	public Promocion createPromoAbsoluta(String nombre, TipoPromo tipo, Double valor, String[] atrEnPromo, TipoAtraccion tipoAtr) {
+		ArrayList<Atraccion> atrEnLaPromo = crearAtrEnLaPromo(atrEnPromo);
+		Promocion promocion = new PromocionAbsoluta(-1, atrEnLaPromo, nombre, tipoAtr, valor);
+		promocion.setValor(valor);
+		DAOFactory.getPromocionDAO().insert(promocion);
+		
+		return promocion;
+		
+	}
 
-			Atraccion unAtr = (Atraccion) misAtracciones.get(s);
-			if (unAtr == null) {
-				unAtr = NullAtr.build();
-			} else {
-				atrEnLaPromo.add(unAtr); // mi array de atracciones que es un atributo de la clase
-			} // Promocion
-		}
-		Promocion promocion = new Promocion(-1, atrEnLaPromo, nombre, tipoAtr);
+	public Promocion createPromoPorcentual(String nombre, TipoPromo tipo, Double valor, String[] atrEnPromo,
+			TipoAtraccion tipoAtr) {
+		ArrayList<Atraccion> atrEnLaPromo = crearAtrEnLaPromo(atrEnPromo);
+		
+		Promocion promocion = new PromocionPorcentual(-1, atrEnLaPromo, nombre, tipoAtr, valor);
 		promocion.setTipoPromo(tipo);
 		promocion.setValor(valor);
 		DAOFactory.getPromocionDAO().insert(promocion);
 		
+		return promocion;
+		
 	}
+
+	public Promocion createPromoAxB(String nombre, TipoPromo tipo, Double valor, String[] atrEnPromo,
+			TipoAtraccion tipoAtr) {
+		ArrayList<Atraccion> atrEnLaPromo = crearAtrEnLaPromo(atrEnPromo);
+		Promocion promocion = new PromocionAxB(-1, atrEnLaPromo, nombre, tipoAtr);
+		promocion.setValor(valor);
+		DAOFactory.getPromocionDAO().insert(promocion);
+		
+		return promocion;
+	}
+	
+	
 	
 	
 	
