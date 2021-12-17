@@ -16,7 +16,7 @@
 	
 
 	<div class="col-lg-6 mx-auto py-md-3">
-	<c:if test="${user.admin}"><div ><a href="crearAtr.do"
+	<c:if test="${user.isAdmin()}"><div ><a href="crearAtr.do"
 										class="btn btn-warning rounded" role="button" title= "Agregar atracción"> <i
 										class="bi bi-plus-lg" style="font-size: 1.3rem; color: white;"></i></a></div> <br></c:if>
 		<table id="dataTable" class="table table-stripped table-hover">
@@ -41,7 +41,7 @@
 						<td><c:out value="${attraction.tiempoPromedio}"></c:out></td>
 						<td><c:out value="${attraction.cupo}"></c:out></td>
 
-						<td><c:if test="${user.admin}">
+						<td><c:if test="${user.isAdmin()}">
 								<a href="editAtr.do?id=${attraction.id}"
 									class="btn btn-info rounded" role="button" title= "Editar"><i
 									class="bi bi-pencil-fill"></i></a>

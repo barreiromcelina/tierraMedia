@@ -164,7 +164,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int edit(Usuario usuarioEditado) {
 		try {
-			String sql = "UPDATE Usuarios SET (ESADMIN, NOMBRE, PASSWORD, PRESUPUESTO, TIEMPO, TIPO) VALUES (?, ?, ?, ?, ?, ?) "
+			String sql = "UPDATE Usuarios SET ESADMIN = ?, NOMBRE = ?, PASSWORD = ?, PRESUPUESTO = ?, TIEMPO = ?, TIPO = ? "
 					+ "WHERE id_usuario = ?";
 			Connection conn = ConnectionProvider.getConnection();
 

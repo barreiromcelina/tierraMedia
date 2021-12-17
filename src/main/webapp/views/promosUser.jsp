@@ -13,7 +13,7 @@
 	<jsp:include page="../partials/nav.jsp"></jsp:include>
 
 	<div class="col-lg-8 mx-auto py-md-3">
-	<c:if test="${user.admin}"><div><a href="crearPromo.do"
+	<c:if test="${user.isAdmin()}"><div><a href="crearPromo.do"
 										class="btn btn-warning rounded" role="button" title= "Agregar promoción"> <i
 										class="bi bi-plus-lg" style="font-size: 1.3rem; color: white;"></i></a></div> <br></c:if>
 
@@ -48,7 +48,7 @@
 						<td><c:out value="${promo.costo}"></c:out></td>
 						<td><c:out value="${promo.tiempoPromedio}"></c:out></td>
 
-						<td><c:if test="${user.admin}">
+						<td><c:if test="${user.isAdmin()}">
 								<a href="editPromo.do?id=${promo.id}" class="btn btn-info rounded" role="button"
 									title="Editar"><i class="bi bi-pencil-fill"></i></a>
 								<a href="deletePromo.do?id=${promo.id}" class="btn btn-danger rounded" role="button"

@@ -56,7 +56,7 @@
 						<td><c:out value="${producto.tiempoPromedio}"></c:out></td>
 
 						<td><c:if test="${!producto.esPromo()}">
-						<c:if test="${user.admin}">
+						<c:if test="${user.isAdmin()}">
 						
 								<a href="editAtr.do?id=${producto.id}" class="btn btn-info rounded" role="button"
 									title="Editar"><i class="bi bi-pencil-fill"></i></a>
@@ -80,7 +80,7 @@
 							
 							
 							<c:if test="${producto.esPromo()}">
-								<c:if test="${user.admin}">
+								<c:if test="${user.isAdmin()}">
 								
 								<a href="editPromo.do?id=${producto.id}" class="btn btn-info rounded" role="button"
 									title="Editar"><i class="bi bi-pencil-fill"></i></a>

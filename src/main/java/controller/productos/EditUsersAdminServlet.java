@@ -15,7 +15,7 @@ import model.Usuario;
 import services.atraccionService;
 import services.userService;
 
-@WebServlet("/views/EditarUsuario")
+@WebServlet("/views/EditarUsuario.do")
 public class EditUsersAdminServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 1308497590380647577L;
@@ -51,15 +51,15 @@ public class EditUsersAdminServlet extends HttpServlet implements Servlet {
 		String nombre = req.getParameter("name");
 		String contraseña = req.getParameter("password");
 		Double presupuesto = Double.parseDouble(req.getParameter("presupuesto"));
-		Double tiempoDisponible = Double.parseDouble(req.getParameter("tiempo"));
+		Double tiempoDisponible = Double.parseDouble(req.getParameter("tiempoDisponible"));
 		TipoAtraccion tipoPreferido = TipoAtraccion.valueOf(req.getParameter("tipoPreferido"));
 
 		Usuario usuarioEditado = userService.edit(userId, admin, nombre, contraseña, presupuesto, tiempoDisponible, tipoPreferido);
 		
 		if (usuarioEditado.isValid()) {
-			resp.sendRedirect("/views/ListUserAdmin.do");
+			resp.sendRedirect("/tierraMedia/views/ListarUsuarios");
 		} else {
-			req.setAttribute("usuarioEditado", usuarioEditado);
+			req.setAttribute("usuario", usuarioEditado);
 
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/views/EditUsuarioAdmin.jsp");

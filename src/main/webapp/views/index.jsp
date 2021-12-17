@@ -46,6 +46,17 @@
 				</div>
 			</div>
 		</div>
+		
+		<c:if test="${user.isAdmin()}">
+			<div class="mb-3">
+				<a href="ListarUsuarios" class="btn btn-primary"
+					role="button"> <i class="bi bi-plus-lg"></i> Ver Lista de Usuarios
+				</a>
+			</div>
+		</c:if>
+		
+		
+		
 		<br>
 		<div class="d-grid gap-2">
 			<a href="all.do" class="btn btn-success">Ver todo</a>
