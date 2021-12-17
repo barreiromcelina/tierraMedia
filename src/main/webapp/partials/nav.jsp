@@ -20,6 +20,7 @@
 							
 							<li class="nav-item"><a class="nav-link " href="misPromociones.do">Promociones</a></li>
 							<li class="nav-item"><a class="nav-link " href="all.do">Ver todo</a></li>
+							<c:if test="${user.isAdmin()}"><li class="nav-item"><a class="nav-link " href="ListarUsuarios">Ver usuarios</a></li></c:if>
 						</ul>
 			<ul class="navbar-nav">
 				<li class="nav-item dropdown">

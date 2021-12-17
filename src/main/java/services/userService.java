@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import model.Atraccion;
 import model.TipoAtraccion;
 import model.Usuario;
+import persistence.AtraccionDAO;
 import persistence.ItinerarioDAO;
 import persistence.UsuarioDAO;
 import persistence.commons.DAOFactory;
+import persistence.impl.UsuarioDAOImpl;
 
 public class userService {
 
@@ -43,9 +46,39 @@ public class userService {
 
 		return tiposPreferidosString;
 	}
+	
+	public ArrayList<Usuario> traerTodos() {
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+		usuarios = DAOFactory.getUsuarioDAO().findAll();
+		
+		return usuarios;
+	}
+	
 
 	public Usuario obtenterUsuario(String user) {
 		return DAOFactory.getUsuarioDAO().findByNombre(user);
+	}
+	
+	public Usuario obtenerUsuarioPorId(Integer userId) {
+		return DAOFactory.getUsuarioDAO().find(userId);
+	}
+	
+	public Usuario edit(Integer userId, Boolean admin, String nombre, String contraseña, Double presupuesto, 
+			Double tiempoDisponible, TipoAtraccion tipoPreferido) {
+		UsuarioDAO userDAO = DAOFactory.getUsuarioDAO();
+
+		Usuario usuarioEditado = new Usuario(userId, admin, nombre, contraseña, presupuesto, tiempoDisponible, tipoPreferido);
+		usuarioEditado.setPassword(contraseña);
+		
+		
+		userDAO.edit(usuarioEditado);
+		return usuarioEditado;
+	}
+
+	public void borrar(Integer userId) {
+		Usuario usuario = DAOFactory.getUsuarioDAO().find(userId);
+		DAOFactory.getUsuarioDAO().delete(usuario);
+		
 	}
 
 }

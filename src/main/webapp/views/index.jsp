@@ -46,6 +46,9 @@
 				</div>
 			</div>
 		</div>
+		
+		
+		
 		<br>
 		<div class="d-grid gap-2">
 			<a href="all.do" class="btn btn-success">Ver todo</a>
