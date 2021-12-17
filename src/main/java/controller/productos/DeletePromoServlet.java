@@ -30,7 +30,7 @@ public class DeletePromoServlet extends HttpServlet implements Servlet {
 		pService.borrarPromo(id);
 		
 
-		resp.sendRedirect("index.jsp");
+		resp.sendRedirect("misPromociones.do");
 	}
 	
 	

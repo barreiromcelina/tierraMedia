@@ -36,7 +36,7 @@ public class DeleteAtraccionServlet extends HttpServlet implements Servlet {
 		pService.borrar(id);
 		
 
-		resp.sendRedirect("index.jsp");
+		resp.sendRedirect("misAtracciones.do");
 	}
 	
 	

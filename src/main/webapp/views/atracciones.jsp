@@ -20,17 +20,17 @@
  <br>
 		<h2 class="p-3">Atracciones de aventura</h2>
 
-		<div class="row ">
+		<div class="container row ">
 		<c:forEach items="${misAtracciones}" var="atraccion">
 		
 		<c:if test="${ atraccion.tipo=='AVENTURA'}">
 		<div class="col-sm-3">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h4>
+						<h3 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h3>
 						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo } monedas"></c:out> <br>
 						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio } h"></c:out></p>
-						<a href="#" class="btn btn-secondary">Ver más</a>
+						<a href="#" class="btn btn-secondary invisible">Ver más</a>
 					</div>
 				</div>
 			</div>
@@ -44,17 +44,18 @@
 
 		<h2 class="p-4" >Atracciones de degustación</h2>
 
-		<div class="row">
+		<div class="container  row">
 		<c:forEach items="${misAtracciones}" var="atraccion">
 		
 		<c:if test="${ atraccion.tipo=='DEGUSTACION'}">
 		<div class="col-sm-3">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h4>
+
+						<h3 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h3>
 						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo } monedas"></c:out> <br>
 						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio } h"></c:out></p>
-						<a href="#" class="btn btn-secondary">Ver más</a>
+						<a href="#" class="btn btn-secondary invisible">Ver más</a>
 					</div>
 				</div>
 			</div>
@@ -68,17 +69,17 @@
 
 		<h2 class="p-3" >Atracciones de paisaje</h2>
 
-		<div class="row" >
+		<div class="container row" >
 		<c:forEach items="${misAtracciones}" var="atraccion">
 		
 		<c:if test="${ atraccion.tipo=='PAISAJE'}">
 		<div class="col-sm-3">
 				<div class="card">
 					<div class="card-body">
-						<h4 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h4>
+						<h3 class="card-title"><c:out value="${atraccion.nombre }"></c:out></h3>
 						<p class="card-text">Costo:&nbsp<c:out value="${atraccion.costo } monedas"></c:out> <br>
 						Duración:&nbsp<c:out value="${atraccion.tiempoPromedio } h"></c:out> </p>
-						<a href="#" class="btn btn-secondary">Ver más</a>
+						<a href="#" class="btn btn-secondary invisible">Ver más</a>
 					</div>
 				</div>
 			</div>
