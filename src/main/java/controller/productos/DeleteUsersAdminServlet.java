@@ -27,7 +27,7 @@ public class DeleteUsersAdminServlet extends HttpServlet implements Servlet {
 		Integer userId = Integer.parseInt(req.getParameter("userId"));
 
 		userService.borrar(userId);
-		resp.sendRedirect("/views/ListUserAdmin.do");
+		resp.sendRedirect("/tierraMedia/views/ListarUsuarios");
 	}
 	
 	

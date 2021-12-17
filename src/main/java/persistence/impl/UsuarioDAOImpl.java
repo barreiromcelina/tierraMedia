@@ -18,7 +18,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	// Trae los datos de los Usuarios desde la Base de Datos
 	public ArrayList<Usuario> findAll() {
 		try {
-			String sql = "SELECT * FROM Usuarios";
+			String sql = "SELECT * FROM Usuarios WHERE BORRADO = 0";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			ResultSet resultados = statement.executeQuery();
