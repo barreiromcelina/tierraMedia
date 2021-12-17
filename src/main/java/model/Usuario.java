@@ -79,8 +79,16 @@ public class Usuario {
 		return nombre;
 	}
 	
-	public Boolean getAdmin() {
-		return admin;
+	public String setNombre(String nombre) {
+		return this.nombre = nombre;
+	}
+	
+	public int getAdminInteger() {
+		if(isAdmin()) {
+			return 1;
+		} else {
+			return 0;
+		}
 	}
 	
 	public Boolean isAdmin() {

@@ -15,7 +15,7 @@ import persistence.commons.MissingDataException;
 
 public class UsuarioDAOImpl implements UsuarioDAO {
 
-	//Trae los datos de los Usuarios desde la Base de Datos
+	// Trae los datos de los Usuarios desde la Base de Datos
 	public ArrayList<Usuario> findAll() {
 		try {
 			String sql = "SELECT * FROM Usuarios";
@@ -34,16 +34,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	//convierte el ResultSet en Usuario
+	// convierte el ResultSet en Usuario
 	private static Usuario toUsuario(ResultSet resultados) throws SQLException {
 		// ----id----admin----nombre----password----presupuesto----tiempo----Preferencia---------------
-		
-		return new Usuario(resultados.getInt(1), resultados.getBoolean(2), resultados.getString(3), resultados.getString(4), 
-				resultados.getDouble(5), resultados.getDouble(6), TipoAtraccion.valueOf(resultados.getString(7)));
-		 
+
+		return new Usuario(resultados.getInt(1), resultados.getBoolean(2), resultados.getString(3),
+				resultados.getString(4), resultados.getDouble(5), resultados.getDouble(6),
+				TipoAtraccion.valueOf(resultados.getString(7)));
+
 	}
 
-	//Retorna el total de registros en la BD
+	// Retorna el total de registros en la BD
 	@Override
 	public int countAll() {
 		try {
@@ -81,24 +82,24 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	//Actualiza los presupuestos y tiempo disponible de los usuarios luego de hacer las compras
+	// Actualiza los presupuestos y tiempo disponible de los usuarios luego de hacer
+	// las compras
 	@Override
 	public int update(Usuario u) {
 		try {
-			String sql = "UPDATE Usuarios SET presupuesto=?, tiempo=? WHERE nombre=?;"; 
-																						
+			String sql = "UPDATE Usuarios SET presupuesto=?, tiempo=? WHERE nombre=?;";
+
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
 			statement.setDouble(1, u.getPresupuesto());
 			statement.setDouble(2, u.getTiempoDisponible());
 			statement.setString(3, u.getNombre());
 			int rows = statement.executeUpdate();
-			
+
 			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
-		
 
 	}
 
@@ -155,6 +156,30 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			}
 
 			return usuario;
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+	@Override
+	public int edit(Usuario usuarioEditado) {
+		try {
+			String sql = "UPDATE Usuarios SET (ESADMIN, NOMBRE, PASSWORD, PRESUPUESTO, TIEMPO, TIPO) VALUES (?, ?, ?, ?, ?, ?) "
+					+ "WHERE id_usuario = ?";
+			Connection conn = ConnectionProvider.getConnection();
+
+			PreparedStatement statement = conn.prepareStatement(sql);
+			int i = 1;
+			statement.setInt(i++, usuarioEditado.getAdminInteger());
+			statement.setString(i++, usuarioEditado.getNombre());
+			statement.setString(i++, usuarioEditado.getPassword());
+			statement.setDouble(i++, usuarioEditado.getPresupuesto());
+			statement.setDouble(i++, usuarioEditado.getTiempoDisponible());
+			statement.setString(i++, usuarioEditado.getTipoAtraccionPreferida().toString());
+			statement.setInt(i++, usuarioEditado.getId());
+			int rows = statement.executeUpdate();
+
+			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
