@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Producto;
 import model.Usuario;
+import services.itinerarioService;
 import services.productoService;
 
 @WebServlet("/views/all.do")
@@ -20,11 +21,13 @@ public class AllServlet extends HttpServlet implements Servlet {
 
 	private static final long serialVersionUID = 3585944019227488981L;
 	private productoService prodService;
+	private itinerarioService iService;
 	
 	@Override
 	public void init() throws ServletException {
 		super.init();
 		prodService= new productoService();
+		iService = new itinerarioService();
 		
 	}
 	
@@ -40,8 +43,10 @@ public class AllServlet extends HttpServlet implements Servlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+		 List<Producto> itinerarioUser = iService.settearItinerario(user);
+			
 		req.setAttribute("all", all);
+		req.setAttribute("itinerarioUser", itinerarioUser);
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/all.jsp");
 		dispatcher.forward(req, resp);
 		

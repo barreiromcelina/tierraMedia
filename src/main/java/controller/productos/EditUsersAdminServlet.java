@@ -57,6 +57,9 @@ public class EditUsersAdminServlet extends HttpServlet implements Servlet {
 		Usuario usuarioEditado = userService.edit(userId, admin, nombre, contraseña, presupuesto, tiempoDisponible, tipoPreferido);
 		
 		if (usuarioEditado.isValid()) {
+			if(usuarioEditado.getId() == userId) {
+				req.getSession().setAttribute("user", usuarioEditado);
+			}
 			resp.sendRedirect("/tierraMedia/views/ListarUsuarios");
 		} else {
 			req.setAttribute("usuario", usuarioEditado);
