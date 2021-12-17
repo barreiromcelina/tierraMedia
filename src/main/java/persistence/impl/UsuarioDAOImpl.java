@@ -106,11 +106,11 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	@Override
 	public int delete(Usuario t) {
 		try {
-			String sql = "UPDATE USUARIOS SET BORRADO = 1 WHERE nombre = ?";
+			String sql = "UPDATE USUARIOS SET BORRADO = 1 WHERE id_usuario = ?";
 			Connection conn = ConnectionProvider.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, t.getNombre());
+			statement.setInt(1, t.getId());
 			int rows = statement.executeUpdate();
 
 			return rows;

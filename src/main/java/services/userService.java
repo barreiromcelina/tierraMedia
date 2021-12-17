@@ -75,4 +75,10 @@ public class userService {
 		return usuarioEditado;
 	}
 
+	public void borrar(Integer userId) {
+		Usuario usuario = DAOFactory.getUsuarioDAO().find(userId);
+		DAOFactory.getUsuarioDAO().delete(usuario);
+		
+	}
+
 }
